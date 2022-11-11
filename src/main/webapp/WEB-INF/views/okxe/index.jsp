@@ -69,11 +69,11 @@
 
                                 <!-- Dropdown list -->
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item @@dashboardPage" href="dashboard.jsp">Dashboard</a></li>
-                                    <li><a class="dropdown-item @@dashboardMyAds" href="dashboard-my-ads.jsp">Dashboard My Ads</a></li>
-                                    <li><a class="dropdown-item @@dashboardFavouriteAds" href="dashboard-favourite-ads.jsp">Dashboard Favourite Ads</a></li>
-                                    <li><a class="dropdown-item @@dashboardArchivedAds" href="dashboard-archived-ads.jsp">Dashboard Archived Ads</a></li>
-                                    <li><a class="dropdown-item @@dashboardPendingAds" href="dashboard-pending-ads.jsp">Dashboard Pending Ads</a></li>
+                                    <li><a class="dropdown-item @@dashboardPage" href="${pageContext.request.contextPath}/okxe/home/dashboard">Dashboard</a></li>
+                                    <li><a class="dropdown-item @@dashboardMyAds" href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">Dashboard My Ads</a></li>
+                                    <li><a class="dropdown-item @@dashboardFavouriteAds" href="${pageContext.request.contextPath}/okxe/home/dashboardFavouriteAds">Dashboard Favourite Ads</a></li>
+                                    <li><a class="dropdown-item @@dashboardArchivedAds" href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds">Dashboard Archived Ads</a></li>
+                                    <li><a class="dropdown-item @@dashboardPendingAds" href="${pageContext.request.contextPath}/okxe/home/dashboardPendingAds">Dashboard Pending Ads</a></li>
 
                                     <li class="dropdown dropdown-submenu dropright">
                                         <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>

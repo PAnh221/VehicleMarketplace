@@ -23,19 +23,19 @@
   <meta name="generator" content="Themefisher Classified Marketplace Template v1.0">
 
   <!-- favicon -->
-	<link href="../../images/favicon.png" rel="shortcut icon">
+	<link href="${pageContext.request.contextPath}/resources/images/favicon.png" rel="shortcut icon">
 
 	<!--
     Essential stylesheets
     =====================================-->
-	<link href="../../plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
-	<link href="../../plugins/bootstrap/bootstrap-slider.css" rel="stylesheet">
-	<link href="../../plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-	<link href="../../plugins/slick/slick.css" rel="stylesheet">
-	<link href="../../plugins/slick/slick-theme.css" rel="stylesheet">
-	<link href="../../plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/plugins/bootstrap/bootstrap-slider.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/plugins/slick/slick.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/plugins/slick/slick-theme.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
 
-	<link href="../../css/style.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -47,7 +47,7 @@
 			<div class="col-md-12">
 				<nav class="navbar navbar-expand-lg navbar-light navigation">
 					<a class="navbar-brand" href="index.html">
-						<img src="images/logo.png" alt="">
+						<img src="${pageContext.request.contextPath}/resources/images/logo.png" alt="">
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 					 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -186,20 +186,20 @@
 
 					<!-- product slider -->
 					<div class="product-slider">
-						<div class="product-slider-item my-4" data-image="images/products/products-1.jpg">
-							<img class="img-fluid w-100" src="images/products/products-1.jpg" alt="product-img">
+						<div class="product-slider-item my-4" data-image="${pageContext.request.contextPath}/images/products/products-1.jpg">
+							<img class="img-fluid w-100" src="${pageContext.request.contextPath}/resources/images/products/products-1.jpg" alt="product-img">
+						</div>s
+						<div class="product-slider-item my-4" data-image="${pageContext.request.contextPath}/images/products/products-2.jpg">
+							<img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/resources/images/products/products-2.jpg" alt="Second slide">
 						</div>
-						<div class="product-slider-item my-4" data-image="images/products/products-2.jpg">
-							<img class="d-block img-fluid w-100" src="images/products/products-2.jpg" alt="Second slide">
+						<div class="product-slider-item my-4" data-image="${pageContext.request.contextPath}/images/products/products-3.jpg">
+							<img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/resources/images/products/products-3.jpg" alt="Third slide">
 						</div>
-						<div class="product-slider-item my-4" data-image="images/products/products-3.jpg">
-							<img class="d-block img-fluid w-100" src="images/products/products-3.jpg" alt="Third slide">
+						<div class="product-slider-item my-4" data-image="${pageContext.request.contextPath}/images/products/products-1.jpg">
+							<img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/resources/images/products/products-1.jpg" alt="Third slide">
 						</div>
-						<div class="product-slider-item my-4" data-image="images/products/products-1.jpg">
-							<img class="d-block img-fluid w-100" src="images/products/products-1.jpg" alt="Third slide">
-						</div>
-						<div class="product-slider-item my-4" data-image="images/products/products-2.jpg">
-							<img class="d-block img-fluid w-100" src="images/products/products-2.jpg" alt="Third slide">
+						<div class="product-slider-item my-4" data-image="${pageContext.request.contextPath}/images/products/products-2.jpg">
+							<img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/resources/images/products/products-2.jpg" alt="Third slide">
 						</div>
 					</div>
 					<!-- product slider -->
@@ -359,7 +359,7 @@
 					</div>
 					<!-- User Profile widget -->
 					<div class="widget user text-center">
-						<img class="rounded-circle img-fluid mb-5 px-5" src="images/user/user-thumb.jpg" alt="">
+						<img class="rounded-circle img-fluid mb-5 px-5" src="${pageContext.request.contextPath}/resources/images/user/user-thumb.jpg" alt="">
 						<h4><a href="user-profile.jsp">Jonathon Andrew</a></h4>
 						<p class="member-time">Member Since Jun 27, 2017</p>
 						<a href="single.html">See all ads</a>
@@ -423,7 +423,7 @@
         <!-- About -->
         <div class="block about">
           <!-- footer logo -->
-          <img src="images/logo-footer.png" alt="logo">
+          <img src="${pageContext.request.contextPath}/resources/images/logo-footer.png" alt="logo">
           <!-- description -->
           <p class="alt-color">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -467,13 +467,13 @@
           <div class="mobile d-flex  align-items-center">
             <a href="index.html">
               <!-- Icon -->
-              <img src="images/footer/phone-icon.png" alt="mobile-icon">
+              <img src="${pageContext.request.contextPath}/resources/images/footer/phone-icon.png" alt="mobile-icon">
             </a>
             <p class="mb-0">Get the Dealsy Mobile App and Save more</p>
           </div>
           <div class="download-btn d-flex my-3">
-            <a href="index.html"><img src="images/apps/google-play-store.png" class="img-fluid" alt=""></a>
-            <a href="index.html" class=" ml-3"><img src="images/apps/apple-app-store.png" class="img-fluid" alt=""></a>
+            <a href="index.html"><img src="${pageContext.request.contextPath}/resources/images/apps/google-play-store.png" class="img-fluid" alt=""></a>
+            <a href="index.html" class=" ml-3"><img src="${pageContext.request.contextPath}/resources/images/apps/apple-app-store.png" class="img-fluid" alt=""></a>
           </div>
         </div>
       </div>
@@ -516,19 +516,19 @@
 <!-- 
 Essential Scripts
 =====================================-->
-<script src="plugins/jquery/jquery.min.js"></script>
-<script src="plugins/bootstrap/popper.min.js"></script>
-<script src="plugins/bootstrap/bootstrap.min.js"></script>
-<script src="plugins/bootstrap/bootstrap-slider.js"></script>
-<script src="plugins/tether/js/tether.min.js"></script>
-<script src="plugins/raty/jquery.raty-fa.js"></script>
-<script src="plugins/slick/slick.min.js"></script>
-<script src="plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/plugins/jquery/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/plugins/bootstrap/popper.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/plugins/bootstrap/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/plugins/bootstrap/bootstrap-slider.js"></script>
+<script src="${pageContext.request.contextPath}/resources/plugins/tether/js/tether.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/plugins/raty/jquery.raty-fa.js"></script>
+<script src="${pageContext.request.contextPath}/resources/plugins/slick/slick.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
 <!-- google map -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
-<script src="plugins/google-map/map.js" defer></script>
+<script src="${pageContext.request.contextPath}/resources/plugins/google-map/map.js" defer></script>
 
-<script src="js/script.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/script.js"></script>
 
 </body>
 
