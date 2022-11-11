@@ -32,14 +32,14 @@
     <!--
     Essential stylesheets
     =====================================-->
-    <link href="${pageContext.request.contextPath}/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/plugins/bootstrap/bootstrap-slider.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/plugins/slick/slick.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/plugins/slick/slick-theme.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/plugins/bootstrap/bootstrap-slider.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/plugins/slick/slick.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/plugins/slick/slick-theme.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
 
-    <link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
 
 </head>
 
@@ -235,7 +235,7 @@
                                 <div class="thumb-content">
                                     <!-- <div class="price">$200</div> -->
                                     <a href="single.jsp">
-                                        <img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/images/products/products-1.jpg" alt="Card image cap">
+                                        <img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/resources/images/products/products-1.jpg" alt="Card image cap">
                                     </a>
                                 </div>
                                 <div class="card-body">
@@ -272,7 +272,7 @@
                                 <div class="thumb-content">
                                     <!-- <div class="price">$200</div> -->
                                     <a href="single.jsp">
-                                        <img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/images/products/products-2.jpg" alt="Card image cap">
+                                        <img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/resources/images/products/products-2.jpg" alt="Card image cap">
                                     </a>
                                 </div>
                                 <div class="card-body">
@@ -309,7 +309,7 @@
                                 <div class="thumb-content">
                                     <!-- <div class="price">$200</div> -->
                                     <a href="single.jsp">
-                                        <img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/images/products/products-3.jpg" alt="Card image cap">
+                                        <img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/resources/images/products/products-3.jpg" alt="Card image cap">
                                     </a>
                                 </div>
                                 <div class="card-body">
@@ -346,7 +346,7 @@
                                 <div class="thumb-content">
                                     <!-- <div class="price">$200</div> -->
                                     <a href="single.jsp">
-                                        <img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/images/products/products-2.jpg" alt="Card image cap">
+                                        <img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/resources/images/products/products-2.jpg" alt="Card image cap">
                                     </a>
                                 </div>
                                 <div class="card-body">
@@ -565,7 +565,7 @@
                 <!-- About -->
                 <div class="block about">
                     <!-- footer logo -->
-                    <img src="${pageContext.request.contextPath}/images/logo-footer.png" alt="logo">
+                    <img src="${pageContext.request.contextPath}/resources/images/logo-footer.png" alt="logo">
                     <!-- description -->
                     <p class="alt-color">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -609,7 +609,7 @@
                     <div class="mobile d-flex  align-items-center">
                         <a href="index.html">
                             <!-- Icon -->
-                            <img src="${pageContext.request.contextPath}/images/footer/phone-icon.png" alt="mobile-icon">
+                            <img src="${pageContext.request.contextPath}/resources/images/footer/phone-icon.png" alt="mobile-icon">
                         </a>
                         <p class="mb-0">Get the Dealsy Mobile App and Save more</p>
                     </div>
@@ -658,19 +658,19 @@
 <!--
 Essential Scripts
 =====================================-->
-<script src="${pageContext.request.contextPath}/plugins/jquery/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath}/plugins/bootstrap/popper.min.js"></script>
-<script src="${pageContext.request.contextPath}/plugins/bootstrap/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/plugins/bootstrap/bootstrap-slider.js"></script>
-<script src="${pageContext.request.contextPath}/plugins/tether/js/tether.min.js"></script>
-<script src="${pageContext.request.contextPath}/plugins/raty/jquery.raty-fa.js"></script>
-<script src="${pageContext.request.contextPath}/plugins/slick/slick.min.js"></script>
-<script src="${pageContext.request.contextPath}/plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/plugins/jquery/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/plugins/bootstrap/popper.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/plugins/bootstrap/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/plugins/bootstrap/bootstrap-slider.js"></script>
+<script src="${pageContext.request.contextPath}/resources/plugins/tether/js/tether.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/plugins/raty/jquery.raty-fa.js"></script>
+<script src="${pageContext.request.contextPath}/resources/plugins/slick/slick.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/plugins/jquery-nice-select/js/jquery.nice-select.min.js"></script>
 <!-- google map -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU" defer></script>
-<script src="${pageContext.request.contextPath}/plugins/google-map/map.js" defer></script>
+<script src="${pageContext.request.contextPath}/resources/plugins/google-map/map.js" defer></script>
 
-<script src="${pageContext.request.contextPath}/js/script.js"></script>
+<script src="${pageContext.request.contextPath}/resources/js/script.js"></script>
 
 </body>
 
