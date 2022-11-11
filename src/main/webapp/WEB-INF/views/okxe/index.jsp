@@ -91,16 +91,16 @@
                                 </a>
                                 <!-- Dropdown list -->
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item @@about" href="about-us.jsp">About Us</a></li>
-                                    <li><a class="dropdown-item @@contact" href="contact-us.jsp">Contact Us</a></li>
-                                    <li><a class="dropdown-item @@profile" href="user-profile.jsp">User Profile</a></li>
-                                    <li><a class="dropdown-item @@404" href="404.jsp">404 Page</a></li>
-                                    <li><a class="dropdown-item @@package" href="package.jsp">Package</a></li>
-                                    <li><a class="dropdown-item @@singlePage" href="single.jsp">Single Page</a></li>
-                                    <li><a class="dropdown-item @@store" href="store.jsp">Store Single</a></li>
-                                    <li><a class="dropdown-item @@blog" href="blog.jsp">Blog</a></li>
-                                    <li><a class="dropdown-item @@singleBlog" href="single-blog.jsp">Blog Details</a></li>
-                                    <li><a class="dropdown-item @@terms" href="terms-condition.jsp">Terms &amp; Conditions</a></li>
+                                    <li><a class="dropdown-item @@about" href="${pageContext.request.contextPath}/okxe/home/aboutUs">About Us</a></li>
+                                    <li><a class="dropdown-item @@contact" href="${pageContext.request.contextPath}/okxe/home/contactUs">Contact Us</a></li>
+                                    <li><a class="dropdown-item @@profile" href="${pageContext.request.contextPath}/okxe/home/userProfile">User Profile</a></li>
+                                    <li><a class="dropdown-item @@404" href="${pageContext.request.contextPath}/okxe/home/404">404 Page</a></li>
+                                    <li><a class="dropdown-item @@package" href="${pageContext.request.contextPath}/okxe/home/package">Package</a></li>
+                                    <li><a class="dropdown-item @@singlePage" href="${pageContext.request.contextPath}/okxe/home/single">Single Page</a></li>
+                                    <li><a class="dropdown-item @@store" href="${pageContext.request.contextPath}/okxe/home/store">Store Single</a></li>
+                                    <li><a class="dropdown-item @@blog" href="${pageContext.request.contextPath}/okxe/home/blog">Blog</a></li>
+                                    <li><a class="dropdown-item @@singleBlog" href="${pageContext.request.contextPath}/okxe/home/singleBlog">Blog Details</a></li>
+                                    <li><a class="dropdown-item @@terms" href="${pageContext.request.contextPath}/okxe/home/termsCondition">Terms &amp; Conditions</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item dropdown dropdown-slide @@listing">
@@ -109,8 +109,8 @@
                                 </a>
                                 <!-- Dropdown list -->
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item @@category" href="category.jsp">Ad-Gird View</a></li>
-                                    <li><a class="dropdown-item @@listView" href="ad-list-view.jsp">Ad-List View</a></li>
+                                    <li><a class="dropdown-item @@category" href="${pageContext.request.contextPath}/okxe/home/category">Ad-Gird View</a></li>
+                                    <li><a class="dropdown-item @@listView" href="ad-list-${pageContext.request.contextPath}/okxe/home/view">Ad-List View</a></li>
 
                                     <li class="dropdown dropdown-submenu dropleft">
                                         <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0201" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
@@ -125,10 +125,10 @@
                         </ul>
                         <ul class="navbar-nav ml-auto mt-10">
                             <li class="nav-item">
-                                <a class="nav-link login-button" href="login.jsp">Login</a>
+                                <a class="nav-link login-button" href="${pageContext.request.contextPath}/okxe/home/login">Login</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white add-button" href="ad-listing.jsp"><i class="fa fa-plus-circle"></i> Add Listing</a>
+                                <a class="nav-link text-white add-button" href="ad-${pageContext.request.contextPath}/okxe/home/listing"><i class="fa fa-plus-circle"></i> Add Listing</a>
                             </li>
                         </ul>
                     </div>
@@ -155,18 +155,18 @@
                         <h2>Popular Category</h2>
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <a href="category.jsp"><i class="fa fa-bed"></i> Hotel</a></li>
+                                <a href="${pageContext.request.contextPath}/okxe/home/category"><i class="fa fa-bed"></i> Hotel</a></li>
                             <li class="list-inline-item">
-                                <a href="category.jsp"><i class="fa fa-grav"></i> Fitness</a>
+                                <a href="${pageContext.request.contextPath}/okxe/home/category"><i class="fa fa-grav"></i> Fitness</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="category.jsp"><i class="fa fa-car"></i> Cars</a>
+                                <a href="${pageContext.request.contextPath}/okxe/home/category"><i class="fa fa-car"></i> Cars</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="category.jsp"><i class="fa fa-cutlery"></i> Restaurants</a>
+                                <a href="${pageContext.request.contextPath}/okxe/home/category"><i class="fa fa-cutlery"></i> Restaurants</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="category.jsp"><i class="fa fa-coffee"></i> Cafe</a>
+                                <a href="${pageContext.request.contextPath}/okxe/home/category"><i class="fa fa-coffee"></i> Cafe</a>
                             </li>
                         </ul>
                     </div>
@@ -234,18 +234,18 @@
                             <div class="card">
                                 <div class="thumb-content">
                                     <!-- <div class="price">$200</div> -->
-                                    <a href="single.jsp">
+                                    <a href="${pageContext.request.contextPath}/okxe/home/single">
                                         <img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/resources/images/products/products-1.jpg" alt="Card image cap">
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="card-title"><a href="single.jsp">11inch Macbook Air</a></h4>
+                                    <h4 class="card-title"><a href="${pageContext.request.contextPath}/okxe/home/single">11inch Macbook Air</a></h4>
                                     <ul class="list-inline product-meta">
                                         <li class="list-inline-item">
-                                            <a href="single.jsp"><i class="fa fa-folder-open-o"></i>Electronics</a>
+                                            <a href="${pageContext.request.contextPath}/okxe/home/single"><i class="fa fa-folder-open-o"></i>Electronics</a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a href="category.jsp"><i class="fa fa-calendar"></i>26th December</a>
+                                            <a href="${pageContext.request.contextPath}/okxe/home/category"><i class="fa fa-calendar"></i>26th December</a>
                                         </li>
                                     </ul>
                                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!</p>
@@ -271,18 +271,18 @@
                             <div class="card">
                                 <div class="thumb-content">
                                     <!-- <div class="price">$200</div> -->
-                                    <a href="single.jsp">
+                                    <a href="${pageContext.request.contextPath}/okxe/home/single">
                                         <img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/resources/images/products/products-2.jpg" alt="Card image cap">
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="card-title"><a href="single.jsp">Full Study Table Combo</a></h4>
+                                    <h4 class="card-title"><a href="${pageContext.request.contextPath}/okxe/home/single">Full Study Table Combo</a></h4>
                                     <ul class="list-inline product-meta">
                                         <li class="list-inline-item">
-                                            <a href="single.jsp"><i class="fa fa-folder-open-o"></i>Furnitures</a>
+                                            <a href="${pageContext.request.contextPath}/okxe/home/single"><i class="fa fa-folder-open-o"></i>Furnitures</a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a href="category.jsp"><i class="fa fa-calendar"></i>26th December</a>
+                                            <a href="${pageContext.request.contextPath}/okxe/home/category"><i class="fa fa-calendar"></i>26th December</a>
                                         </li>
                                     </ul>
                                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!</p>
@@ -308,18 +308,18 @@
                             <div class="card">
                                 <div class="thumb-content">
                                     <!-- <div class="price">$200</div> -->
-                                    <a href="single.jsp">
+                                    <a href="${pageContext.request.contextPath}/okxe/home/single">
                                         <img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/resources/images/products/products-3.jpg" alt="Card image cap">
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="card-title"><a href="single.jsp">11inch Macbook Air</a></h4>
+                                    <h4 class="card-title"><a href="${pageContext.request.contextPath}/okxe/home/single">11inch Macbook Air</a></h4>
                                     <ul class="list-inline product-meta">
                                         <li class="list-inline-item">
-                                            <a href="single.jsp"><i class="fa fa-folder-open-o"></i>Electronics</a>
+                                            <a href="${pageContext.request.contextPath}/okxe/home/single"><i class="fa fa-folder-open-o"></i>Electronics</a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a href="category.jsp"><i class="fa fa-calendar"></i>26th December</a>
+                                            <a href="${pageContext.request.contextPath}/okxe/home/category"><i class="fa fa-calendar"></i>26th December</a>
                                         </li>
                                     </ul>
                                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!</p>
@@ -345,18 +345,18 @@
                             <div class="card">
                                 <div class="thumb-content">
                                     <!-- <div class="price">$200</div> -->
-                                    <a href="single.jsp">
+                                    <a href="${pageContext.request.contextPath}/okxe/home/single">
                                         <img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/resources/images/products/products-2.jpg" alt="Card image cap">
                                     </a>
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="card-title"><a href="single.jsp">Full Study Table Combo</a></h4>
+                                    <h4 class="card-title"><a href="${pageContext.request.contextPath}/okxe/home/single">Full Study Table Combo</a></h4>
                                     <ul class="list-inline product-meta">
                                         <li class="list-inline-item">
-                                            <a href="single.jsp"><i class="fa fa-folder-open-o"></i>Furnitures</a>
+                                            <a href="${pageContext.request.contextPath}/okxe/home/single"><i class="fa fa-folder-open-o"></i>Furnitures</a>
                                         </li>
                                         <li class="list-inline-item">
-                                            <a href="category.jsp"><i class="fa fa-calendar"></i>26th December</a>
+                                            <a href="${pageContext.request.contextPath}/okxe/home/category"><i class="fa fa-calendar"></i>26th December</a>
                                         </li>
                                     </ul>
                                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!</p>
@@ -407,10 +407,10 @@
                                 <h4>Electronics</h4>
                             </div>
                             <ul class="category-list">
-                                <li><a href="category.jsp">Laptops <span>93</span></a></li>
-                                <li><a href="category.jsp">Iphone <span>233</span></a></li>
-                                <li><a href="category.jsp">Microsoft <span>183</span></a></li>
-                                <li><a href="category.jsp">Monitors <span>343</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Laptops <span>93</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Iphone <span>233</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Microsoft <span>183</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Monitors <span>343</span></a></li>
                             </ul>
                         </div>
                     </div> <!-- /Category List -->
@@ -422,10 +422,10 @@
                                 <h4>Restaurants</h4>
                             </div>
                             <ul class="category-list">
-                                <li><a href="category.jsp">Cafe <span>393</span></a></li>
-                                <li><a href="category.jsp">Fast food <span>23</span></a></li>
-                                <li><a href="category.jsp">Restaurants <span>13</span></a></li>
-                                <li><a href="category.jsp">Food Track<span>43</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cafe <span>393</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Fast food <span>23</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Restaurants <span>13</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Food Track<span>43</span></a></li>
                             </ul>
                         </div>
                     </div> <!-- /Category List -->
@@ -437,10 +437,10 @@
                                 <h4>Real Estate</h4>
                             </div>
                             <ul class="category-list">
-                                <li><a href="category.jsp">Farms <span>93</span></a></li>
-                                <li><a href="category.jsp">Gym <span>23</span></a></li>
-                                <li><a href="category.jsp">Hospitals <span>83</span></a></li>
-                                <li><a href="category.jsp">Parolurs <span>33</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Farms <span>93</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Gym <span>23</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Hospitals <span>83</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Parolurs <span>33</span></a></li>
                             </ul>
                         </div>
                     </div> <!-- /Category List -->
@@ -452,10 +452,10 @@
                                 <h4>Shoppings</h4>
                             </div>
                             <ul class="category-list">
-                                <li><a href="category.jsp">Mens Wears <span>53</span></a></li>
-                                <li><a href="category.jsp">Accessories <span>212</span></a></li>
-                                <li><a href="category.jsp">Kids Wears <span>133</span></a></li>
-                                <li><a href="category.jsp">It & Software <span>143</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Mens Wears <span>53</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Accessories <span>212</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Kids Wears <span>133</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">It & Software <span>143</span></a></li>
                             </ul>
                         </div>
                     </div> <!-- /Category List -->
@@ -467,10 +467,10 @@
                                 <h4>Jobs</h4>
                             </div>
                             <ul class="category-list">
-                                <li><a href="category.jsp">It Jobs <span>93</span></a></li>
-                                <li><a href="category.jsp">Cleaning & Washing <span>233</span></a></li>
-                                <li><a href="category.jsp">Management <span>183</span></a></li>
-                                <li><a href="category.jsp">Voluntary Works <span>343</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">It Jobs <span>93</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cleaning & Washing <span>233</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Management <span>183</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Voluntary Works <span>343</span></a></li>
                             </ul>
                         </div>
                     </div> <!-- /Category List -->
@@ -482,10 +482,10 @@
                                 <h4>Vehicles</h4>
                             </div>
                             <ul class="category-list">
-                                <li><a href="category.jsp">Bus <span>193</span></a></li>
-                                <li><a href="category.jsp">Cars <span>23</span></a></li>
-                                <li><a href="category.jsp">Motobike <span>33</span></a></li>
-                                <li><a href="category.jsp">Rent a car <span>73</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Bus <span>193</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cars <span>23</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Motobike <span>33</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Rent a car <span>73</span></a></li>
                             </ul>
                         </div>
                     </div> <!-- /Category List -->
@@ -497,10 +497,10 @@
                                 <h4>Pets</h4>
                             </div>
                             <ul class="category-list">
-                                <li><a href="category.jsp">Cats <span>65</span></a></li>
-                                <li><a href="category.jsp">Dogs <span>23</span></a></li>
-                                <li><a href="category.jsp">Birds <span>113</span></a></li>
-                                <li><a href="category.jsp">Others <span>43</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cats <span>65</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Dogs <span>23</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Birds <span>113</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Others <span>43</span></a></li>
                             </ul>
                         </div>
                     </div> <!-- /Category List -->
@@ -513,10 +513,10 @@
                                 <h4>Services</h4>
                             </div>
                             <ul class="category-list">
-                                <li><a href="category.jsp">Cleaning <span>93</span></a></li>
-                                <li><a href="category.jsp">Car Washing <span>233</span></a></li>
-                                <li><a href="category.jsp">Clothing <span>183</span></a></li>
-                                <li><a href="category.jsp">Business <span>343</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cleaning <span>93</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Car Washing <span>233</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Clothing <span>183</span></a></li>
+                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Business <span>343</span></a></li>
                             </ul>
                         </div>
                     </div> <!-- /Category List -->
@@ -543,8 +543,8 @@
                     <h2>Start today to get more exposure and
                         grow your business</h2>
                     <ul class="list-inline mt-30">
-                        <li class="list-inline-item"><a class="btn btn-main" href="ad-listing.jsp">Add Listing</a></li>
-                        <li class="list-inline-item"><a class="btn btn-secondary" href="category.jsp">Browser Listing</a></li>
+                        <li class="list-inline-item"><a class="btn btn-main" href="${pageContext.request.contextPath}/okxe/home/adListing">Add Listing</a></li>
+                        <li class="list-inline-item"><a class="btn btn-secondary" href="${pageContext.request.contextPath}/okxe/home/category">Browser Listing</a></li>
                     </ul>
                 </div>
             </div>
@@ -577,11 +577,11 @@
                 <div class="block">
                     <h4>Site Pages</h4>
                     <ul>
-                        <li><a href="dashboard-my-ads.jsp">My Ads</a></li>
-                        <li><a href="dashboard-favourite-ads.jsp">Favourite Ads</a></li>
-                        <li><a href="dashboard-archived-ads.jsp">Archived Ads</a></li>
-                        <li><a href="dashboard-pending-ads.jsp">Pending Ads</a></li>
-                        <li><a href="terms-condition.jsp">Terms & Conditions</a></li>
+                        <li><a href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">My Ads</a></li>
+                        <li><a href="${pageContext.request.contextPath}/okxe/home/dashboardFavouriteAds">Favourite Ads</a></li>
+                        <li><a href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds">Archived Ads</a></li>
+                        <li><a href="${pageContext.request.contextPath}/okxe/home/dashboardPendingAds">Pending Ads</a></li>
+                        <li><a href="${pageContext.request.contextPath}/okxe/home/termsCondition">Terms & Conditions</a></li>
                     </ul>
                 </div>
             </div>
@@ -590,12 +590,12 @@
                 <div class="block">
                     <h4>Admin Pages</h4>
                     <ul>
-                        <li><a href="category.jsp">Category</a></li>
-                        <li><a href="single.jsp">Single Page</a></li>
-                        <li><a href="store.jsp">Store Single</a></li>
-                        <li><a href="single-blog.jsp">Single Post</a>
+                        <li><a href="${pageContext.request.contextPath}/okxe/home/category">Category</a></li>
+                        <li><a href="${pageContext.request.contextPath}/okxe/home/single">Single Page</a></li>
+                        <li><a href="${pageContext.request.contextPath}/okxe/home/store">Store Single</a></li>
+                        <li><a href="${pageContext.request.contextPath}/okxe/home/singleBlog">Single Post</a>
                         </li>
-                        <li><a href="blog.jsp">Blog</a></li>
+                        <li><a href="${pageContext.request.contextPath}/okxe/home/blog">Blog</a></li>
 
 
 
