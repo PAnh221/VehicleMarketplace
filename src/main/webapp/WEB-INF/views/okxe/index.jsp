@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: USER
-  Date: 10/17/2022
-  Time: 7:51 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 
@@ -27,7 +20,7 @@
     <meta name="theme-name" content="classimax" />
 
     <!-- favicon -->
-    <link href="../../images/favicon.png" rel="shortcut icon">
+    <link href="${pageContext.request.contextPath}/resources/images/favicon.png" rel="shortcut icon">
 
     <!--
     Essential stylesheets
@@ -51,7 +44,7 @@
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg navbar-light navigation">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="${pageContext.request.contextPath}/okxe/home/index">
                         <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -61,7 +54,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto main-nav ">
                             <li class="nav-item active">
-                                <a class="nav-link" href="index.html">Home</a>
+                                <a class="nav-link" href="${pageContext.request.contextPath}/okxe/home/index">Home</a>
                             </li>
                             <li class="nav-item dropdown dropdown-slide @@dashboard">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#!">Dashboard<span><i class="fa fa-angle-down"></i></span>
@@ -110,7 +103,7 @@
                                 <!-- Dropdown list -->
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item @@category" href="${pageContext.request.contextPath}/okxe/home/category">Ad-Gird View</a></li>
-                                    <li><a class="dropdown-item @@listView" href="ad-list-${pageContext.request.contextPath}/okxe/home/view">Ad-List View</a></li>
+                                    <li><a class="dropdown-item @@listView" href="${pageContext.request.contextPath}/okxe/home/adListView">Ad-List View</a></li>
 
                                     <li class="dropdown dropdown-submenu dropleft">
                                         <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0201" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
@@ -128,7 +121,7 @@
                                 <a class="nav-link login-button" href="${pageContext.request.contextPath}/okxe/home/login">Login</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-white add-button" href="ad-${pageContext.request.contextPath}/okxe/home/listing"><i class="fa fa-plus-circle"></i> Add Listing</a>
+                                <a class="nav-link text-white add-button" href="${pageContext.request.contextPath}/okxe/home/adListing"><i class="fa fa-plus-circle"></i> Add Listing</a>
                             </li>
                         </ul>
                     </div>

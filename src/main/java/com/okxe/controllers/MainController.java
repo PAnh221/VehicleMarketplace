@@ -94,5 +94,13 @@ public class MainController {
         return "okxe/ad-listing";
     }
 
+    @RequestMapping("login")
+    public String login(){
+        return "okxe/login";
+    }
 
+    @RequestMapping("register")
+    public String register(){
+        return "okxe/register";
+    }
 }
