@@ -45,7 +45,7 @@
     <div class="row">
       <div class="col-md-12">
         <nav class="navbar navbar-expand-lg navbar-light navigation">
-          <a class="navbar-brand" href="${pageContext.request.contextPath}/okexe/home/index">
+          <a class="navbar-brand" href="${pageContext.request.contextPath}/okxe/home/index">
             <img src="${pageContext.request.contextPath}/resources/images/logo.png" alt="">
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -55,7 +55,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto main-nav ">
               <li class="nav-item @@home">
-                <a class="nav-link" href="${pageContext.request.contextPath}/okexe/home/index">Home</a>
+                <a class="nav-link" href="${pageContext.request.contextPath}/okxe/home/index">Home</a>
               </li>
               <li class="nav-item dropdown dropdown-slide @@dashboard">
                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#!">Dashboard<span><i class="fa fa-angle-down"></i></span>
@@ -162,7 +162,7 @@
                   <span>12</span></a></li>
               <li><a href="${pageContext.request.contextPath}/okexe/home/dashboardPendingAds"><i class="fa fa-bolt"></i> Pending Approval<span>23</span></a>
               </li>
-              <li><a href="${pageContext.request.contextPath}/okexe/home/index"><i class="fa fa-cog"></i> Logout</a></li>
+              <li><a href="${pageContext.request.contextPath}/okxe/home/index"><i class="fa fa-cog"></i> Logout</a></li>
               <li><a href="#!" data-toggle="modal" data-target="#deleteaccount"><i class="fa fa-power-off"></i>Delete Account</a></li>
             </ul>
           </div>

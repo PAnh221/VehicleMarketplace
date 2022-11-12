@@ -47,7 +47,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<nav class="navbar navbar-expand-lg navbar-light navigation">
-					<a class="navbar-brand" href="index.html">
+					<a class="navbar-brand" href="/okxe/home/index">
                         <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -57,7 +57,7 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto main-nav ">
 							<li class="nav-item @@home">
-								<a class="nav-link" href="index.html">Home</a>
+								<a class="nav-link" href="/okxe/home/index">Home</a>
 							</li>
 							<li class="nav-item dropdown dropdown-slide @@dashboard">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#!">Dashboard<span><i class="fa fa-angle-down"></i></span>
@@ -75,8 +75,8 @@
                                         <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
 
                                         <ul class="dropdown-menu" aria-labelledby="dropdown0501">
-                                            <li><a class="dropdown-item" href="index.html">Submenu 01</a></li>
-                                            <li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
+                                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/okxe/home/index">Submenu 01</a></li>
+                                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/okxe/home/index">Submenu 02</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -112,8 +112,8 @@
                                         <a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0201" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
 
                                         <ul class="dropdown-menu" aria-labelledby="dropdown0201">
-                                            <li><a class="dropdown-item" href="index.html">Submenu 01</a></li>
-                                            <li><a class="dropdown-item" href="index.html">Submenu 02</a></li>
+                                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/okxe/home/index">Submenu 01</a></li>
+                                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/okxe/home/index">Submenu 02</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -213,15 +213,15 @@
         <!-- App promotion -->
         <div class="block-2 app-promotion">
           <div class="mobile d-flex  align-items-center">
-            <a href="index.html">
+            <a href="/okxe/home/index">
               <!-- Icon -->
               <img src="${pageContext.request.contextPath}/resources/images/footer/phone-icon.png" alt="mobile-icon">
             </a>
             <p class="mb-0">Get the Dealsy Mobile App and Save more</p>
           </div>
           <div class="download-btn d-flex my-3">
-            <a href="index.html"><img src="${pageContext.request.contextPath}/resources/images/apps/google-play-store.png" class="img-fluid" alt=""></a>
-            <a href="index.html" class=" ml-3"><img src="${pageContext.request.contextPath}/resources/images/apps/apple-app-store.png" class="img-fluid" alt=""></a>
+            <a href="/okxe/home/index"><img src="${pageContext.request.contextPath}/resources/images/apps/google-play-store.png" class="img-fluid" alt=""></a>
+            <a href="/okxe/home/index" class=" ml-3"><img src="${pageContext.request.contextPath}/resources/images/apps/apple-app-store.png" class="img-fluid" alt=""></a>
           </div>
         </div>
       </div>

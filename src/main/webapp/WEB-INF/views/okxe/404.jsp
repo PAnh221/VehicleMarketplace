@@ -56,7 +56,7 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto main-nav ">
 							<li class="nav-item @@home">
-								<a class="nav-link" href="indexcontactUs">Home</a>
+								<a class="nav-link" href="${pageContext.request.contextPath}/okxe/home/index">Home</a>
 							</li>
 							<li class="nav-item dropdown dropdown-slide @@dashboard">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#!">Dashboard<span><i class="fa fa-angle-down"></i></span>
@@ -79,7 +79,6 @@
                                         </ul>
 										</ul>
 									</li>
-								</ul>
 							</li>
 							<li class="nav-item dropdown dropdown-slide active">
 								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

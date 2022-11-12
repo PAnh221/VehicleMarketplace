@@ -80,7 +80,6 @@
                                         </ul>
                                 </ul>
                             </li>
-                        </ul>
                         </li>
                         <li class="nav-item dropdown dropdown-slide active">
                             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

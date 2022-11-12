@@ -317,15 +317,15 @@
 				<!-- App promotion -->
 				<div class="block-2 app-promotion">
 					<div class="mobile d-flex  align-items-center">
-						<a href="index.html">
+						<a href="/okxe/home/index">
 							<!-- Icon -->
 							<img src="${pageContext.request.contextPath}/resources/images/footer/phone-icon.png" alt="mobile-icon">
 						</a>
 						<p class="mb-0">Get the Dealsy Mobile App and Save more</p>
 					</div>
 					<div class="download-btn d-flex my-3">
-						<a href="index.html"><img src="${pageContext.request.contextPath}/images/apps/google-play-store.png" class="img-fluid" alt=""></a>
-						<a href="index.html" class=" ml-3"><img src="${pageContext.request.contextPath}/images/apps/apple-app-store.png" class="img-fluid" alt=""></a>
+						<a href="/okxe/home/index"><img src="${pageContext.request.contextPath}/images/apps/google-play-store.png" class="img-fluid" alt=""></a>
+						<a href="/okxe/home/index" class=" ml-3"><img src="${pageContext.request.contextPath}/images/apps/apple-app-store.png" class="img-fluid" alt=""></a>
 					</div>
 				</div>
 			</div>
