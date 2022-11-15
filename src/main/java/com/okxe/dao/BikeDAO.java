@@ -28,7 +28,7 @@ public class BikeDAO {
     }
 
     public Bike getById(Serializable id) {
-        String sql = "SELECT * FROM bike WHERE Id=?";
+        String sql = "SELECT * FROM bike WHERE bike_id=?";
         return jdbc.queryForObject(sql, getRowMapper(), id);
     }
 

@@ -29,7 +29,7 @@ public class UserDAO {
         return getBySql(sql);
     }
 
-    public User getById(Serializable id) {
+    public User getById(int id) {
         String sql = "SELECT * FROM user WHERE user_id=?";
         return jdbc.queryForObject(sql, getRowMapper(), id);
     }

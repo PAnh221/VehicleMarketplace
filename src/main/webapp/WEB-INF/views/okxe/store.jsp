@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 
 <!--
@@ -59,72 +60,30 @@
 							<li class="nav-item active">
 								<a class="nav-link" href="${pageContext.request.contextPath}/okxe/home/index">Home</a>
 							</li>
-							<li class="nav-item dropdown dropdown-slide @@dashboard">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#!">Dashboard<span><i class="fa fa-angle-down"></i></span>
-								</a>
-
-								<!-- Dropdown list -->
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item @@dashboardPage" href="${pageContext.request.contextPath}/okxe/home/dashboard">Dashboard</a></li>
-									<li><a class="dropdown-item @@dashboardMyAds" href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">Dashboard My Ads</a></li>
-									<li><a class="dropdown-item @@dashboardFavouriteAds" href="${pageContext.request.contextPath}/okxe/home/dashboardFavouriteAds">Dashboard Favourite Ads</a></li>
-									<li><a class="dropdown-item @@dashboardArchivedAds" href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds">Dashboard Archived Ads</a></li>
-									<li><a class="dropdown-item @@dashboardPendingAds" href="${pageContext.request.contextPath}/okxe/home/dashboardPendingAds">Dashboard Pending Ads</a></li>
-
-									<li class="dropdown dropdown-submenu dropright">
-										<a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0501" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
-
-										<ul class="dropdown-menu" aria-labelledby="dropdown0501">
-											<li><a class="dropdown-item" href="${pageContext.request.contextPath}/okxe/home/index">Submenu 01</a></li>
-											<li><a class="dropdown-item" href="${pageContext.request.contextPath}/okxe/home/index">Submenu 02</a></li>
-										</ul>
-									</li>
-								</ul>
-							</li>
 							<li class="nav-item dropdown dropdown-slide @@pages">
 								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Pages <span><i class="fa fa-angle-down"></i></span>
+									Brands <span><i class="fa fa-angle-down"></i></span>
 								</a>
 								<!-- Dropdown list -->
 								<ul class="dropdown-menu">
-									<li><a class="dropdown-item @@about" href="${pageContext.request.contextPath}/okxe/home/aboutUs">About Us</a></li>
-									<li><a class="dropdown-item @@contact" href="${pageContext.request.contextPath}/okxe/home/contactUs">Contact Us</a></li>
-									<li><a class="dropdown-item @@profile" href="${pageContext.request.contextPath}/okxe/home/userProfile">User Profile</a></li>
-									<li><a class="dropdown-item @@404" href="${pageContext.request.contextPath}/okxe/home/404">404 Page</a></li>
-									<li><a class="dropdown-item @@package" href="${pageContext.request.contextPath}/okxe/home/package">Package</a></li>
-									<li><a class="dropdown-item @@singlePage" href="${pageContext.request.contextPath}/okxe/home/single">Single Page</a></li>
-									<li><a class="dropdown-item @@store" href="${pageContext.request.contextPath}/okxe/home/store">Store Single</a></li>
-									<li><a class="dropdown-item @@blog" href="${pageContext.request.contextPath}/okxe/home/blog">Blog</a></li>
-									<li><a class="dropdown-item @@singleBlog" href="${pageContext.request.contextPath}/okxe/home/singleBlog">Blog Details</a></li>
-									<li><a class="dropdown-item @@terms" href="${pageContext.request.contextPath}/okxe/home/termsCondition">Terms &amp; Conditions</a></li>
+									<li><a class="dropdown-item @@about" href="${pageContext.request.contextPath}/okxe/brand/honda">Honda</a></li>
+									<li><a class="dropdown-item @@contact" href="${pageContext.request.contextPath}/okxe/brand/yamaha">Yamaha</a></li>
+									<li><a class="dropdown-item @@profile" href="${pageContext.request.contextPath}/okxe/brand/suzuki">Suzuki</a></li>
+									<li><a class="dropdown-item @@404" href="${pageContext.request.contextPath}/okxe/brand/vinfast">Vinfast</a></li>
+									<li><a class="dropdown-item @@package" href="${pageContext.request.contextPath}/okxe/brand/ducati">Ducati</a></li>
+									<li><a class="dropdown-item @@singlePage" href="${pageContext.request.contextPath}/okxe/brand/kawasaki">Kawasaki</a></li>
+									<li><a class="dropdown-item @@store" href="${pageContext.request.contextPath}/okxe/brand/piaggio">Piaggio</a></li>
+									<li><a class="dropdown-item @@blog" href="${pageContext.request.contextPath}/okxe/brand/sym">SYM</a></li>
+									<li><a class="dropdown-item @@singleBlog" href="${pageContext.request.contextPath}/okxe/brand/triumph">Triumph</a></li>
 								</ul>
 							</li>
-							<li class="nav-item dropdown dropdown-slide @@listing">
-								<a class="nav-link dropdown-toggle" href="#!" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									Listing <span><i class="fa fa-angle-down"></i></span>
-								</a>
-								<!-- Dropdown list -->
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item @@category" href="${pageContext.request.contextPath}/okxe/home/category">Ad-Gird View</a></li>
-									<li><a class="dropdown-item @@listView" href="${pageContext.request.contextPath}/okxe/home/adListView">Ad-List View</a></li>
-
-									<li class="dropdown dropdown-submenu dropleft">
-										<a class="dropdown-item dropdown-toggle" href="#!" id="dropdown0201" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sub Menu</a>
-
-										<ul class="dropdown-menu" aria-labelledby="dropdown0201">
-											<li><a class="dropdown-item" href="${pageContext.request.contextPath}/okxe/home/index">Submenu 01</a></li>
-											<li><a class="dropdown-item" href="${pageContext.request.contextPath}/okxe/home/index">Submenu 02</a></li>
-										</ul>
-									</li>
-								</ul>
+							<li class="nav-item">
+								<a class="nav-link" href="${pageContext.request.contextPath}/okxe/home/aboutUs">About Us</a>
 							</li>
 						</ul>
 						<ul class="navbar-nav ml-auto mt-10">
 							<li class="nav-item">
-								<a class="nav-link login-button" href="${pageContext.request.contextPath}/okxe/home/login">Login</a>
-							</li>
-							<li class="nav-item">
-								<a class="nav-link text-white add-button" href="${pageContext.request.contextPath}/okxe/home/adListing"><i class="fa fa-plus-circle"></i> Add Listing</a>
+								<a class="nav-link text-white add-button" href="${pageContext.request.contextPath}/okxe/home/login">Login</a>
 							</li>
 						</ul>
 					</div>
@@ -146,95 +105,21 @@
 			<!-- Client Slider -->
 			<div class="col-md-12">
 				<!-- Client Slider -->
-<div class="category-slider">
-  <!-- Client 01 -->
-  <div class="item">
-    <a href="${pageContext.request.contextPath}/okxe/home/store">
-      <!-- Slider Image -->
-      <i class="fa fa-bed"></i>
-      <h4>Bed</h4>
-    </a>
-  </div>
-  <div class="item">
-    <a href="${pageContext.request.contextPath}/okxe/home/store">
-      <!-- Slider Image -->
-      <i class="fa fa-bed"></i>
-      <h4>Hotels</h4>
-    </a>
-  </div>
-  <div class="item">
-    <a href="${pageContext.request.contextPath}/okxe/home/store">
-      <!-- Slider Image -->
-      <i class="fa fa-car"></i>
-      <h4>Cars</h4>
-    </a>
-  </div>
-  <div class="item">
-    <a href="${pageContext.request.contextPath}/okxe/home/store">
-      <!-- Slider Image -->
-      <i class="fa fa-cutlery"></i>
-      <h4>Restaurants</h4>
-    </a>
-  </div>
-  <div class="item">
-    <a href="${pageContext.request.contextPath}/okxe/home/store">
-      <!-- Slider Image -->
-      <i class="fa fa-mobile"></i>
-      <h4>Automobile</h4>
-    </a>
-  </div>
-  <div class="item">
-    <a href="${pageContext.request.contextPath}/okxe/home/store">
-      <!-- Slider Image -->
-      <i class="fa fa-film"></i>
-      <h4>Gym</h4>
-    </a>
-  </div>
-  <!-- Client 01 -->
-  <div class="item">
-    <a href="${pageContext.request.contextPath}/okxe/home/store">
-      <!-- Slider Image -->
-      <i class="fa fa-paragraph"></i>
-      <h4>Park</h4>
-    </a>
-  </div>
-  <div class="item">
-    <a href="${pageContext.request.contextPath}/okxe/home/store">
-      <!-- Slider Image -->
-      <i class="fa fa-play"></i>
-      <h4>Play</h4>
-    </a>
-  </div>
-  <div class="item">
-    <a href="${pageContext.request.contextPath}/okxe/home/store">
-      <!-- Slider Image -->
-      <i class="fa fa-building"></i>
-      <h4>Real Estate</h4>
-    </a>
-  </div>
-  <div class="item">
-    <a href="${pageContext.request.contextPath}/okxe/home/store">
-      <!-- Slider Image -->
-      <i class="fa fa-shopping-bag"></i>
-      <h4>Shopping</h4>
-    </a>
-  </div>
-  <div class="item">
-    <a href="${pageContext.request.contextPath}/okxe/home/store">
-      <!-- Slider Image -->
-      <i class="fa fa-bed"></i>
-      <h4>Electronics</h4>
-    </a>
-  </div>
-  <div class="item">
-    <a href="${pageContext.request.contextPath}/okxe/home/store">
-      <!-- Slider Image -->
-      <i class="fa fa-bed"></i>
-      <h4>Health</h4>
-    </a>
-  </div>
-
-</div>
+				<div class="card mb-3">
+					<div class="row no-gutters">
+						<div class="col-md-1"></div>
+						<div class="col-md-2">
+							<img src="${pageContext.request.contextPath}/resources/images/brands/${brand.brand_id}.png" class="card-img" style="vertical-align: middle; max-height: 140px; max-width: 140px" alt="...">
+						</div>
+						<div class="col-md-1"></div>
+						<div class="col-md-8">
+							<div class="card-body">
+								<h5 class="card-title">${brand.brandname}</h5>
+								<p class="card-text">${brand.description}</p>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -246,187 +131,42 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="section-title">
-					<h2>More Stores</h2>
+					<h2>Bikes</h2>
 				</div>
-				<!-- First Letter -->
-				<div class="block">
-					<!-- Store First Letter -->
-					<h5 class="store-letter">#</h5>
-					<hr>
-					<!-- Store Lists -->
-					<div class="row">
-						<!-- Store List 01 -->
-						<div class="col-md-3 col-sm-6">
-							<ul class="store-list">
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1 - 800 - Got - Junk?</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1000 bulbs.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">180 packrat.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">3 day blinds</a></li>
-							</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-12">
+
+				<div class="trending-ads-slide">
+					<c:forEach var="b" items="${brandbikes}">
+						<div class="col-sm-12 col-lg-4">
+							<!-- product card -->
+							<div class="product-item bg-light">
+								<div class="card">
+									<div class="thumb-content">
+											<%--                                    <div class="price">${b.price} đ</div>--%>
+										<a href="${pageContext.request.contextPath}/okxe/bike/${b.bike_id}">
+											<img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/resources/images/${b.image}" style="width: 340px; height: 240px" alt="Card image cap">
+										</a>
+									</div>
+									<div class="card-body">
+										<h4 class="card-title"><a href="${pageContext.request.contextPath}/okxe/bike/${b.bike_id}">${b.name}</a></h4>
+										<ul class="list-inline product-meta">
+											<li class="list-inline-item">
+												<i class="fa fa-calendar"></i>${b.posted_date}
+											</li>
+										</ul>
+										<p class="card-text" style="font-size: 18px; font-weight: bold">${b.price} đ</p>
+									</div>
+								</div>
+							</div>
+
+
+
 						</div>
-						<!-- Store List 02 -->
-						<div class="col-md-3 col-sm-6">
-							<ul class="store-list">
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1 - 800 - Got - Junk?</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1000 bulbs.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">180 packrat.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">3 day blinds</a></li>
-							</ul>
-						</div>
-						<!-- Store List 03 -->
-						<div class="col-md-3 col-sm-6">
-							<ul class="store-list">
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1 - 800 - Got - Junk?</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1000 bulbs.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">180 packrat.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">3 day blinds</a></li>
-							</ul>
-						</div>
-						<!-- Store List 04 -->
-						<div class="col-md-3 col-sm-6">
-							<ul class="store-list">
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1 - 800 - Got - Junk?</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1000 bulbs.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">180 packrat.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">3 day blinds</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- Second Letter -->
-				<div class="block">
-					<!-- Store First Letter -->
-					<h5 class="store-letter">A</h5>
-					<hr>
-					<!-- Store Lists -->
-					<div class="row">
-						<!-- Store List 01 -->
-						<div class="col-md-3 col-sm-6">
-							<ul class="store-list">
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1 - 800 - Got - Junk?</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1000 bulbs.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">180 packrat.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">3 day blinds</a></li>
-							</ul>
-						</div>
-						<!-- Store List 02 -->
-						<div class="col-md-3 col-sm-6">
-							<ul class="store-list">
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1 - 800 - Got - Junk?</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1000 bulbs.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">180 packrat.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">3 day blinds</a></li>
-							</ul>
-						</div>
-						<!-- Store List 03 -->
-						<div class="col-md-3 col-sm-6">
-							<ul class="store-list">
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1 - 800 - Got - Junk?</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1000 bulbs.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">180 packrat.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">3 day blinds</a></li>
-							</ul>
-						</div>
-						<!-- Store List 04 -->
-						<div class="col-md-3 col-sm-6">
-							<ul class="store-list">
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1 - 800 - Got - Junk?</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1000 bulbs.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">180 packrat.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">3 day blinds</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- Third Letter -->
-				<div class="block">
-					<!-- Store First Letter -->
-					<h5 class="store-letter">B</h5>
-					<hr>
-					<!-- Store Lists -->
-					<div class="row">
-						<!-- Store List 01 -->
-						<div class="col-md-3 col-sm-6">
-							<ul class="store-list">
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1 - 800 - Got - Junk?</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1000 bulbs.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">180 packrat.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">3 day blinds</a></li>
-							</ul>
-						</div>
-						<!-- Store List 02 -->
-						<div class="col-md-3 col-sm-6">
-							<ul class="store-list">
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1 - 800 - Got - Junk?</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1000 bulbs.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">180 packrat.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">3 day blinds</a></li>
-							</ul>
-						</div>
-						<!-- Store List 03 -->
-						<div class="col-md-3 col-sm-6">
-							<ul class="store-list">
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1 - 800 - Got - Junk?</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1000 bulbs.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">180 packrat.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">3 day blinds</a></li>
-							</ul>
-						</div>
-						<!-- Store List 04 -->
-						<div class="col-md-3 col-sm-6">
-							<ul class="store-list">
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1 - 800 - Got - Junk?</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1000 bulbs.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">180 packrat.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">3 day blinds</a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- Fourth Letter -->
-				<div class="block">
-					<!-- Store First Letter -->
-					<h5 class="store-letter">C</h5>
-					<hr>
-					<!-- Store Lists -->
-					<div class="row">
-						<!-- Store List 01 -->
-						<div class="col-md-3 col-sm-6">
-							<ul class="store-list">
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1 - 800 - Got - Junk?</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1000 bulbs.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">180 packrat.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">3 day blinds</a></li>
-							</ul>
-						</div>
-						<!-- Store List 02 -->
-						<div class="col-md-3 col-sm-6">
-							<ul class="store-list">
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1 - 800 - Got - Junk?</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1000 bulbs.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">180 packrat.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">3 day blinds</a></li>
-							</ul>
-						</div>
-						<!-- Store List 03 -->
-						<div class="col-md-3 col-sm-6">
-							<ul class="store-list">
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1 - 800 - Got - Junk?</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1000 bulbs.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">180 packrat.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">3 day blinds</a></li>
-							</ul>
-						</div>
-						<!-- Store List 04 -->
-						<div class="col-md-3 col-sm-6">
-							<ul class="store-list">
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1 - 800 - Got - Junk?</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">1000 bulbs.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">180 packrat.com</a></li>
-								<li><a href="${pageContext.request.contextPath}/okxe/home/store">3 day blinds</a></li>
-							</ul>
-						</div>
-					</div>
+					</c:forEach>
+
 				</div>
 			</div>
 		</div>
@@ -535,107 +275,6 @@
 	</div>
 </footer>
 
-<!--============================
-=            Footer            =
-=============================-->
-
-<footer class="footer section section-sm">
-	<!-- Container Start -->
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-3 col-md-7 offset-md-1 offset-lg-0 mb-4 mb-lg-0">
-				<!-- About -->
-				<div class="block about">
-					<!-- footer logo -->
-					<img src="${pageContext.request.contextPath}/resources/images/logo-footer.png" alt="logo">
-					<!-- description -->
-					<p class="alt-color">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-						incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-						laboris nisi ut aliquip ex ea commodo consequat.</p>
-				</div>
-			</div>
-			<!-- Link list -->
-			<div class="col-lg-2 offset-lg-1 col-md-3 col-6 mb-4 mb-lg-0">
-				<div class="block">
-					<h4>Site Pages</h4>
-					<ul>
-						<li><a href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">My Ads</a></li>
-						<li><a href="${pageContext.request.contextPath}/okxe/home/dashboardFavouriteAds">Favourite Ads</a></li>
-						<li><a href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds">Archived Ads</a></li>
-						<li><a href="${pageContext.request.contextPath}/okxe/home/dashboardPendingAds">Pending Ads</a></li>
-						<li><a href="${pageContext.request.contextPath}/okxe/home/termsCondition">Terms & Conditions</a></li>
-					</ul>
-				</div>
-			</div>
-			<!-- Link list -->
-			<div class="col-lg-2 col-md-3 offset-md-1 offset-lg-0 col-6 mb-4 mb-md-0">
-				<div class="block">
-					<h4>Admin Pages</h4>
-					<ul>
-						<li><a href="${pageContext.request.contextPath}/okxe/home/category">Category</a></li>
-						<li><a href="${pageContext.request.contextPath}/okxe/home/single">Single Page</a></li>
-						<li><a href="${pageContext.request.contextPath}/okxe/home/store">Store Single</a></li>
-						<li><a href="${pageContext.request.contextPath}/okxe/home/singleBlog">Single Post</a>
-						</li>
-						<li><a href="${pageContext.request.contextPath}/okxe/home/blog">Blog</a></li>
-
-
-
-					</ul>
-				</div>
-			</div>
-			<!-- Promotion -->
-			<div class="col-lg-4 col-md-7">
-				<!-- App promotion -->
-				<div class="block-2 app-promotion">
-					<div class="mobile d-flex  align-items-center">
-						<a href="/okxe/home/index">
-							<!-- Icon -->
-							<img src="${pageContext.request.contextPath}/resources/images/footer/phone-icon.png" alt="mobile-icon">
-						</a>
-						<p class="mb-0">Get the Dealsy Mobile App and Save more</p>
-					</div>
-					<div class="download-btn d-flex my-3">
-						<a href="/okxe/home/index"><img src="${pageContext.request.contextPath}/images/apps/google-play-store.png" class="img-fluid" alt=""></a>
-						<a href="/okxe/home/index" class=" ml-3"><img src="${pageContext.request.contextPath}/images/apps/apple-app-store.png" class="img-fluid" alt=""></a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Container End -->
-</footer>
-<!-- Footer Bottom -->
-<footer class="footer-bottom">
-	<!-- Container Start -->
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-6 text-center text-lg-left mb-3 mb-lg-0">
-				<!-- Copyright -->
-				<div class="copyright">
-					<p>Copyright &copy; <script>
-						var CurrentYear = new Date().getFullYear()
-						document.write(CurrentYear)
-					</script>. Designed & Developed by <a class="text-white" href="https://themefisher.com">Themefisher</a></p>
-				</div>
-			</div>
-			<div class="col-lg-6">
-				<!-- Social Icons -->
-				<ul class="social-media-icons text-center text-lg-right">
-					<li><a class="fa fa-facebook" href="https://www.facebook.com/themefisher"></a></li>
-					<li><a class="fa fa-twitter" href="https://www.twitter.com/themefisher"></a></li>
-					<li><a class="fa fa-pinterest-p" href="https://www.pinterest.com/themefisher"></a></li>
-					<li><a class="fa fa-github-alt" href="https://www.github.com/themefisher"></a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
-	<!-- Container End -->
-	<!-- To Top -->
-	<div class="scroll-top-to">
-		<i class="fa fa-angle-up"></i>
-	</div>
-</footer>
 
 <!--
 Essential Scripts
