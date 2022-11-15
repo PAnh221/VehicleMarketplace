@@ -98,7 +98,6 @@ public class MainController {
     public String login(){
         return "okxe/login";
     }
-
     @RequestMapping("register")
     public String register(){
         return "okxe/register";
