@@ -44,8 +44,8 @@ public class UserDAO {
 
     public List<User> getUserByUsername(String username) {
         String sql = "select * from okxe.user where username=?";
-
-        return jdbc.query(sql, getRowMapper(), username);
+        List<User> list = jdbc.query(sql, getRowMapper(), username);
+        return list;
     }
 
     public List<User> getUserByCID(String CID) {

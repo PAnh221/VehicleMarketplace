@@ -80,7 +80,28 @@
                         </ul>
                         <ul class="navbar-nav ml-auto mt-10">
                             <li class="nav-item">
-                                <a class="nav-link text-white add-button" href="${pageContext.request.contextPath}/okxe/home/login">Login</a>
+                                <c:choose>
+                                    <c:when test="${auth}">
+
+                                        <a class="text-black">Hi <b>${authUser.getUsername()}</b></a>
+                                        <form action="${pageContext.request.contextPath}/user/logoutUser"
+                                              method="post">
+                                            <button type="submit" style="border: none;
+                                            background: none;
+                                            color: inherit;
+                                            border: none;
+                                            font: inherit;
+                                            cursor: pointer;
+                                            outline: inherit;">
+                                                <a class="ml-4 nav-link text-white add-button">Logout</a>
+                                            </button>
+
+                                        </form>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a class="ml-4 nav-link text-white add-button" href="${pageContext.request.contextPath}/okxe/home/login">Login</a>
+                                    </c:otherwise>
+                                </c:choose>
                             </li>
                         </ul>
                     </div>

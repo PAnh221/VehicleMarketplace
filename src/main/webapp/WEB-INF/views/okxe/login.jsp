@@ -96,12 +96,15 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-5 col-md-8 align-item-center">
+          <c:if test="${not empty error}">
+              <h6 style="color: red">${error}</h6>
+          </c:if>
         <div class="border">
           <h3 class="bg-gray p-4">Login Now</h3>
-          <form  action="${pageContext.request.contextPath}/okxe/login" method="post">
+          <form  action="${pageContext.request.contextPath}/user/loginUser" method="post">
             <fieldset class="p-4">
-              <input class="form-control mb-3" type="text" placeholder="Username" name="name" required>
-              <input class="form-control mb-3" type="password" placeholder="Password" name="pass" required>
+              <input class="form-control mb-3" type="text" placeholder="Username" name="username" required>
+              <input class="form-control mb-3" type="password" placeholder="Password" name="password" required>
               <div class="loggedin-forgot">
                 <input type="checkbox" id="keep-me-logged-in">
                 <label for="keep-me-logged-in" class="pt-3 pb-2">Keep me logged in</label>
