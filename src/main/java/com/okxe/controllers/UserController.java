@@ -1,6 +1,7 @@
 package com.okxe.controllers;
 import java.util.List;
 
+import com.okxe.beans.User;
 import com.okxe.dao.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 
 
 @Controller
+@RequestMapping("/user/")
 public class UserController {
     @Autowired
     UserDAO userDAO;
@@ -45,6 +47,32 @@ public class UserController {
     @RequestMapping("/signup")
     public String signup()
     {
-        return null;
+        return "okxe/register";
+    }
+
+    @RequestMapping("/createAccount")
+    public String createAccount(ModelMap model, HttpServletRequest request)
+    {
+        String name = request.getParameter("name");
+        String location = request.getParameter("location");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String CID = request.getParameter("citizenID");
+        User user = new User(username, password, name, location, CID, 1);
+
+
+        if (!userDAO.getUserByUsername(user.getUsername()).isEmpty()) {
+            model.addAttribute("error", "Username đã tồn tại, vui lòng nhập lại");
+            return "okxe/register";
+        }
+        if (!userDAO.getUserByCID(user.getCitizen_id()).isEmpty()) {
+            model.addAttribute("error", "CCCD đã tồn tại, vui lòng nhập lại");
+            return "okxe/register";
+        }
+
+
+        model.addAttribute("error", null);
+        userDAO.insert(user);
+        return "okxe/login";
     }
 }

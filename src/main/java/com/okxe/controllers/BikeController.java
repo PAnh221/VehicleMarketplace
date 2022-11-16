@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
+@RequestMapping("/okxe/")
 public class BikeController {
     @Autowired
     BikeDAO bikeDAO;
@@ -55,5 +56,6 @@ public class BikeController {
             return "okxe/single";
         }
     }
+
 
 }

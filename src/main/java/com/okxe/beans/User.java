@@ -26,6 +26,14 @@ public class User {
         this.user_type = user_type;
     }
 
+    public User(String username, String password, String name, String location, String citizen_id, int user_type) {
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.location = location;
+        this.citizen_id = citizen_id;
+        this.user_type = user_type;
+    }
     public int getUser_id() {
         return user_id;
     }

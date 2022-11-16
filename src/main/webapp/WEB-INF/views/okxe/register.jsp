@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 
@@ -96,14 +97,21 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-5 col-md-8 align-item-center">
-        <div class="border border">
+          <c:if test="${not empty error}">
+              <h6 style="color: red">${error}</h6>
+          </c:if>
+          <div class="border border">
+
           <h3 class="bg-gray p-4">Register Now</h3>
-          <form action="#">
+          <form action="${pageContext.request.contextPath}/user/createAccount" method="post">
             <fieldset class="p-4">
-              <input class="form-control mb-3" type="email" placeholder="Email*" required>
-              <input class="form-control mb-3" type="password" placeholder="Password*" required>
-              <input class="form-control mb-3" type="password" placeholder="Confirm Password*" required>
-              <div class="loggedin-forgot d-inline-flex my-3">
+                <input class="form-control mb-3" name="name" type="text" placeholder="Name*" required>
+                <input class="form-control mb-3" name="citizenID" type="text" placeholder="CitizenID*" required>
+                <input class="form-control mb-3" name="location" type="text" placeholder="Location*" required>
+                <input class="form-control mb-3" name="username" type="text" placeholder="Username*" required>
+                <input class="form-control mb-3" name="password" type="password" placeholder="Password*" required>
+                <input class="form-control mb-3" type="password" placeholder="Confirm Password*" required>
+                <div class="loggedin-forgot d-inline-flex my-3">
                 <input type="checkbox" id="registering" class="mt-1">
                 <label for="registering" class="px-2">By registering, you accept our <a class="text-primary font-weight-bold" href="terms-condition.jsp">Terms & Conditions</a></label>
               </div>

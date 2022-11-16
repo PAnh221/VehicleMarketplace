@@ -42,6 +42,18 @@ public class UserDAO {
                 , entity.getLocation(), entity.getImage(), entity.getCitizen_id(), entity.getUser_type());
     }
 
+    public List<User> getUserByUsername(String username) {
+        String sql = "select * from okxe.user where username=?";
+
+        return jdbc.query(sql, getRowMapper(), username);
+    }
+
+    public List<User> getUserByCID(String CID) {
+        String sql = "select * from okxe.user where citizen_id=?";
+
+        return jdbc.query(sql, getRowMapper(), CID);
+    }
+
     public void update(User entity) {
         String sql =
                 "update okxe.user\n" +
