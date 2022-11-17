@@ -63,6 +63,22 @@ public class UserDAO {
                 , entity.getLocation(), entity.getImage(), entity.getCitizen_id(), entity.getUser_type(), entity.getUser_id());
     }
 
+    public void updatePersonalInfo(User entity) {
+        String sql =
+                "update okxe.user\n" +
+                        "set name=?, phone=?, location=?, citizen_id=?\n" +
+                        "where user_id = ?;";
+        jdbc.update(sql, entity.getName(), entity.getPhone(), entity.getLocation(), entity.getCitizen_id(), entity.getUser_id());
+    }
+
+    public void changePassword(User entity) {
+        String sql =
+                "update okxe.user\n" +
+                        "set password=?\n" +
+                        "where user_id = ?;";
+        jdbc.update(sql, entity.getPassword(), entity.getUser_id());
+    }
+
     public void delete(Serializable id) {
         String sql = "DELETE FROM user WHERE user_id=?";
         jdbc.update(sql, id);

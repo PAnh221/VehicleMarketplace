@@ -105,13 +105,9 @@
             <fieldset class="p-4">
               <input class="form-control mb-3" type="text" placeholder="Username" name="username" required>
               <input class="form-control mb-3" type="password" placeholder="Password" name="password" required>
-              <div class="loggedin-forgot">
-                <input type="checkbox" id="keep-me-logged-in">
-                <label for="keep-me-logged-in" class="pt-3 pb-2">Keep me logged in</label>
-              </div>
+
               <button type="submit" class="btn btn-primary font-weight-bold mt-3">Log in</button>
-              <a class="mt-3 d-block text-primary" href="#!">Forget Password?</a>
-              <a class="mt-3 d-inline-block text-primary" href="${pageContext.request.contextPath}/okxe/home/register">Register Now</a>
+              <a class="mt-3 d-block text-primary" href="${pageContext.request.contextPath}/okxe/home/register">Register Now</a>
             </fieldset>
           </form>
         </div>

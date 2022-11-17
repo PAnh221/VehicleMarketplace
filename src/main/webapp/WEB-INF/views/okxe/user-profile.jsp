@@ -108,7 +108,7 @@
 							<img src="${pageContext.request.contextPath}/images/user/user-thumb.jpg" alt="" class="">
 						</div>
 						<!-- User Name -->
-						<h5 class="text-center">Samanta Doe</h5>
+						<h5 class="text-center">${user.getName()}</h5>
 					</div>
 					<!-- Dashboard Links -->
           <div class="widget user-dashboard-menu">
@@ -125,48 +125,57 @@
 				<!-- Edit Profile Welcome Text -->
 				<div class="widget welcome-message">
 					<h2>Edit profile</h2>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
 				</div>
 				<!-- Edit Personal Info -->
 				<div class="row">
 					<div class="col-lg-6 col-md-6">
+						<c:if test="${not empty error}">
+							<h6 style="color: red">${error}</h6>
+						</c:if>
 						<div class="widget personal-info">
 							<h3 class="widget-header user">Edit Personal Information</h3>
-							<form action="#">
+							<form action="${pageContext.request.contextPath}/user/updateUserProfile" method="post">
+								<input hidden="hidden" name="id" type="text" class="form-control" value="${user.getUser_id()}">
+
 								<!-- First Name -->
 								<div class="form-group">
-									<label for="first-name">First Name</label>
-									<input type="text" class="form-control" id="first-name">
+									<label for="first-name">Username</label>
+									<input type="text" class="form-control" id="first-name" value="${user.getUsername()}" disabled>
 								</div>
+
 								<!-- Last Name -->
 								<div class="form-group">
-									<label for="last-name">Last Name</label>
-									<input type="text" class="form-control" id="last-name">
+									<label for="last-name">Name</label>
+									<input name="name" type="text" class="form-control" id="last-name" value="${user.getName()}">
 								</div>
 								<!-- File chooser -->
-								<div class="form-group choose-file d-inline-flex">
-									<i class="fa fa-user text-center px-3"></i>
-									<input type="file" class="form-control-file mt-2 pt-1" id="input-file">
-								 </div>
+<%--								<div class="form-group choose-file d-inline-flex">--%>
+<%--									<i class="fa fa-user text-center px-3"></i>--%>
+<%--									<input type="file" class="form-control-file mt-2 pt-1" id="input-file">--%>
+<%--								 </div>--%>
 								<!-- Comunity Name -->
 								<div class="form-group">
-									<label for="comunity-name">Comunity Name</label>
-									<input type="text" class="form-control" id="comunity-name">
+									<label for="comunity-name">Phone</label>
+									<input name="phone" type="text" class="form-control" id="comunity-name" value="${user.getPhone()}">
 								</div>
 								<!-- Checkbox -->
-								<div class="form-check">
-								  <label class="form-check-label" for="hide-profile">
-									<input class="form-check-input mt-1" type="checkbox" value="" id="hide-profile">
-									Hide Profile from Public/Comunity
-								  </label>
-								</div>
+<%--								<div class="form-check">--%>
+<%--								  <label class="form-check-label" for="hide-profile">--%>
+<%--									<input class="form-check-input mt-1" type="checkbox" value="" id="hide-profile">--%>
+<%--									Hide Profile from Public/Comunity--%>
+<%--								  </label>--%>
+<%--								</div>--%>
 								<!-- Zip Code -->
 								<div class="form-group">
-									<label for="zip-code">Zip Code</label>
-									<input type="text" class="form-control" id="zip-code">
+									<label for="location">Location</label>
+									<input name="location" type="text" class="form-control" id="location" value="${user.getLocation()}">
+								</div>
+								<div class="form-group">
+									<label for="CID">Citizen ID</label>
+									<input name="CID" type="text" class="form-control" id="CID" value="${user.getCitizen_id()}">
 								</div>
 								<!-- Submit button -->
-								<button class="btn btn-transparent">Save My Changes</button>
+								<button type="submit" class="btn btn-transparent">Save My Changes</button>
 							</form>
 						</div>
 					</div>
@@ -174,24 +183,26 @@
 						<!-- Change Password -->
 					<div class="widget change-password">
 						<h3 class="widget-header user">Edit Password</h3>
-						<form action="#">
+						<form action="${pageContext.request.contextPath}/user/changePassword" method="post">
 							<!-- Current Password -->
+							<input hidden="hidden" name="id" type="text" class="form-control" value="${user.getUser_id()}">
+
 							<div class="form-group">
 								<label for="current-password">Current Password</label>
-								<input type="password" class="form-control" id="current-password">
+								<input name="password" type="password" class="form-control" id="current-password">
 							</div>
 							<!-- New Password -->
 							<div class="form-group">
 								<label for="new-password">New Password</label>
-								<input type="password" class="form-control" id="new-password">
+								<input name="newPassword" type="password" class="form-control" id="new-password">
 							</div>
 							<!-- Confirm New Password -->
 							<div class="form-group">
 								<label for="confirm-password">Confirm New Password</label>
-								<input type="password" class="form-control" id="confirm-password">
+								<input name="confirmNewPassword" type="password" class="form-control" id="confirm-password">
 							</div>
 							<!-- Submit Button -->
-							<button class="btn btn-transparent">Change Password</button>
+							<button type="submit" class="btn btn-transparent">Change Password</button>
 						</form>
 					</div>
 					</div>

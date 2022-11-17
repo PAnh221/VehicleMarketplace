@@ -77,12 +77,20 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="${pageContext.request.contextPath}/okxe/home/aboutUs">About Us</a>
                             </li>
+                            <c:choose>
+                                <c:when test="${auth}">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="${pageContext.request.contextPath}/user/profile">Profile</a>
+                                    </li>
+                                </c:when>
+                            </c:choose>
+
+
                         </ul>
                         <ul class="navbar-nav ml-auto mt-10">
                             <li class="nav-item">
                                 <c:choose>
                                     <c:when test="${auth}">
-
                                         <a class="text-black">Hi <b>${authUser.getUsername()}</b></a>
                                         <form action="${pageContext.request.contextPath}/user/logoutUser"
                                               method="post">

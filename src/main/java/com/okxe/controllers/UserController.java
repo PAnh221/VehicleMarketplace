@@ -20,23 +20,90 @@ public class UserController {
     @Autowired
     UserDAO userDAO;
 
+
     @RequestMapping("/profile")
-    public String getUserProfile(ModelMap model,
-                               @RequestParam(value="userId", required=false) Integer
-                                       userid) {
-        if(userid == null){
+    public String getUserProfile(ModelMap model, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("authUser");
+
+        if(user == null){
             return "okxe/404";
         }
         else{
-            model.addAttribute("user", userDAO.
-                    getById(userid));
+            model.addAttribute("user", user);
         }
-        return "okxe/profile";
+        return "okxe/user-profile";
+    }
+
+    @RequestMapping("/updateUserProfile")
+    public String updateUserProfile(ModelMap model, HttpServletRequest request) {
+        // check if user logged in
+        HttpSession session = request.getSession();
+        User authUser = (User) session.getAttribute("authUser");
+        if (authUser == null) {
+            return "okxe/login";
+        }
+
+        int id = Integer.valueOf(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String phone = request.getParameter("phone");
+        String location = request.getParameter("location");
+        String CID = request.getParameter("CID");
+
+        User user = new User(id,null, null, phone, name, location, null, CID, 1);
+
+        userDAO.updatePersonalInfo(user);
+        model.addAttribute("user", user);
+        model.addAttribute("error", "Changes saved");
+
+        return "okxe/user-profile";
+    }
+
+    @RequestMapping("/changePassword")
+    public String changePassword(ModelMap model, HttpServletRequest request) {
+
+
+        // if not logged in
+        HttpSession session = request.getSession();
+        User authUser = (User) session.getAttribute("authUser");
+        if (authUser == null) {
+            return "okxe/login";
+        }
+
+        // get params
+        int id = Integer.valueOf(request.getParameter("id"));
+        String password = request.getParameter("password");
+        String newPassword = request.getParameter("newPassword");
+        String confirmNewPassword = request.getParameter("confirmNewPassword");
+
+        // if password incorrect
+        if (!authUser.getPassword().equals(password)) {
+            model.addAttribute("user", authUser);
+            model.addAttribute("error", "Incorrect password");
+            return "okxe/user-profile";
+        }
+
+        // if comfirm password not valid
+        if (!confirmNewPassword.equals(newPassword)) {
+            model.addAttribute("user", authUser);
+            model.addAttribute("error", "Confirm password not valid");
+            return "okxe/user-profile";
+        }
+
+        User user = new User(id,null, newPassword, null, null, null, null, null, 1);
+        userDAO.changePassword(user);
+        model.addAttribute("error", "Password changed successfully");
+        return "okxe/user-profile";
     }
 
     @RequestMapping("/login")
     public String login(ModelMap model, HttpServletRequest request) {
-        return "okxe/login";
+        HttpSession session = request.getSession();
+        User authUser = (User) session.getAttribute("authUser");
+        if (authUser == null) {
+            return "okxe/login";
+        }
+        return "okxe/index";
     }
 
     @RequestMapping("/logoutUser")
@@ -75,12 +142,12 @@ public class UserController {
                 return "okxe/index";
             }
             else {
-                model.addAttribute("error", "Sai mật khẩu, vui lòng nhập lại");
+                model.addAttribute("error", "Incorrect password");
                 return "okxe/login";
             }
         }
         else {
-            model.addAttribute("error", "Sai mật khẩu, vui lòng nhập lại");
+            model.addAttribute("error", "Incorrect password");
             return "okxe/login";
         }
     }
@@ -96,17 +163,24 @@ public class UserController {
         String name = request.getParameter("name");
         String location = request.getParameter("location");
         String username = request.getParameter("username");
-        String password = request.getParameter("password");
         String CID = request.getParameter("citizenID");
+        String password = request.getParameter("password");
+        String confirmpassword = request.getParameter("confirmpassword");
+
+        if (!confirmpassword.trim().equals(password.trim())) {
+            model.addAttribute("error", "Confirm password not valid");
+            return "okxe/register";
+        }
+
         User user = new User(username.trim(), password.trim(), name, location.trim(), CID.trim(), 1);
 
 
         if (userDAO.getUserByUsername(user.getUsername()) != null) {
-            model.addAttribute("error", "Username đã tồn tại, vui lòng nhập lại");
+            model.addAttribute("error", "Username already exists");
             return "okxe/register";
         }
         if (userDAO.getUserByCID(user.getCitizen_id()).isEmpty()) {
-            model.addAttribute("error", "CCCD đã tồn tại, vui lòng nhập lại");
+            model.addAttribute("error", "Citizen ID already exists");
             return "okxe/register";
         }
 
