@@ -82,6 +82,13 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="${pageContext.request.contextPath}/user/profile">Profile</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="${pageContext.request.contextPath}/user/myPosts">My Posts</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="${pageContext.request.contextPath}/user/addNewPost">Add New Post</a>
+                                    </li>
                                 </c:when>
                             </c:choose>
 

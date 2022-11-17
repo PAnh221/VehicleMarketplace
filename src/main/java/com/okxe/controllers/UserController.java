@@ -35,6 +35,19 @@ public class UserController {
         return "okxe/user-profile";
     }
 
+    @RequestMapping("/addNewPost")
+    public String addNewPost(ModelMap model, HttpServletRequest request) {
+        // check if user logged in
+        HttpSession session = request.getSession();
+        User authUser = (User) session.getAttribute("authUser");
+        if (authUser == null) {
+            return "okxe/login";
+        }
+
+
+
+        return "okxe/ad-listing";
+    }
     @RequestMapping("/updateUserProfile")
     public String updateUserProfile(ModelMap model, HttpServletRequest request) {
         // check if user logged in
@@ -105,6 +118,20 @@ public class UserController {
             return "okxe/login";
         }
         return "okxe/index";
+    }
+
+    @RequestMapping("/myPosts")
+    public String myPosts(ModelMap model, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        User authUser = (User) session.getAttribute("authUser");
+        if (authUser == null) {
+            return "okxe/login";
+        }
+
+        model.addAttribute("user", authUser);
+
+
+        return "okxe/dashboard-my-ads";
     }
 
     @RequestMapping("/logoutUser")

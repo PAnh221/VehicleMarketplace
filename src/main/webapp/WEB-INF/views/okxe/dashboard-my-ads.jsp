@@ -77,9 +77,6 @@
                                     <li><a class="dropdown-item @@singleBlog" href="${pageContext.request.contextPath}/okxe/brand/triumph">Triumph</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/okxe/home/aboutUs">About Us</a>
-                            </li>
                         </ul>
                         <ul class="navbar-nav ml-auto mt-10">
                             <li class="nav-item">
@@ -110,9 +107,9 @@
                                  class="rounded-circle">
                         </div>
                         <!-- User Name -->
-                        <h5 class="text-center">Samanta Doe</h5>
-                        <p>Joined February 06, 2017</p>
-                        <a href="${pageContext.request.contextPath}/okxe/home/userProfile" class="btn btn-main-sm">Edit
+                        <h5 class="text-center">${user.getName()}</h5>
+                        <p>${user.getUsername()}</p>
+                        <a href="${pageContext.request.contextPath}/user/profile" class="btn btn-main-sm">Edit
                             Profile</a>
                     </div>
                     <!-- Dashboard Links -->
