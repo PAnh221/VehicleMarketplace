@@ -209,13 +209,13 @@
                                         <ul class="list-inline justify-content-center">
                                             <li class="list-inline-item">
                                                 <a data-toggle="tooltip" data-placement="top" title="View" class="view"
-                                                   href="${pageContext.request.contextPath}/okxe/home/category">
+                                                   href="${pageContext.request.contextPath}/okxe/bike/${bike.getBike_id()}">
                                                     <i class="fa fa-eye"></i>
                                                 </a>
                                             </li>
                                             <li class="list-inline-item">
                                                 <a data-toggle="tooltip" data-placement="top" title="Edit" class="edit"
-                                                   href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">
+                                                   href="${pageContext.request.contextPath}/user/editPost/${bike.getBike_id()}">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
                                             </li>

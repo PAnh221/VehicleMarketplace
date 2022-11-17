@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -69,6 +70,8 @@ public class UserController {
 
         model.addAttribute("brandList", brandList);
         model.addAttribute("typeList", typeList);
+        model.addAttribute("bike", new Bike());
+        model.addAttribute("action", "add");
 
         return "okxe/ad-listing";
     }
@@ -109,6 +112,39 @@ public class UserController {
         model.addAttribute("bikeList", bikeList);
 
         return "okxe/dashboard-my-ads";
+    }
+
+    // trang edit post
+    @RequestMapping("/editPost/{bike_id}")
+    public String editPost(ModelMap model, @PathVariable String
+            bike_id, HttpServletRequest request) {
+        // check if user logged in
+        HttpSession session = request.getSession();
+        User authUser = (User) session.getAttribute("authUser");
+        if (authUser == null) {
+            return "okxe/login";
+        }
+
+        // check null bikeid
+//        if (bike_id == null) {
+//            return "okxe/404";
+//        }
+
+        Bike bike = bikeDAO.getById(bike_id);
+        // check if seller edit post
+        if (authUser.getUser_id() != bike.getUser_id()) {
+            return "okxe/404";
+        }
+
+        List<Brand> brandList = brandDAO.getAll();
+        List<Type> typeList = typeDAO.getAll();
+
+        model.addAttribute("brandList", brandList);
+        model.addAttribute("typeList", typeList);
+        model.addAttribute("bike", bike);
+        model.addAttribute("action", "edit");
+
+        return "okxe/ad-listing";
     }
     @RequestMapping("/updateUserProfile")
     public String updateUserProfile(ModelMap model, HttpServletRequest request) {

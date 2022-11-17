@@ -91,58 +91,132 @@
         <c:if test="${not empty error}">
             <h6 style="color: red">${error}</h6>
         </c:if>
-      <!-- Post Your ad start -->
-      <fieldset class="border border-gary px-3 px-md-4 py-4 mb-5">
-        <div class="row">
-          <div class="col-lg-12">
-            <h3>Post Your Vehicle</h3>
-          </div>
-          <div class="col-lg-6">
-            <h6 class="font-weight-bold pt-4 pb-1">Vehicle Name:</h6>
-            <input value="" name="name" type="text" class="form-control bg-white" placeholder="Vehicle Name" required>
-            <h6 class="font-weight-bold pt-4 pb-1">Type:</h6>
-              <select name="type_id" class="form-control w-100 bg-white">
-                  <c:forEach var="type" items="${typeList}">
-                      <option value="${type.getType_id()}">${type.getTypename()}</option>
-                  </c:forEach>
-              </select>
-              <h6 class="font-weight-bold pt-4 pb-1">Color:</h6>
-              <input name="color" type="text" class="form-control bg-white" placeholder="Color" required>
-              <h6 class="font-weight-bold pt-4 pb-1">ODO:</h6>
-              <input name="odo" type="number" class="form-control bg-white" placeholder="ODO" required>
-              <h6 class="font-weight-bold pt-4 pb-1">Engine:</h6>
-              <input name="engine" type="text" class="form-control bg-white" placeholder="Engine" required>
-            <h6 class="font-weight-bold pt-4 pb-1">Description:</h6>
-            <textarea id="" class="form-control bg-white" rows="7"
-              placeholder="Description" required></textarea>
-          </div>
-          <div class="col-lg-6">
-            <h6 class="font-weight-bold pt-4 pb-1">Brand:</h6>
-              <select name="brand_id" class="form-control w-100 bg-white">
-                  <c:forEach var="brand" items="${brandList}">
-                      <option value="${brand.getBrand_id()}">${brand.getBrandname()}</option>
-                  </c:forEach>
-              </select>
-            <div class="price">
-              <h6 class="font-weight-bold pt-4 pb-1">Item Price (đ VNĐ):</h6>
-              <div class="row px-3">
-                <div class="col-lg-4 rounded my-2 px-0">
-                  <input type="number" name="price" class="form-control bg-white" placeholder="Price" id="price" required>
-                </div>
-<%--                <div class="col-lg-4 ml-lg-4 my-2 pt-2 pb-1 rounded bg-white ">--%>
-<%--                  <input type="radio" name="itemName" value="Negotiable" id="Negotiable">--%>
-<%--                  <label for="Negotiable" class="py-2">Negotiable</label>--%>
-<%--                </div>--%>
-              </div>
+        <c:choose>
+            <c:when test="${action=='add'}">
+                <!-- Post Your ad start -->
+                <fieldset class="border border-gary px-3 px-md-4 py-4 mb-5">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3>Post Your Vehicle</h3>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="font-weight-bold pt-4 pb-1">Vehicle Name:</h6>
+                            <input value="" name="name" type="text" class="form-control bg-white" placeholder="Vehicle Name" required>
+                            <h6 class="font-weight-bold pt-4 pb-1">Type:</h6>
+                            <select name="type_id" class="form-control w-100 bg-white">
+                                <c:forEach var="type" items="${typeList}">
+                                    <option value="${type.getType_id()}">${type.getTypename()}</option>
+                                </c:forEach>
+                            </select>
+                            <h6 class="font-weight-bold pt-4 pb-1">Color:</h6>
+                            <input name="color" type="text" class="form-control bg-white" placeholder="Color" required>
+                            <h6 class="font-weight-bold pt-4 pb-1">ODO:</h6>
+                            <input name="odo" type="number" class="form-control bg-white" placeholder="ODO" required>
+                            <h6 class="font-weight-bold pt-4 pb-1">Engine:</h6>
+                            <input name="engine" type="text" class="form-control bg-white" placeholder="Engine" required>
+                            <h6 class="font-weight-bold pt-4 pb-1">Description:</h6>
+                            <textarea id="" class="form-control bg-white" rows="7"
+                                      placeholder="Description" required></textarea>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="font-weight-bold pt-4 pb-1">Brand:</h6>
+                            <select name="brand_id" class="form-control w-100 bg-white">
+                                <c:forEach var="brand" items="${brandList}">
+                                    <option value="${brand.getBrand_id()}">${brand.getBrandname()}</option>
+                                </c:forEach>
+                            </select>
+                            <div class="price">
+                                <h6 class="font-weight-bold pt-4 pb-1">Item Price (đ VNĐ):</h6>
+                                <div class="row px-3">
+                                    <div class="col-lg-4 rounded my-2 px-0">
+                                        <input type="number" name="price" class="form-control bg-white" placeholder="Price" id="price" required>
+                                    </div>
+                                        <%--                <div class="col-lg-4 ml-lg-4 my-2 pt-2 pb-1 rounded bg-white ">--%>
+                                        <%--                  <input type="radio" name="itemName" value="Negotiable" id="Negotiable">--%>
+                                        <%--                  <label for="Negotiable" class="py-2">Negotiable</label>--%>
+                                        <%--                </div>--%>
+                                </div>
 
-            </div>
-            <div class="choose-file text-center my-4 py-4 rounded bg-white">
+                            </div>
+                            <div class="choose-file text-center my-4 py-4 rounded bg-white">
 
-            </div>
-          </div>
-        </div>
-      </fieldset>
-      <!-- Post Your ad end -->
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <!-- Post Your ad end -->
+            </c:when>
+            <c:otherwise>
+                <!-- Post Your ad start -->
+                <fieldset class="border border-gary px-3 px-md-4 py-4 mb-5">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3>Edit <b>${bike.getName()}</b></h3>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="font-weight-bold pt-4 pb-1">Vehicle Name:</h6>
+                            <input value="${bike.getName()}" name="name" type="text" class="form-control bg-white" placeholder="Vehicle Name" required>
+                            <h6 class="font-weight-bold pt-4 pb-1">Type:</h6>
+                            <select name="type_id" class="form-control w-100 bg-white">
+
+                                <c:forEach var="type" items="${typeList}">
+                                    <c:choose>
+                                        <c:when test="${bike.getType_id() == type.getType_id()}">
+                                            <option value="${type.getType_id()}" selected>${type.getTypename()}</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="${type.getType_id()}">${type.getTypename()}</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+                            </select>
+                            <h6 class="font-weight-bold pt-4 pb-1">Color:</h6>
+                            <input value="${bike.getColor()}" name="color" type="text" class="form-control bg-white" placeholder="Color" required>
+                            <h6 class="font-weight-bold pt-4 pb-1">ODO:</h6>
+                            <input value="${bike.getOdo()}" name="odo" type="number" class="form-control bg-white" placeholder="ODO" required>
+                            <h6 class="font-weight-bold pt-4 pb-1">Engine:</h6>
+                            <input value="${bike.getEngine()}" name="engine" type="text" class="form-control bg-white" placeholder="Engine" required>
+                            <h6 class="font-weight-bold pt-4 pb-1">Description:</h6>
+                            <textarea id="" class="form-control bg-white" rows="7"
+                                      placeholder="Description" required></textarea>
+                        </div>
+                        <div class="col-lg-6">
+                            <h6 class="font-weight-bold pt-4 pb-1">Brand:</h6>
+                            <select name="brand_id" class="form-control w-100 bg-white">
+                                <c:forEach var="brand" items="${brandList}">
+                                    <c:choose>
+                                        <c:when test="${bike.getBrand_id() == brand.getBrand_id()}">
+                                            <option value="${brand.getBrand_id()}" selected>${brand.getBrandname()}</option>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <option value="${brand.getBrand_id()}">${brand.getBrandname()}</option>
+                                        </c:otherwise>
+                                    </c:choose>
+                                </c:forEach>
+                            </select>
+                            <div class="price">
+                                <h6 class="font-weight-bold pt-4 pb-1">Item Price (đ VNĐ):</h6>
+                                <div class="row px-3">
+                                    <div class="col-lg-4 rounded my-2 px-0">
+                                        <input value="${bike.getPrice()}" type="number" name="price" class="form-control bg-white" placeholder="Price" id="price" required>
+                                    </div>
+                                        <%--                <div class="col-lg-4 ml-lg-4 my-2 pt-2 pb-1 rounded bg-white ">--%>
+                                        <%--                  <input type="radio" name="itemName" value="Negotiable" id="Negotiable">--%>
+                                        <%--                  <label for="Negotiable" class="py-2">Negotiable</label>--%>
+                                        <%--                </div>--%>
+                                </div>
+
+                            </div>
+                            <div class="choose-file text-center my-4 py-4 rounded bg-white">
+
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <!-- Post Your ad end -->
+            </c:otherwise>
+        </c:choose>
+
 
       <!-- seller-information start -->
 <%--      <fieldset class="border px-3 px-md-4 py-4 my-5 seller-information bg-gray">--%>
