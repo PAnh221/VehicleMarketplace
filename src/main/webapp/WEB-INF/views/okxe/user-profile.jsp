@@ -206,26 +206,7 @@
 						</form>
 					</div>
 					</div>
-					<div class="col-lg-6 col-md-6">
-						<!-- Change Email Address -->
-					<div class="widget change-email mb-0">
-						<h3 class="widget-header user">Edit Email Address</h3>
-						<form action="#">
-							<!-- Current Password -->
-							<div class="form-group">
-								<label for="current-email">Current Email</label>
-								<input type="email" class="form-control" id="current-email">
-							</div>
-							<!-- New email -->
-							<div class="form-group">
-								<label for="new-email">New email</label>
-								<input type="email" class="form-control" id="new-email">
-							</div>
-							<!-- Submit Button -->
-							<button class="btn btn-transparent">Change email</button>
-						</form>
-					</div>
-					</div>
+
 				</div>
 			</div>
 		</div>

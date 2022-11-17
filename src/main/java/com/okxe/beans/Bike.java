@@ -36,6 +36,21 @@ public class Bike {
         this.status = status;
     }
 
+    public Bike(String name, Long price, Date year, String color, String odo, int type_id, String engine, int brand_id, int user_id, String image, Date posted_date, int status) {
+        this.name = name;
+        this.price = price;
+        this.year = year;
+        this.color = color;
+        this.odo = odo;
+        this.type_id = type_id;
+        this.engine = engine;
+        this.brand_id = brand_id;
+        this.user_id = user_id;
+        this.image = image;
+        this.posted_date = posted_date;
+        this.status = status;
+    }
+
     public int getBike_id() {
         return bike_id;
     }

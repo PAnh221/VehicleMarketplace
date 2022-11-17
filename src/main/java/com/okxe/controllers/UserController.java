@@ -1,7 +1,17 @@
 package com.okxe.controllers;
+import java.security.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
+import com.okxe.beans.Bike;
+import com.okxe.beans.Brand;
+import com.okxe.beans.Type;
 import com.okxe.beans.User;
+import com.okxe.dao.BikeDAO;
+import com.okxe.dao.BrandDAO;
+import com.okxe.dao.TypeDAO;
 import com.okxe.dao.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +30,15 @@ public class UserController {
     @Autowired
     UserDAO userDAO;
 
+    @Autowired
+    BrandDAO brandDAO;
+
+    @Autowired
+    TypeDAO typeDAO;
+
+    @Autowired
+    BikeDAO bikeDAO;
+
 
     @RequestMapping("/profile")
     public String getUserProfile(ModelMap model, HttpServletRequest request) {
@@ -35,6 +54,7 @@ public class UserController {
         return "okxe/user-profile";
     }
 
+    // add post page
     @RequestMapping("/addNewPost")
     public String addNewPost(ModelMap model, HttpServletRequest request) {
         // check if user logged in
@@ -44,9 +64,51 @@ public class UserController {
             return "okxe/login";
         }
 
+        List<Brand> brandList = brandDAO.getAll();
+        List<Type> typeList = typeDAO.getAll();
 
+        model.addAttribute("brandList", brandList);
+        model.addAttribute("typeList", typeList);
 
         return "okxe/ad-listing";
+    }
+
+    // insert new post
+    @RequestMapping("/addPost")
+    public String addPost(ModelMap model, HttpServletRequest request) {
+        // check if user logged in
+        HttpSession session = request.getSession();
+        User authUser = (User) session.getAttribute("authUser");
+        if (authUser == null) {
+            return "okxe/login";
+        }
+
+        // get data
+        int user_id = authUser.getUser_id();
+        String name = request.getParameter("name");
+        Long price = Long.valueOf(request.getParameter("price"));
+//        String year = request.getParameter("year");
+        String color = request.getParameter("color");
+        String odo = request.getParameter("odo");
+        int type_id = Integer.parseInt(request.getParameter("type_id"));
+        int brand_id = Integer.parseInt(request.getParameter("brand_id"));
+        String engine = request.getParameter("engine");
+        int status = 1;
+
+        long millis=System.currentTimeMillis();
+        java.sql.Date posted_date = new java.sql.Date(millis);
+
+
+        // insert new bike
+        Bike bike = new Bike(name, price, null, color, odo, type_id, engine, brand_id, user_id, null, posted_date, status);
+        bikeDAO.insert(bike);
+
+        // redirect to my post
+        model.addAttribute("user", authUser);
+        List<Bike> bikeList = bikeDAO.getByUserId(authUser.getUser_id());
+        model.addAttribute("bikeList", bikeList);
+
+        return "okxe/dashboard-my-ads";
     }
     @RequestMapping("/updateUserProfile")
     public String updateUserProfile(ModelMap model, HttpServletRequest request) {
@@ -129,7 +191,8 @@ public class UserController {
         }
 
         model.addAttribute("user", authUser);
-
+        List<Bike> bikeList = bikeDAO.getByUserId(authUser.getUser_id());
+        model.addAttribute("bikeList", bikeList);
 
         return "okxe/dashboard-my-ads";
     }

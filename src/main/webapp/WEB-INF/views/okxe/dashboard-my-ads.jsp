@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 
@@ -178,6 +179,7 @@
                 <!-- Recently Favorited -->
                 <div class="widget dashboard-container my-adslist">
                     <h3 class="widget-header">My Ads</h3>
+
                     <table class="table table-responsive product-dashboard-table">
                         <thead>
                         <tr>
@@ -188,200 +190,47 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td class="product-thumb">
-                                <img width="80px" height="auto"
-                                     src="${pageContext.request.contextPath}/resources/images/products/products-1.jpg"
-                                     alt="image description"></td>
-                            <td class="product-details">
-                                <h3 class="title">Macbook Pro 15inch</h3>
-                                <span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-                                <span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-                                <span class="status active"><strong>Status</strong>Active</span>
-                                <span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
-                            </td>
-                            <td class="product-category"><span class="categories">Laptops</span></td>
-                            <td class="action" data-title="Action">
-                                <div class="">
-                                    <ul class="list-inline justify-content-center">
-                                        <li class="list-inline-item">
-                                            <a data-toggle="tooltip" data-placement="top" title="View" class="view"
-                                               href="${pageContext.request.contextPath}/okxe/home/category">
-                                                <i class="fa fa-eye"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a data-toggle="tooltip" data-placement="top" title="Edit" class="edit"
-                                               href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">
-                                                <i class="fa fa-pencil"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete"
-                                               href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
+                        <c:forEach var="bike" items="${bikeList}">
+                            <tr>
+                                <td class="product-thumb">
+                                    <img width="80px" height="auto"
+                                         src="${pageContext.request.contextPath}/resources/images/bikes/1/1.png"
+                                         alt="image description"></td>
+                                <td class="product-details">
+                                    <h3 class="title">${bike.getName()}</h3>
+                                    <span class="add-id"><strong>Color:</strong> ${bike.getColor()}</span>
+                                    <span><strong>Posted on: </strong><time>${bike.getPosted_date()}</time> </span>
+                                    <span class="status active"><strong>Status</strong>Active</span>
+                                    <span class="location"><strong>ODO</strong>${bike.getOdo()} km</span>
+                                </td>
+                                <td class="product-category"><span class="categories">${bike.getBrand_id()}</span></td>
+                                <td class="action" data-title="Action">
+                                    <div class="">
+                                        <ul class="list-inline justify-content-center">
+                                            <li class="list-inline-item">
+                                                <a data-toggle="tooltip" data-placement="top" title="View" class="view"
+                                                   href="${pageContext.request.contextPath}/okxe/home/category">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a data-toggle="tooltip" data-placement="top" title="Edit" class="edit"
+                                                   href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">
+                                                    <i class="fa fa-pencil"></i>
+                                                </a>
+                                            </li>
+                                            <li class="list-inline-item">
+                                                <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete"
+                                                   href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">
+                                                    <i class="fa fa-trash"></i>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                        </c:forEach>
 
-                            <td class="product-thumb">
-                                <img width="80px" height="auto"
-                                     src="${pageContext.request.contextPath}/resources/images/products/products-2.jpg"
-                                     alt="image description"></td>
-                            <td class="product-details">
-                                <h3 class="title">Study Table Combo</h3>
-                                <span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-                                <span><strong>Posted on: </strong><time>Feb 12, 2017</time> </span>
-                                <span class="status active"><strong>Status</strong>Active</span>
-                                <span class="location"><strong>Location</strong>USA</span>
-                            </td>
-                            <td class="product-category"><span class="categories">Laptops</span></td>
-                            <td class="action" data-title="Action">
-                                <div class="">
-                                    <ul class="list-inline justify-content-center">
-                                        <li class="list-inline-item">
-                                            <a data-toggle="tooltip" data-placement="top" title="View" class="view"
-                                               href="${pageContext.request.contextPath}/okxe/home/category">
-                                                <i class="fa fa-eye"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a data-toggle="tooltip" data-placement="top" title="Edit" class="edit"
-                                               href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">
-                                                <i class="fa fa-pencil"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete"
-                                               href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-
-                            <td class="product-thumb">
-                                <img width="80px" height="auto"
-                                     src="${pageContext.request.contextPath}/resources/images/products/products-3.jpg"
-                                     alt="image description"></td>
-                            <td class="product-details">
-                                <h3 class="title">Macbook Pro 15inch</h3>
-                                <span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-                                <span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-                                <span class="status active"><strong>Status</strong>Active</span>
-                                <span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
-                            </td>
-                            <td class="product-category"><span class="categories">Laptops</span></td>
-                            <td class="action" data-title="Action">
-                                <div class="">
-                                    <ul class="list-inline justify-content-center">
-                                        <li class="list-inline-item">
-                                            <a data-toggle="tooltip" data-placement="top" title="View" class="view"
-                                               href="${pageContext.request.contextPath}/okxe/home/category">
-                                                <i class="fa fa-eye"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a data-toggle="tooltip" data-placement="top" title="Edit" class="edit"
-                                               href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">
-                                                <i class="fa fa-pencil"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete"
-                                               href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-
-                            <td class="product-thumb">
-                                <img width="80px" height="auto"
-                                     src="${pageContext.request.contextPath}/resources/images/products/products-4.jpg"
-                                     alt="image description"></td>
-                            <td class="product-details">
-                                <h3 class="title">Macbook Pro 15inch</h3>
-                                <span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-                                <span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-                                <span class="status active"><strong>Status</strong>Active</span>
-                                <span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
-                            </td>
-                            <td class="product-category"><span class="categories">Laptops</span></td>
-                            <td class="action" data-title="Action">
-                                <div class="">
-                                    <ul class="list-inline justify-content-center">
-                                        <li class="list-inline-item">
-                                            <a data-toggle="tooltip" data-placement="top" title="View" class="view"
-                                               href="${pageContext.request.contextPath}/okxe/home/category">
-                                                <i class="fa fa-eye"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a data-toggle="tooltip" data-placement="top" title="Edit" class="edit"
-                                               href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">
-                                                <i class="fa fa-pencil"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete"
-                                               href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-
-                            <td class="product-thumb">
-                                <img width="80px" height="auto"
-                                     src="${pageContext.request.contextPath}/resources/images/products/products-1.jpg"
-                                     alt="image description"></td>
-                            <td class="product-details">
-                                <h3 class="title">Macbook Pro 15inch</h3>
-                                <span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-                                <span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-                                <span class="status active"><strong>Status</strong>Active</span>
-                                <span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
-                            </td>
-                            <td class="product-category"><span class="categories">Laptops</span></td>
-                            <td class="action" data-title="Action">
-                                <div class="">
-                                    <ul class="list-inline justify-content-center">
-                                        <li class="list-inline-item">
-                                            <a data-toggle="tooltip" data-placement="top" title="View" class="view"
-                                               href="${pageContext.request.contextPath}/okxe/home/category">
-                                                <i class="fa fa-eye"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a data-toggle="tooltip" data-placement="top" title="Edit" class="edit"
-                                               href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">
-                                                <i class="fa fa-pencil"></i>
-                                            </a>
-                                        </li>
-                                        <li class="list-inline-item">
-                                            <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete"
-                                               href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">
-                                                <i class="fa fa-trash"></i>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </td>
-                        </tr>
                         </tbody>
                     </table>
 
