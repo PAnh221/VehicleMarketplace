@@ -111,10 +111,6 @@
                 <input class="form-control mb-3" name="username" type="text" placeholder="Username*" required>
                 <input class="form-control mb-3" name="password" type="password" placeholder="Password*" required>
                 <input class="form-control mb-3" name="confirmpassword" type="password" placeholder="Confirm Password*" required>
-                <div class="loggedin-forgot d-inline-flex my-3">
-                <input type="checkbox" id="registering" class="mt-1">
-                <label for="registering" class="px-2">By registering, you accept our <a class="text-primary font-weight-bold" href="terms-condition.jsp">Terms & Conditions</a></label>
-              </div>
               <button type="submit" class="btn btn-primary font-weight-bold mt-3">Register Now</button>
             </fieldset>
           </form>
