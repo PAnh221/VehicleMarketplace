@@ -53,7 +53,8 @@ public class UserController {
         User user = new User(id,null, null, phone, name, location, null, CID, 1);
 
         userDAO.updatePersonalInfo(user);
-        model.addAttribute("user", user);
+
+        model.addAttribute("user", userDAO.getById(id));
         model.addAttribute("error", "Changes saved");
 
         return "okxe/user-profile";
@@ -175,11 +176,11 @@ public class UserController {
         User user = new User(username.trim(), password.trim(), name, location.trim(), CID.trim(), 1);
 
 
-        if (userDAO.getUserByUsername(user.getUsername()) != null) {
+        if (userDAO.getUserByUsername(user.getUsername()).size() != 0) {
             model.addAttribute("error", "Username already exists");
             return "okxe/register";
         }
-        if (userDAO.getUserByCID(user.getCitizen_id()).isEmpty()) {
+        if (!userDAO.getUserByCID(user.getCitizen_id()).isEmpty()) {
             model.addAttribute("error", "Citizen ID already exists");
             return "okxe/register";
         }

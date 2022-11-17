@@ -94,7 +94,7 @@
                             <li class="nav-item">
                                 <c:choose>
                                     <c:when test="${auth}">
-                                        <a class="text-black">Hi <b>${authUser.getUsername()}</b></a>
+                                        <a class="text-black">Hi <b>${authUser.getName()}</b></a>
                                         <form action="${pageContext.request.contextPath}/user/logoutUser"
                                               method="post">
                                             <button type="submit" style="border: none;

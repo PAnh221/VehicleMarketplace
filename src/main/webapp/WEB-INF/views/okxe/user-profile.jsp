@@ -149,10 +149,10 @@
 									<input name="name" type="text" class="form-control" id="last-name" value="${user.getName()}">
 								</div>
 								<!-- File chooser -->
-<%--								<div class="form-group choose-file d-inline-flex">--%>
-<%--									<i class="fa fa-user text-center px-3"></i>--%>
-<%--									<input type="file" class="form-control-file mt-2 pt-1" id="input-file">--%>
-<%--								 </div>--%>
+								<div class="form-group choose-file d-inline-flex">
+									<i class="fa fa-user text-center px-3"></i>
+									<input name="image" type="file" class="form-control-file mt-2 pt-1" id="input-file">
+								 </div>
 								<!-- Comunity Name -->
 								<div class="form-group">
 									<label for="comunity-name">Phone</label>
