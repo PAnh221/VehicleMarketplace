@@ -53,7 +53,8 @@ public class UserController {
         User user = new User(id,null, null, phone, name, location, null, CID, 1);
 
         userDAO.updatePersonalInfo(user);
-        model.addAttribute("user", user);
+
+        model.addAttribute("user", userDAO.getById(id));
         model.addAttribute("error", "Changes saved");
 
         return "okxe/user-profile";
