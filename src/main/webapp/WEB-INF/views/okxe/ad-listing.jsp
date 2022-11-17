@@ -115,7 +115,7 @@
                             <h6 class="font-weight-bold pt-4 pb-1">Engine:</h6>
                             <input name="engine" type="text" class="form-control bg-white" placeholder="Engine" required>
                             <h6 class="font-weight-bold pt-4 pb-1">Description:</h6>
-                            <textarea id="" class="form-control bg-white" rows="7"
+                            <textarea class="form-control bg-white" rows="7"
                                       placeholder="Description" required></textarea>
                         </div>
                         <div class="col-lg-6">
@@ -129,7 +129,7 @@
                                 <h6 class="font-weight-bold pt-4 pb-1">Item Price (đ VNĐ):</h6>
                                 <div class="row px-3">
                                     <div class="col-lg-4 rounded my-2 px-0">
-                                        <input type="number" name="price" class="form-control bg-white" placeholder="Price" id="price" required>
+                                        <input type="number" name="price" class="form-control bg-white" placeholder="Price" required>
                                     </div>
                                         <%--                <div class="col-lg-4 ml-lg-4 my-2 pt-2 pb-1 rounded bg-white ">--%>
                                         <%--                  <input type="radio" name="itemName" value="Negotiable" id="Negotiable">--%>
