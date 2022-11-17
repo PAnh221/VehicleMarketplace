@@ -83,14 +83,14 @@
                             <c:choose>
                                 <c:when test="${auth}">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="${pageContext.request.contextPath}/user/profile">Profile</a>
+                                        <a class="nav-link" href="${pageContext.request.contextPath}/okxe/user/profile">Profile</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="${pageContext.request.contextPath}/user/myPosts">My Posts</a>
+                                        <a class="nav-link" href="${pageContext.request.contextPath}/okxe/user/myPosts">My Posts</a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="${pageContext.request.contextPath}/user/addNewPost">Add New Post</a>
+                                        <a class="nav-link" href="${pageContext.request.contextPath}/okxe/user/addNewPost">Add New Post</a>
                                     </li>
                                 </c:when>
                             </c:choose>
@@ -102,7 +102,7 @@
                                 <c:choose>
                                     <c:when test="${auth}">
                                         <a class="text-black">Hi <b>${authUser.getName()}</b></a>
-                                        <form action="${pageContext.request.contextPath}/user/logoutUser"
+                                        <form action="${pageContext.request.contextPath}/okxe/user/logoutUser"
                                               method="post">
                                             <button type="submit" style="border: none;
                                             background: none;

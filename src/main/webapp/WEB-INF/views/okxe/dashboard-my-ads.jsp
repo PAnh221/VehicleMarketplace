@@ -110,7 +110,7 @@
                         <!-- User Name -->
                         <h5 class="text-center">${user.getName()}</h5>
                         <p>${user.getUsername()}</p>
-                        <a href="${pageContext.request.contextPath}/user/profile" class="btn btn-main-sm">Edit
+                        <a href="${pageContext.request.contextPath}/okxe/user/profile" class="btn btn-main-sm">Edit
                             Profile</a>
                     </div>
                     <!-- Dashboard Links -->
@@ -215,7 +215,7 @@
                                             </li>
                                             <li class="list-inline-item">
                                                 <a data-toggle="tooltip" data-placement="top" title="Edit" class="edit"
-                                                   href="${pageContext.request.contextPath}/user/editPost/${bike.getBike_id()}">
+                                                   href="${pageContext.request.contextPath}/okxe/user/editPost/${bike.getBike_id()}">
                                                     <i class="fa fa-pencil"></i>
                                                 </a>
                                             </li>

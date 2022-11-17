@@ -87,7 +87,7 @@
 
 <section class="advt-post bg-gray py-5">
   <div class="container">
-    <form action="${pageContext.request.contextPath}/user/addPost" method="POST">
+    <form action="${pageContext.request.contextPath}/okxe/user/addPost" method="POST">
         <c:if test="${not empty error}">
             <h6 style="color: red">${error}</h6>
         </c:if>

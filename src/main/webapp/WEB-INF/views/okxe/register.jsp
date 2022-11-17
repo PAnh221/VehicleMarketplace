@@ -103,7 +103,7 @@
           <div class="border border">
 
           <h3 class="bg-gray p-4">Register Now</h3>
-          <form action="${pageContext.request.contextPath}/user/createAccount" method="post">
+          <form action="${pageContext.request.contextPath}/okxe/user/createAccount" method="post">
             <fieldset class="p-4">
                 <input class="form-control mb-3" name="name" type="text" placeholder="Name*" required>
                 <input class="form-control mb-3" name="citizenID" type="text" placeholder="CitizenID*" required>

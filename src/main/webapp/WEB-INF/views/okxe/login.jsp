@@ -101,7 +101,7 @@
           </c:if>
         <div class="border">
           <h3 class="bg-gray p-4">Login Now</h3>
-          <form  action="${pageContext.request.contextPath}/user/loginUser" method="post">
+          <form  action="${pageContext.request.contextPath}/okxe/user/loginUser" method="post">
             <fieldset class="p-4">
               <input class="form-control mb-3" type="text" placeholder="Username" name="username" required>
               <input class="form-control mb-3" type="password" placeholder="Password" name="password" required>

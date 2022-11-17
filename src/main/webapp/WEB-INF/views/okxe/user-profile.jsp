@@ -134,7 +134,7 @@
 						</c:if>
 						<div class="widget personal-info">
 							<h3 class="widget-header user">Edit Personal Information</h3>
-							<form action="${pageContext.request.contextPath}/user/updateUserProfile" method="post">
+							<form action="${pageContext.request.contextPath}/okxe/user/updateUserProfile" method="post">
 								<input hidden="hidden" name="id" type="text" class="form-control" value="${user.getUser_id()}">
 
 								<!-- First Name -->
@@ -183,7 +183,7 @@
 						<!-- Change Password -->
 					<div class="widget change-password">
 						<h3 class="widget-header user">Edit Password</h3>
-						<form action="${pageContext.request.contextPath}/user/changePassword" method="post">
+						<form action="${pageContext.request.contextPath}/okxe/user/changePassword" method="post">
 							<!-- Current Password -->
 							<input hidden="hidden" name="id" type="text" class="form-control" value="${user.getUser_id()}">
 

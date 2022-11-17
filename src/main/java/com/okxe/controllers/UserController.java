@@ -26,7 +26,7 @@ import javax.servlet.http.HttpSession;
 
 
 @Controller
-@RequestMapping("/user/")
+@RequestMapping("okxe/user/")
 public class UserController {
     @Autowired
     UserDAO userDAO;
