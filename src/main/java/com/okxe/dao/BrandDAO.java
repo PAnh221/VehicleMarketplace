@@ -57,7 +57,7 @@ public class BrandDAO {
     }
 
     public void delete(Serializable id) {
-        String sql = "DELETE FROM bike WHERE bike_id=?";
+        String sql = "DELETE FROM bike WHERE brand_id=?";
         jdbc.update(sql, id);
     }
 }
