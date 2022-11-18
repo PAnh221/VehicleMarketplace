@@ -228,7 +228,7 @@
                                             </li>
                                             <li class="list-inline-item">
                                                 <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete"
-                                                   href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">
+                                                   href="${pageContext.request.contextPath}/okxe/bike/delete/${bike.getBike_id()}">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
                                             </li>
@@ -242,39 +242,6 @@
                     </table>
 
                 </div>
-
-                <!-- pagination -->
-                <div class="pagination justify-content-center">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="page-link" href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds"
-                                   aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link"
-                                                     href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">1</a>
-                            </li>
-                            <li class="page-item active"><a class="page-link"
-                                                            href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">2</a>
-                            </li>
-                            <li class="page-item"><a class="page-link"
-                                                     href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds"
-                                   aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <!-- pagination -->
-
             </div>
         </div>
         <!-- Row End -->

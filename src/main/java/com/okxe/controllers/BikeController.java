@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 
 @Controller
 public class BikeController {
@@ -99,5 +102,24 @@ public class BikeController {
         }
     }
 
+    @RequestMapping("okxe/bike/delete/{bikeId}")
+    public String deleteBike(ModelMap model, @PathVariable Integer bikeId, HttpServletRequest request) {
+        Bike b = bikeDAO.getById(bikeId);
+        HttpSession session = request.getSession();
+        User authUser = (User) session.getAttribute("authUser");
+        if (authUser == null) {
+            return "okxe/login";
+        }
+        if(b.getUser_id()!=authUser.getUser_id()){
+            model.addAttribute("message", "You are not the owner of this post! Please try login another account");
+            return "okxe/404";
+        } else {
+            bikeDAO.delete(bikeId);
+            model.addAttribute("user", authUser);
+            List<Bike> bikeList = bikeDAO.getByUserId(authUser.getUser_id());
+            model.addAttribute("bikeList", bikeList);
+            return "okxe/dashboard-my-ads";
+        }
+    }
 
 }
