@@ -114,6 +114,52 @@ public class UserController {
         return "okxe/dashboard-my-ads";
     }
 
+    // deactive post
+    @RequestMapping("/deactivePost/{bike_id}")
+    public String deactivePost(ModelMap model,@PathVariable String
+            bike_id, HttpServletRequest request) {
+        // check if user logged in
+        HttpSession session = request.getSession();
+        User authUser = (User) session.getAttribute("authUser");
+        if (authUser == null) {
+            return "okxe/login";
+        }
+
+        // get data
+        int user_id = authUser.getUser_id();
+
+        List<Bike> bikeList = bikeDAO.getBikeById(Integer.parseInt(bike_id));
+
+        // check if bike not exist
+        if (bikeList.size() == 0) {
+            return "okxe/404";
+        }
+
+        // get bike info from bike id
+        Bike bikeInfo = bikeList.get(0);
+
+        // check if seller deactive
+        if (user_id != bikeInfo.getUser_id()) {
+            return "okxe/404";
+        }
+
+
+//        long millis=System.currentTimeMillis();
+//        java.sql.Date posted_date = new java.sql.Date(millis);
+
+        // deactive bike
+//        bikeDAO.deactivateBike(Integer.parseInt(bike_id));
+
+        // redirect to my post
+        model.addAttribute("user", authUser);
+        List<Bike> bikes = bikeDAO.getByUserId(authUser.getUser_id());
+        model.addAttribute("bikeList", bikes);
+
+        return "okxe/dashboard-my-ads";
+    }
+
+
+
     // trang edit post
     @RequestMapping("/editPost/{bike_id}")
     public String editPost(ModelMap model, @PathVariable String

@@ -200,7 +200,14 @@
                                     <h3 class="title">${bike.getName()}</h3>
                                     <span class="add-id"><strong>Color:</strong> ${bike.getColor()}</span>
                                     <span><strong>Posted on: </strong><time>${bike.getPosted_date()}</time> </span>
-                                    <span class="status active"><strong>Status</strong>Active</span>
+                                    <c:choose>
+                                        <c:when test="${bike.getStatus() == 1}">
+                                            <span class="status active"><strong>Status</strong>Active</span>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <span class="status deactive"><strong>Status</strong>Not active</span>
+                                        </c:otherwise>
+                                    </c:choose>
                                     <span class="location"><strong>ODO</strong>${bike.getOdo()} km</span>
                                 </td>
                                 <td class="product-category"><span class="categories">${bike.getBrand_id()}</span></td>
