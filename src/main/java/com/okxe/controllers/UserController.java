@@ -114,9 +114,9 @@ public class UserController {
         return "okxe/dashboard-my-ads";
     }
 
-    // deactive post
-    @RequestMapping("/deactivePost/{bike_id}")
-    public String deactivePost(ModelMap model,@PathVariable String
+    // edit post
+    @RequestMapping("/postEdit/{bike_id}")
+    public String postEdit(ModelMap model,@PathVariable String
             bike_id, HttpServletRequest request) {
         // check if user logged in
         HttpSession session = request.getSession();
@@ -143,12 +143,22 @@ public class UserController {
             return "okxe/404";
         }
 
+        String name = request.getParameter("name");
+        Long price = Long.valueOf(request.getParameter("price"));
+//        String year = request.getParameter("year");
+        String color = request.getParameter("color");
+        String odo = request.getParameter("odo");
+        int type_id = Integer.parseInt(request.getParameter("type_id"));
+        int brand_id = Integer.parseInt(request.getParameter("brand_id"));
+        String engine = request.getParameter("engine");
+        int status = Integer.parseInt(request.getParameter("status"));
 
-//        long millis=System.currentTimeMillis();
-//        java.sql.Date posted_date = new java.sql.Date(millis);
+        long millis=System.currentTimeMillis();
+        java.sql.Date posted_date = new java.sql.Date(millis);
 
-        // deactive bike
-//        bikeDAO.deactivateBike(Integer.parseInt(bike_id));
+        Bike bike = new Bike(Integer.parseInt(bike_id), name, price, null, color, odo, type_id, engine, brand_id, authUser.getUser_id(), null, posted_date, status);
+        // edit bike
+        bikeDAO.update(bike);
 
         // redirect to my post
         model.addAttribute("user", authUser);
@@ -170,11 +180,6 @@ public class UserController {
         if (authUser == null) {
             return "okxe/login";
         }
-
-        // check null bikeid
-//        if (bike_id == null) {
-//            return "okxe/404";
-//        }
 
         Bike bike = bikeDAO.getById(bike_id);
         // check if seller edit post
@@ -289,15 +294,6 @@ public class UserController {
 
     @RequestMapping("/loginUser")
     public String loginUser(ModelMap model, HttpServletRequest request) {
-//        String id = request.getParameter("id");
-//        String pw = request.getParameter("password");
-//        if (id.equals("admin") && pw.equals("admin")) {
-//            model.addAttribute("uid", id);
-//            model.addAttribute("pwd", pw);
-//            return "info";
-//        }
-//        model.addAttribute("thongbao", "Sai thong tin dang nhap");
-//        return "trangchu";
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");
