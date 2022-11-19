@@ -164,7 +164,7 @@
     </form>
             </c:when>
             <c:otherwise>
-        <form action="${pageContext.request.contextPath}/okxe/user/postEdit/${bike_id}" method="POST" enctype="multipart/form-data">
+        <form action="${pageContext.request.contextPath}/okxe/user/postEdit/${bike_id}" method="POST">
 
         <!-- Post Your ad start -->
                 <fieldset class="border border-gary px-3 px-md-4 py-4 mb-5">

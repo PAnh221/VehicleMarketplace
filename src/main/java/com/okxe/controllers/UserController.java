@@ -141,14 +141,13 @@ public class UserController {
         List<Bike> bikeList = bikeDAO.getByUserId(authUser.getUser_id());
         model.addAttribute("bikeList", bikeList);
 
-        String contextPath = request.getContextPath();
         return "redirect:/okxe/user/myPosts";
     }
 
     // edit post
     @RequestMapping("/postEdit/{bike_id}")
     public String postEdit(ModelMap model,@PathVariable String
-            bike_id, @RequestParam CommonsMultipartFile file, HttpServletRequest request) {
+            bike_id, HttpServletRequest request) {
         // check if user logged in
         HttpSession session = request.getSession();
         User authUser = (User) session.getAttribute("authUser");
@@ -196,7 +195,7 @@ public class UserController {
         List<Bike> bikes = bikeDAO.getByUserId(authUser.getUser_id());
         model.addAttribute("bikeList", bikes);
 
-        return "okxe/dashboard-my-ads";
+        return "redirect:/okxe/user/myPosts";
     }
 
 
