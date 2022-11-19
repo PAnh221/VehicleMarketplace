@@ -76,6 +76,14 @@ public class BikeDAO {
         jdbc.update(sql, id);
     }
 
+    public List<Bike> getLastRow() {
+        String sql = "SELECT * " +
+                "FROM bike " +
+                "ORDER BY bike_id " +
+                "DESC LIMIT 0, 1\n";
+        return getBySql(sql);
+    }
+
 
 
 

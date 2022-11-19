@@ -194,7 +194,7 @@
                             <tr>
                                 <td class="product-thumb">
                                     <img width="80px" height="auto"
-                                         src="${pageContext.request.contextPath}/resources/images/bikes/1/1.png"
+                                         src="${pageContext.request.contextPath}/resources/images/bikes/${bike.getImage()}.png"
                                          alt="image description"></td>
                                 <td class="product-details">
                                     <h3 class="title">${bike.getName()}</h3>

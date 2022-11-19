@@ -92,9 +92,7 @@
   <div class="container">
       <c:choose>
       <c:when test="${action=='add'}">
-    <form action="${pageContext.request.contextPath}/okxe/user/addPost" method="POST">
-
-
+    <form action="${pageContext.request.contextPath}/okxe/user/addPost" method="POST" enctype="multipart/form-data">
                 <!-- Post Your ad start -->
                 <fieldset class="border border-gary px-3 px-md-4 py-4 mb-5">
                     <div class="row">
@@ -154,9 +152,10 @@
                                     <span class="d-block">or</span>
                                     <span class="d-block btn bg-primary text-white my-3 select-files">Select files</span>
                                     <span class="d-block">Maximum upload file size: 500 KB</span>
-                                    <input type="file" class="form-control-file d-none" name="file">
+                                    <input type="file" class="form-control-file d-none" id="file-upload" name="file">
                                 </label>
                             </div>
+
                         </div>
                     </div>
                 </fieldset>
@@ -165,7 +164,7 @@
     </form>
             </c:when>
             <c:otherwise>
-        <form action="${pageContext.request.contextPath}/okxe/user/postEdit/${bike_id}" method="POST">
+        <form action="${pageContext.request.contextPath}/okxe/user/postEdit/${bike_id}" method="POST" enctype="multipart/form-data">
 
         <!-- Post Your ad start -->
                 <fieldset class="border border-gary px-3 px-md-4 py-4 mb-5">
@@ -235,15 +234,15 @@
                                     <option value="2">Inactive</option>
                                 </select>
                             </div>
-                            <div class="choose-file text-center my-4 py-4 rounded bg-white">
-                                <label for="file-upload">
-                                    <span class="d-block font-weight-bold text-dark">Drop files anywhere to upload</span>
-                                    <span class="d-block">or</span>
-                                    <span class="d-block btn bg-primary text-white my-3 select-files">Select files</span>
-                                    <span class="d-block">Maximum upload file size: 500 KB</span>
-                                    <input type="file" class="form-control-file d-none" id="file-upload" name="file">
-                                </label>
-                            </div>
+<%--                            <div class="choose-file text-center my-4 py-4 rounded bg-white">--%>
+<%--                                <label for="file-upload">--%>
+<%--                                    <span class="d-block font-weight-bold text-dark">Drop files anywhere to upload</span>--%>
+<%--                                    <span class="d-block">or</span>--%>
+<%--                                    <span class="d-block btn bg-primary text-white my-3 select-files">Select files</span>--%>
+<%--                                    <span class="d-block">Maximum upload file size: 500 KB</span>--%>
+<%--                                    <input type="file" class="form-control-file d-none" name="file">--%>
+<%--                                </label>--%>
+<%--                            </div>--%>
                         </div>
                     </div>
                 </fieldset>

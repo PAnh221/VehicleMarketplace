@@ -1,4 +1,7 @@
 package com.okxe.controllers;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.security.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -13,13 +16,13 @@ import com.okxe.dao.BikeDAO;
 import com.okxe.dao.BrandDAO;
 import com.okxe.dao.TypeDAO;
 import com.okxe.dao.UserDAO;
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import org.springframework.web.servlet.view.RedirectView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -28,6 +31,8 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("okxe/user/")
 public class UserController {
+    private static final String UPLOAD_DIRECTORY ="/WEB-INF/resources/images/bikes";
+
     @Autowired
     UserDAO userDAO;
 
@@ -76,9 +81,10 @@ public class UserController {
         return "okxe/ad-listing";
     }
 
+
     // insert new post
-    @RequestMapping("/addPost")
-    public String addPost(ModelMap model, HttpServletRequest request) {
+    @RequestMapping(value = "/addPost", method = RequestMethod.POST)
+    public String addPost(ModelMap model, @RequestParam CommonsMultipartFile file, HttpServletRequest request) {
         // check if user logged in
         HttpSession session = request.getSession();
         User authUser = (User) session.getAttribute("authUser");
@@ -101,9 +107,33 @@ public class UserController {
         long millis=System.currentTimeMillis();
         java.sql.Date posted_date = new java.sql.Date(millis);
 
+        // get image
+        String path=session.getServletContext().getRealPath(UPLOAD_DIRECTORY);
+        List<Bike> last = bikeDAO.getLastRow();
+        int dir = 0;
+        if (last.size() == 0) {
+            dir = 0;
+        }
+        else {
+            dir = last.get(0).getBike_id() + 1;
+        }
+
+        String filename= Integer.toString(dir) + ".png";
+
+        System.out.println(path+" "+filename);
+        try{
+            byte barr[]=file.getBytes();
+
+            BufferedOutputStream bout=new BufferedOutputStream(
+                    new FileOutputStream(path+"/"+filename));
+            bout.write(barr);
+            bout.flush();
+            bout.close();
+
+        }catch(Exception e){System.out.println(e);}
 
         // insert new bike
-        Bike bike = new Bike(name, price, null, color, odo, type_id, engine, brand_id, user_id, null, posted_date, status);
+        Bike bike = new Bike(name, price, null, color, odo, type_id, engine, brand_id, user_id, Integer.toString(dir), posted_date, status);
         bikeDAO.insert(bike);
 
         // redirect to my post
@@ -111,13 +141,14 @@ public class UserController {
         List<Bike> bikeList = bikeDAO.getByUserId(authUser.getUser_id());
         model.addAttribute("bikeList", bikeList);
 
-        return "okxe/dashboard-my-ads";
+        String contextPath = request.getContextPath();
+        return "redirect:/okxe/user/myPosts";
     }
 
     // edit post
     @RequestMapping("/postEdit/{bike_id}")
     public String postEdit(ModelMap model,@PathVariable String
-            bike_id, HttpServletRequest request) {
+            bike_id, @RequestParam CommonsMultipartFile file, HttpServletRequest request) {
         // check if user logged in
         HttpSession session = request.getSession();
         User authUser = (User) session.getAttribute("authUser");

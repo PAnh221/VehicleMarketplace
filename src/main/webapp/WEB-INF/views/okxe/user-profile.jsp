@@ -109,16 +109,17 @@
 						</div>
 						<!-- User Name -->
 						<h5 class="text-center">${user.getName()}</h5>
+						<h6 class="text-center">${user.getUsername()}</h6>
 					</div>
 					<!-- Dashboard Links -->
-          <div class="widget user-dashboard-menu">
-            <ul>
-              <li><a href="${pageContext.request.contextPath}/okxe/home/index">Savings Dashboard</a></li>
-              <li><a href="${pageContext.request.contextPath}/okxe/home/index">Saved Offer <span>(5)</span></a></li>
-              <li><a href="${pageContext.request.contextPath}/okxe/home/index">Favourite Stores <span>(3)</span></a></li>
-              <li><a href="${pageContext.request.contextPath}/okxe/home/index">Recommended</a></li>
-            </ul>
-          </div>
+<%--          <div class="widget user-dashboard-menu">--%>
+<%--            <ul>--%>
+<%--              <li><a href="${pageContext.request.contextPath}/okxe/home/index">Savings Dashboard</a></li>--%>
+<%--              <li><a href="${pageContext.request.contextPath}/okxe/home/index">Saved Offer <span>(5)</span></a></li>--%>
+<%--              <li><a href="${pageContext.request.contextPath}/okxe/home/index">Favourite Stores <span>(3)</span></a></li>--%>
+<%--              <li><a href="${pageContext.request.contextPath}/okxe/home/index">Recommended</a></li>--%>
+<%--            </ul>--%>
+<%--          </div>--%>
 				</div>
 			</div>
 			<div class="col-lg-8">
