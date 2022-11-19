@@ -32,6 +32,7 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("okxe/user/")
 public class UserController {
     private static final String UPLOAD_DIRECTORY ="/WEB-INF/resources/images/bikes";
+    private static final String UPLOAD_AVATAR_DIRECTORY ="/WEB-INF/resources/images/avatars";
 
     @Autowired
     UserDAO userDAO;
@@ -92,6 +93,19 @@ public class UserController {
             return "okxe/login";
         }
 
+        // check null img
+        if (file.getSize() <= 0) {
+            model.addAttribute("error", "Please select your vehicle's image");
+            List<Brand> brandList = brandDAO.getAll();
+            List<Type> typeList = typeDAO.getAll();
+
+            model.addAttribute("brandList", brandList);
+            model.addAttribute("typeList", typeList);
+            model.addAttribute("bike", new Bike());
+            model.addAttribute("action", "add");
+            return "okxe/ad-listing";
+        }
+
         // get data
         int user_id = authUser.getUser_id();
         String name = request.getParameter("name");
@@ -121,6 +135,9 @@ public class UserController {
         String filename= Integer.toString(dir) + ".png";
 
         System.out.println(path+" "+filename);
+
+
+
         try{
             byte barr[]=file.getBytes();
 
@@ -132,8 +149,8 @@ public class UserController {
 
         }catch(Exception e){System.out.println(e);}
 
-        // insert new bike
         Bike bike = new Bike(name, price, null, color, odo, type_id, engine, brand_id, user_id, Integer.toString(dir), posted_date, status);
+        // insert new bike
         bikeDAO.insert(bike);
 
         // redirect to my post
@@ -142,6 +159,67 @@ public class UserController {
         model.addAttribute("bikeList", bikeList);
 
         return "redirect:/okxe/user/myPosts";
+    }
+    @RequestMapping("/updateUserProfile")
+    public String updateUserProfile(ModelMap model, @RequestParam(value = "file", required = false) CommonsMultipartFile file, HttpServletRequest request) {
+        // check if user logged in
+        HttpSession session = request.getSession();
+        User authUser = (User) session.getAttribute("authUser");
+        if (authUser == null) {
+            return "okxe/login";
+        }
+
+        int id = Integer.valueOf(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String phone = request.getParameter("phone");
+        String location = request.getParameter("location");
+        String CID = request.getParameter("CID");
+
+
+        // get image
+        String path=session.getServletContext().getRealPath(UPLOAD_AVATAR_DIRECTORY);
+        int dir = authUser.getUser_id();
+
+        String filename = Integer.toString(dir) + ".png";
+
+        System.out.println(path+" "+filename);
+
+        User user = new User();
+
+        // check null image
+        if (file.getSize() > 0) {
+            try{
+                byte barr[]=file.getBytes();
+
+                BufferedOutputStream bout=new BufferedOutputStream(
+                        new FileOutputStream(path+"/"+filename));
+                bout.write(barr);
+                bout.flush();
+                bout.close();
+
+            }catch(Exception e){System.out.println(e);}
+            user = new User(id,null, null, phone, name, location, Integer.toString(authUser.getUser_id()), CID, 1);
+        }
+        else {
+            // get updated user
+            User u = userDAO.getById(authUser.getUser_id());
+            if (u.getImage() != null) {
+                user = new User(id,null, null, phone, name, location, Integer.toString(authUser.getUser_id()), CID, 1);
+            }
+            else {
+                user = new User(id,null, null, phone, name, location, null, CID, 1);
+
+            }
+        }
+
+        //
+
+        userDAO.updatePersonalInfo(user);
+
+        model.addAttribute("user", userDAO.getById(id));
+        model.addAttribute("error", "Changes saved");
+
+        return "okxe/user-profile";
     }
 
     // edit post
@@ -227,30 +305,7 @@ public class UserController {
 
         return "okxe/ad-listing";
     }
-    @RequestMapping("/updateUserProfile")
-    public String updateUserProfile(ModelMap model, HttpServletRequest request) {
-        // check if user logged in
-        HttpSession session = request.getSession();
-        User authUser = (User) session.getAttribute("authUser");
-        if (authUser == null) {
-            return "okxe/login";
-        }
 
-        int id = Integer.valueOf(request.getParameter("id"));
-        String name = request.getParameter("name");
-        String phone = request.getParameter("phone");
-        String location = request.getParameter("location");
-        String CID = request.getParameter("CID");
-
-        User user = new User(id,null, null, phone, name, location, null, CID, 1);
-
-        userDAO.updatePersonalInfo(user);
-
-        model.addAttribute("user", userDAO.getById(id));
-        model.addAttribute("error", "Changes saved");
-
-        return "okxe/user-profile";
-    }
 
     @RequestMapping("/changePassword")
     public String changePassword(ModelMap model, HttpServletRequest request) {

@@ -66,9 +66,9 @@ public class UserDAO {
     public void updatePersonalInfo(User entity) {
         String sql =
                 "update okxe.user\n" +
-                        "set name=?, phone=?, location=?, citizen_id=?\n" +
+                        "set name=?, phone=?, location=?, citizen_id=?, image=?\n" +
                         "where user_id = ?;";
-        jdbc.update(sql, entity.getName(), entity.getPhone(), entity.getLocation(), entity.getCitizen_id(), entity.getUser_id());
+        jdbc.update(sql, entity.getName(), entity.getPhone(), entity.getLocation(), entity.getCitizen_id(), entity.getImage() , entity.getUser_id());
     }
 
     public void changePassword(User entity) {

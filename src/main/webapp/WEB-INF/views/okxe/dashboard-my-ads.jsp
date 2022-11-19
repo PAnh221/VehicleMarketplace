@@ -194,8 +194,15 @@
                             <tr>
                                 <td class="product-thumb">
                                     <img width="80px" height="auto"
+                                    <c:choose>
+                                        <c:when test = "${bike.getImage() != null}">
                                          src="${pageContext.request.contextPath}/resources/images/bikes/${bike.getImage()}.png"
-                                         alt="image description"></td>
+                                         alt="image description"></td>                                        </c:when>
+                                        <c:otherwise>
+                                            <img src="${pageContext.request.contextPath}/images/favicon.png" alt="" class="">
+                                        </c:otherwise>
+                                    </c:choose>
+
                                 <td class="product-details">
                                     <h3 class="title">${bike.getName()}</h3>
                                     <span class="add-id"><strong>Color:</strong> ${bike.getColor()}</span>

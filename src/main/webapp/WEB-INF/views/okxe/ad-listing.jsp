@@ -86,10 +86,11 @@
 </header>
 
 <section class="advt-post bg-gray py-5">
-    <c:if test="${not empty error}">
-        <h6 style="color: red">${error}</h6>
-    </c:if>
+
   <div class="container">
+      <c:if test="${not empty error}">
+          <h6 style="color: red">${error}</h6>
+      </c:if>
       <c:choose>
       <c:when test="${action=='add'}">
     <form action="${pageContext.request.contextPath}/okxe/user/addPost" method="POST" enctype="multipart/form-data">
@@ -116,7 +117,7 @@
                             <input name="engine" type="text" class="form-control bg-white" placeholder="Engine" required>
                             <h6 class="font-weight-bold pt-4 pb-1">Description:</h6>
                             <textarea class="form-control bg-white" rows="7"
-                                      placeholder="Description" required></textarea>
+                                      placeholder="Description"></textarea>
                         </div>
                         <div class="col-lg-6">
                             <h6 class="font-weight-bold pt-4 pb-1">Brand:</h6>
@@ -148,11 +149,11 @@
                             </div>
                             <div class="choose-file text-center my-4 py-4 rounded bg-white">
                                 <label for="file-upload">
-                                    <span class="d-block font-weight-bold text-dark">Drop files anywhere to upload</span>
-                                    <span class="d-block">or</span>
+                                    <span class="d-block font-weight-bold text-dark">Vehicle's image</span>
+<%--                                    <span class="d-block">or</span>--%>
                                     <span class="d-block btn bg-primary text-white my-3 select-files">Select files</span>
-                                    <span class="d-block">Maximum upload file size: 500 KB</span>
-                                    <input type="file" class="form-control-file d-none" id="file-upload" name="file">
+<%--                                    <span class="d-block">Maximum upload file size: 500 KB</span>--%>
+                                    <input type="file" class="form-control-file d-none" id="file-upload" name="file" >
                                 </label>
                             </div>
 
@@ -197,7 +198,7 @@
                             <input value="${bike.getEngine()}" name="engine" type="text" class="form-control bg-white" placeholder="Engine" required>
                             <h6 class="font-weight-bold pt-4 pb-1">Description:</h6>
                             <textarea id="" class="form-control bg-white" rows="7"
-                                      placeholder="Description" required></textarea>
+                                      placeholder="Description"></textarea>
                         </div>
                         <div class="col-lg-6">
                             <h6 class="font-weight-bold pt-4 pb-1">Brand:</h6>
