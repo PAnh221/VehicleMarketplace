@@ -50,13 +50,13 @@ public class UserController {
     @RequestMapping("/profile")
     public String getUserProfile(ModelMap model, HttpServletRequest request) {
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("authUser");
+        User authUser = (User) session.getAttribute("authUser");
 
-        if(user == null){
+        if(authUser == null){
             return "okxe/404";
         }
         else{
-            model.addAttribute("user", user);
+            model.addAttribute("user", userDAO.getById(authUser.getUser_id()));
         }
         return "okxe/user-profile";
     }
@@ -154,7 +154,7 @@ public class UserController {
         bikeDAO.insert(bike);
 
         // redirect to my post
-        model.addAttribute("user", authUser);
+        model.addAttribute("user", userDAO.getById(authUser.getUser_id()));
         List<Bike> bikeList = bikeDAO.getByUserId(authUser.getUser_id());
         model.addAttribute("bikeList", bikeList);
 
@@ -354,17 +354,29 @@ public class UserController {
         return "okxe/index";
     }
 
-    @RequestMapping("/myPosts")
-    public String myPosts(ModelMap model, HttpServletRequest request) {
+    @RequestMapping("/userPosts/{user_id}")
+    public String userPosts(ModelMap model,@PathVariable String
+            user_id,  HttpServletRequest request) {
+
         HttpSession session = request.getSession();
         User authUser = (User) session.getAttribute("authUser");
         if (authUser == null) {
             return "okxe/login";
         }
 
-        model.addAttribute("user", authUser);
-        List<Bike> bikeList = bikeDAO.getByUserId(authUser.getUser_id());
-        model.addAttribute("bikeList", bikeList);
+        // if check self posts
+        if (authUser.getUser_id() == Integer.parseInt(user_id)) {
+            model.addAttribute("user", userDAO.getById(authUser.getUser_id()));
+            List<Bike> bikeList = bikeDAO.getByUserId(authUser.getUser_id());
+            model.addAttribute("bikeList", bikeList);
+        }
+        else {
+            model.addAttribute("user", userDAO.getById(Integer.parseInt(user_id)));
+            List<Bike> bikeList = bikeDAO.getByUserId(Integer.parseInt(user_id));
+            model.addAttribute("bikeList", bikeList);
+        }
+
+
 
         return "okxe/dashboard-my-ads";
     }

@@ -104,43 +104,23 @@
                     <div class="widget user-dashboard-profile">
                         <!-- User Image -->
                         <div class="profile-thumb">
-                            <img src="${pageContext.request.contextPath}/resources/images/user/user-thumb.jpg" alt=""
-                                 class="rounded-circle">
+                            <c:choose>
+                                <c:when test = "${user.getImage() != null}">
+                                    <img src="${pageContext.request.contextPath}/images/avatars/${user.getImage()}.png" alt=""
+                                         class="rounded-circle">
+                                </c:when>
+                                <c:otherwise>
+                                    <img src="${pageContext.request.contextPath}/resources/images/user/user-thumb.jpg" alt=""
+                                         class="rounded-circle">                                </c:otherwise>
+                            </c:choose>
+
                         </div>
                         <!-- User Name -->
                         <h5 class="text-center">${user.getName()}</h5>
                         <p>${user.getUsername()}</p>
-                        <a href="${pageContext.request.contextPath}/okxe/user/profile" class="btn btn-main-sm">Edit
-                            Profile</a>
+
                     </div>
-                    <!-- Dashboard Links -->
-                    <div class="widget user-dashboard-menu">
-                        <ul>
-                            <li class="active">
-                                <a href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds"><i
-                                        class="fa fa-user"></i> My Ads</a></li>
-                            <li>
-                                <a href="${pageContext.request.contextPath}/okxe/home/dashboardFavouriteAds"><i
-                                        class="fa fa-bookmark-o"></i> Favourite Ads <span>5</span></a>
-                            </li>
-                            <li>
-                                <a href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds"><i
-                                        class="fa fa-file-archive-o"></i>Archeved Ads <span>12</span></a>
-                            </li>
-                            <li>
-                                <a href="${pageContext.request.contextPath}/okxe/home/dashboardPendingAds"><i
-                                        class="fa fa-bolt"></i> Pending Approval<span>23</span></a>
-                            </li>
-                            <li>
-                                <a href="${pageContext.request.contextPath}/okxe/home/index"><i class="fa fa-cog"></i>
-                                    Logout</a>
-                            </li>
-                            <li>
-                                <a href="#!" data-toggle="modal" data-target="#deleteaccount"><i
-                                        class="fa fa-power-off"></i>Delete Account</a>
-                            </li>
-                        </ul>
-                    </div>
+
 
                     <!-- delete-account modal -->
                     <!-- delete account popup modal start-->
@@ -178,7 +158,7 @@
             <div class="col-lg-8">
                 <!-- Recently Favorited -->
                 <div class="widget dashboard-container my-adslist">
-                    <h3 class="widget-header">My Ads</h3>
+                    <h3 class="widget-header">Posts</h3>
 
                     <table class="table table-responsive product-dashboard-table">
                         <thead>
