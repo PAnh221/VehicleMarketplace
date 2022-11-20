@@ -180,12 +180,12 @@
 				<div class="sidebar">
 					<div class="widget price text-center">
 						<h4>Price</h4>
-						<p>${bike.price}</p>
+						<p>${bike.price} đ</p>
 					</div>
 					<!-- User Profile widget -->
 					<div class="widget user text-center">
-						<img class="rounded-circle img-fluid mb-5 px-5" src="${pageContext.request.contextPath}/resources/images/user/user-thumb.jpg" alt="">
-						<h4><a href="${pageContext.request.contextPath}/okxe/home/userProfile/${seller.user_id}">${seller.name}</a></h4>
+						<img class="rounded-circle img-fluid mb-5 px-5" src="${pageContext.request.contextPath}/resources/images/avatars/${seller.image}.png" alt="">
+						<h4><a href="${pageContext.request.contextPath}/okxe/user/userPosts/${seller.user_id}">${seller.name}</a></h4>
 						<p class="member-time">${seller.location}</p>
 					</div>
 				</div>

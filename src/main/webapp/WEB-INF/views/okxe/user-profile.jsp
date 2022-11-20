@@ -105,7 +105,14 @@
 					<div class="widget user">
 						<!-- User Image -->
 						<div class="image d-flex justify-content-center">
-							<img src="${pageContext.request.contextPath}/images/user/user-thumb.jpg" alt="" class="">
+							<c:choose>
+								<c:when test = "${user.getImage() != null}">
+									<img src="${pageContext.request.contextPath}/images/avatars/${user.getImage()}.png" alt="" class="">
+								</c:when>
+								<c:otherwise>
+									<img src="${pageContext.request.contextPath}/images/user/user-thumb.jpg" alt="" class="">
+								</c:otherwise>
+							</c:choose>
 						</div>
 						<!-- User Name -->
 						<h5 class="text-center">${user.getName()}</h5>
@@ -113,11 +120,10 @@
 					<!-- Dashboard Links -->
           <div class="widget user-dashboard-menu">
             <ul>
-              <li><a href="${pageContext.request.contextPath}/okxe/home/index">Savings Dashboard</a></li>
-              <li><a href="${pageContext.request.contextPath}/okxe/home/index">Saved Offer <span>(5)</span></a></li>
-              <li><a href="${pageContext.request.contextPath}/okxe/home/index">Favourite Stores <span>(3)</span></a></li>
-              <li><a href="${pageContext.request.contextPath}/okxe/home/index">Recommended</a></li>
-            </ul>
+				<li><a href="${pageContext.request.contextPath}/okxe/user/myPosts">My posts</a></li>
+				<li><a href="${pageContext.request.contextPath}/okxe/user/orders">My pending orders</a></li>
+				<li><a href="${pageContext.request.contextPath}/okxe/user/order-requests">My request deals</a></li>
+			</ul>
           </div>
 				</div>
 			</div>
@@ -134,7 +140,7 @@
 						</c:if>
 						<div class="widget personal-info">
 							<h3 class="widget-header user">Edit Personal Information</h3>
-							<form action="${pageContext.request.contextPath}/okxe/user/updateUserProfile" method="post">
+							<form action="${pageContext.request.contextPath}/okxe/user/updateUserProfile" method="post" enctype="multipart/form-data">
 								<input hidden="hidden" name="id" type="text" class="form-control" value="${user.getUser_id()}">
 
 								<!-- First Name -->
@@ -151,7 +157,7 @@
 								<!-- File chooser -->
 								<div class="form-group choose-file d-inline-flex">
 									<i class="fa fa-user text-center px-3"></i>
-									<input name="image" type="file" class="form-control-file mt-2 pt-1" id="input-file">
+									<input name="file" type="file" class="form-control-file mt-2 pt-1" id="input-file">
 								 </div>
 								<!-- Comunity Name -->
 								<div class="form-group">

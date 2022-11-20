@@ -52,7 +52,8 @@
                     <a class="navbar-brand" href="${pageContext.request.contextPath}/okxe/home/index">
                         <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -62,26 +63,38 @@
                                 <a class="nav-link" href="${pageContext.request.contextPath}/okxe/home/index">Home</a>
                             </li>
                             <li class="nav-item dropdown dropdown-slide @@pages">
-                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="false">
                                     Brands <span><i class="fa fa-angle-down"></i></span>
                                 </a>
                                 <!-- Dropdown list -->
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item @@about" href="${pageContext.request.contextPath}/okxe/brand/honda">Honda</a></li>
-                                    <li><a class="dropdown-item @@contact" href="${pageContext.request.contextPath}/okxe/brand/yamaha">Yamaha</a></li>
-                                    <li><a class="dropdown-item @@profile" href="${pageContext.request.contextPath}/okxe/brand/suzuki">Suzuki</a></li>
-                                    <li><a class="dropdown-item @@404" href="${pageContext.request.contextPath}/okxe/brand/vinfast">Vinfast</a></li>
-                                    <li><a class="dropdown-item @@package" href="${pageContext.request.contextPath}/okxe/brand/ducati">Ducati</a></li>
-                                    <li><a class="dropdown-item @@singlePage" href="${pageContext.request.contextPath}/okxe/brand/kawasaki">Kawasaki</a></li>
-                                    <li><a class="dropdown-item @@store" href="${pageContext.request.contextPath}/okxe/brand/piaggio">Piaggio</a></li>
-                                    <li><a class="dropdown-item @@blog" href="${pageContext.request.contextPath}/okxe/brand/sym">SYM</a></li>
-                                    <li><a class="dropdown-item @@singleBlog" href="${pageContext.request.contextPath}/okxe/brand/triumph">Triumph</a></li>
+                                    <li><a class="dropdown-item @@about"
+                                           href="${pageContext.request.contextPath}/okxe/brand/honda">Honda</a></li>
+                                    <li><a class="dropdown-item @@contact"
+                                           href="${pageContext.request.contextPath}/okxe/brand/yamaha">Yamaha</a></li>
+                                    <li><a class="dropdown-item @@profile"
+                                           href="${pageContext.request.contextPath}/okxe/brand/suzuki">Suzuki</a></li>
+                                    <li><a class="dropdown-item @@404"
+                                           href="${pageContext.request.contextPath}/okxe/brand/vinfast">Vinfast</a></li>
+                                    <li><a class="dropdown-item @@package"
+                                           href="${pageContext.request.contextPath}/okxe/brand/ducati">Ducati</a></li>
+                                    <li><a class="dropdown-item @@singlePage"
+                                           href="${pageContext.request.contextPath}/okxe/brand/kawasaki">Kawasaki</a>
+                                    </li>
+                                    <li><a class="dropdown-item @@store"
+                                           href="${pageContext.request.contextPath}/okxe/brand/piaggio">Piaggio</a></li>
+                                    <li><a class="dropdown-item @@blog"
+                                           href="${pageContext.request.contextPath}/okxe/brand/sym">SYM</a></li>
+                                    <li><a class="dropdown-item @@singleBlog"
+                                           href="${pageContext.request.contextPath}/okxe/brand/triumph">Triumph</a></li>
                                 </ul>
                             </li>
                         </ul>
                         <ul class="navbar-nav ml-auto mt-10">
                             <li class="nav-item">
-                                <a class="nav-link text-white add-button" href="${pageContext.request.contextPath}/okxe/home/login">Login</a>
+                                <a class="nav-link text-white add-button"
+                                   href="${pageContext.request.contextPath}/okxe/home/login">Login</a>
                             </li>
                         </ul>
                     </div>
@@ -116,29 +129,9 @@
                     <!-- Dashboard Links -->
                     <div class="widget user-dashboard-menu">
                         <ul>
-                            <li class="active">
-                                <a href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds"><i
-                                        class="fa fa-user"></i> My Ads</a></li>
-                            <li>
-                                <a href="${pageContext.request.contextPath}/okxe/home/dashboardFavouriteAds"><i
-                                        class="fa fa-bookmark-o"></i> Favourite Ads <span>5</span></a>
-                            </li>
-                            <li>
-                                <a href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds"><i
-                                        class="fa fa-file-archive-o"></i>Archeved Ads <span>12</span></a>
-                            </li>
-                            <li>
-                                <a href="${pageContext.request.contextPath}/okxe/home/dashboardPendingAds"><i
-                                        class="fa fa-bolt"></i> Pending Approval<span>23</span></a>
-                            </li>
-                            <li>
-                                <a href="${pageContext.request.contextPath}/okxe/home/index"><i class="fa fa-cog"></i>
-                                    Logout</a>
-                            </li>
-                            <li>
-                                <a href="#!" data-toggle="modal" data-target="#deleteaccount"><i
-                                        class="fa fa-power-off"></i>Delete Account</a>
-                            </li>
+                            <li><a href="${pageContext.request.contextPath}/okxe/user/userPosts/${authUser.getUser_id()}">My Posts</a></li>
+                            <li><a href="${pageContext.request.contextPath}/okxe/user/orders">My pending orders</a></li>
+                            <li><a href="${pageContext.request.contextPath}/okxe/user/order-requests">My request deals</a></li>
                         </ul>
                     </div>
 
@@ -178,7 +171,7 @@
             <div class="col-lg-8">
                 <!-- Recently Favorited -->
                 <div class="widget dashboard-container my-adslist">
-                    <h3 class="widget-header">My Ads</h3>
+                    <h3 class="widget-header">My Posts</h3>
 
                     <table class="table table-responsive product-dashboard-table">
                         <thead>
@@ -194,8 +187,15 @@
                             <tr>
                                 <td class="product-thumb">
                                     <img width="80px" height="auto"
-                                         src="${pageContext.request.contextPath}/resources/images/bikes/1/1.png"
+                                    <c:choose>
+                                    <c:when test="${bike.getImage() != null}">
+                                         src="${pageContext.request.contextPath}/resources/images/${bike.getImage()}"
                                          alt="image description"></td>
+                                </c:when>
+                                <c:otherwise>
+                                    <img src="${pageContext.request.contextPath}/images/favicon.png" alt="" class="">
+                                </c:otherwise>
+                                </c:choose>
                                 <td class="product-details">
                                     <h3 class="title">${bike.getName()}</h3>
                                     <span class="add-id"><strong>Color:</strong> ${bike.getColor()}</span>
@@ -220,7 +220,8 @@
                                                 </a>
                                             </li>
                                             <li class="list-inline-item">
-                                                <a data-toggle="tooltip" data-placement="top" title="Delete" class="delete"
+                                                <a data-toggle="tooltip" data-placement="top" title="Delete"
+                                                   class="delete"
                                                    href="${pageContext.request.contextPath}/okxe/bike/delete/${bike.getBike_id()}">
                                                     <i class="fa fa-trash"></i>
                                                 </a>
