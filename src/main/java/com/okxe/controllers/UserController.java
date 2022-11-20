@@ -1,13 +1,25 @@
 package com.okxe.controllers;
+import java.security.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
-import com.okxe.beans.*;
-import com.okxe.dao.*;
+import com.okxe.beans.Bike;
+import com.okxe.beans.Brand;
+import com.okxe.beans.Type;
+import com.okxe.beans.User;
+import com.okxe.dao.BikeDAO;
+import com.okxe.dao.BrandDAO;
+import com.okxe.dao.TypeDAO;
+import com.okxe.dao.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -28,8 +40,6 @@ public class UserController {
     @Autowired
     BikeDAO bikeDAO;
 
-    @Autowired
-    OrderDAO orderDAO;
 
     @RequestMapping("/profile")
     public String getUserProfile(ModelMap model, HttpServletRequest request) {
@@ -221,39 +231,6 @@ public class UserController {
         model.addAttribute("bikeList", bikeList);
 
         return "okxe/dashboard-my-ads";
-    }
-
-    @RequestMapping("orders")
-    public String getUserPendingOrders(ModelMap model, HttpServletRequest request){
-        HttpSession session = request.getSession();
-        User authUser = (User) session.getAttribute("authUser");
-        if (authUser == null) {
-            return "okxe/login";
-        }
-
-        List<Order> orderList = orderDAO.getByUserId(authUser.getUser_id());
-        for(Order o : orderList){
-            o.setBike(bikeDAO.getById(o.getBike_id()));
-        }
-        model.addAttribute("orders", orderList);
-        model.addAttribute("authUser", authUser);
-        return "okxe/dashboard-pending-ads";
-    }
-
-    @RequestMapping("/order-requests")
-    public String getUserRequestOrders(ModelMap model, HttpServletRequest request){
-        HttpSession session = request.getSession();
-        User authUser = (User) session.getAttribute("authUser");
-        if (authUser == null) {
-            return "okxe/login";
-        }
-        List<Order> orderList = orderDAO.getBySellerId(authUser.getUser_id());
-        for(Order o : orderList){
-            o.setBike(bikeDAO.getById(o.getBike_id()));
-        }
-        model.addAttribute("orders", orderList);
-        model.addAttribute("authUser", authUser);
-        return "okxe/dashboard-archived-ads";
     }
 
     @RequestMapping("/logoutUser")

@@ -86,7 +86,7 @@
                                         <a class="nav-link" href="${pageContext.request.contextPath}/okxe/user/profile">Profile</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="${pageContext.request.contextPath}/okxe/user/myPosts">My Posts</a>
+                                        <a class="nav-link" href="${pageContext.request.contextPath}/okxe/user/userPosts/${authUser.getUser_id()}">My Posts</a>
                                     </li>
 
                                     <li class="nav-item">

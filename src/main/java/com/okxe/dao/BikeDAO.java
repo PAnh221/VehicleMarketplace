@@ -61,18 +61,27 @@ public class BikeDAO {
 
     public void update(Bike entity) {
         String sql = "UPDATE bike " +
-                "SET name=?, price=?, year=?, color=?, odo=?, type_id=?, engine=?, brand_id=?, user_id=?, image=?, posted_date=?, status=?";
+                "SET name=?, price=?, year=?, color=?, odo=?, type_id=?, engine=?, brand_id=?, user_id=?, image=?, posted_date=?, status=? " +
+                "WHERE bike_id=?";
         jdbc.update(sql, entity.getName(), entity.getPrice(),
                 entity.getYear(), entity.getColor(),
                 entity.getOdo(), entity.getType_id(),
                 entity.getEngine(), entity.getBrand_id(),
                 entity.getUser_id(), entity.getImage(),
-                entity.getPosted_date(), entity.getStatus());
+                entity.getPosted_date(), entity.getStatus(), entity.getBike_id());
     }
 
     public void delete(Serializable id) {
         String sql = "DELETE FROM bike WHERE bike_id=?";
         jdbc.update(sql, id);
+    }
+
+    public List<Bike> getLastRow() {
+        String sql = "SELECT * " +
+                "FROM bike " +
+                "ORDER BY bike_id " +
+                "DESC LIMIT 0, 1\n";
+        return getBySql(sql);
     }
 
 

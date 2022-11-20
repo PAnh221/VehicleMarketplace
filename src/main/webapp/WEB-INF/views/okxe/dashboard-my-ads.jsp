@@ -116,9 +116,29 @@
                     <!-- Dashboard Links -->
                     <div class="widget user-dashboard-menu">
                         <ul>
-                            <li><a href="${pageContext.request.contextPath}/okxe/user/myPosts">My posts</a></li>
-                            <li><a href="${pageContext.request.contextPath}/okxe/user/orders">My pending orders</a></li>
-                            <li><a href="${pageContext.request.contextPath}/okxe/user/order-requests">My request deals</a></li>
+                            <li class="active">
+                                <a href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds"><i
+                                        class="fa fa-user"></i> My Ads</a></li>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/okxe/home/dashboardFavouriteAds"><i
+                                        class="fa fa-bookmark-o"></i> Favourite Ads <span>5</span></a>
+                            </li>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds"><i
+                                        class="fa fa-file-archive-o"></i>Archeved Ads <span>12</span></a>
+                            </li>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/okxe/home/dashboardPendingAds"><i
+                                        class="fa fa-bolt"></i> Pending Approval<span>23</span></a>
+                            </li>
+                            <li>
+                                <a href="${pageContext.request.contextPath}/okxe/home/index"><i class="fa fa-cog"></i>
+                                    Logout</a>
+                            </li>
+                            <li>
+                                <a href="#!" data-toggle="modal" data-target="#deleteaccount"><i
+                                        class="fa fa-power-off"></i>Delete Account</a>
+                            </li>
                         </ul>
                     </div>
 
