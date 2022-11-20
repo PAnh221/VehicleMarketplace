@@ -88,16 +88,24 @@ public class BikeController {
     }
 
     @RequestMapping("okxe/bike/{bikeId}")
-    public String showProduct(ModelMap model, @PathVariable Integer bikeId) {
+    public String showProduct(ModelMap model, @PathVariable Integer bikeId, HttpServletRequest request) {
         Bike b = bikeDAO.getById(bikeId);
         if (b == null) {
             return "okxe/index";
         } else {
+            HttpSession session = request.getSession();
+            User authUser = (User) session.getAttribute("authUser");
             User u = userDAO.getById(b.getUser_id());
             Brand br = brandDAO.getById(b.getBrand_id());
             model.addAttribute("seller", u);
             model.addAttribute("brand", br);
             model.addAttribute("bike", b);
+            if(authUser!=null && u.getUser_id() != authUser.getUser_id()){
+                model.addAttribute("usertype", "normal");
+            } else {
+                model.addAttribute("usertype", null);
+            }
+            model.addAttribute("authUser", authUser);
             return "okxe/single";
         }
     }

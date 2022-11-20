@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 
@@ -115,15 +116,9 @@
 					<!-- Dashboard Links -->
 					<div class="widget user-dashboard-menu">
 						<ul>
-							<li class="active"><a href="${pageContext.request.contextPath}/okexe/home/dashboardMyAds"><i class="fa fa-user"></i> My Ads</a></li>
-							<li><a href="${pageContext.request.contextPath}/okexe/home/dashboardFavouriteAds"><i class="fa fa-bookmark-o"></i> Favourite Ads
-								<span>5</span></a></li>
-							<li><a href="${pageContext.request.contextPath}/okexe/home/dashboardArchivedAds"><i class="fa fa-file-archive-o"></i>Archived Ads
-								<span>12</span></a></li>
-							<li><a href="${pageContext.request.contextPath}/okexe/home/dashboardPendingAds"><i class="fa fa-bolt"></i> Pending Approval<span>23</span></a>
-							</li>
-							<li><a href="${pageContext.request.contextPath}/okxe/home/index"><i class="fa fa-cog"></i> Logout</a></li>
-							<li><a href="#!" data-toggle="modal" data-target="#deleteaccount"><i class="fa fa-power-off"></i>Delete Account</a></li>
+							<li><a href="${pageContext.request.contextPath}/okxe/user/myPosts">My posts</a></li>
+							<li><a href="${pageContext.request.contextPath}/okxe/user/orders">My pending orders</a></li>
+							<li><a href="${pageContext.request.contextPath}/okxe/user/order-requests">My request deals</a></li>
 						</ul>
 					</div>
 
@@ -158,167 +153,63 @@
 				</div>
 			</div>
 			<div class="col-lg-8">
-				<!-- Recently Favorited -->
 				<div class="widget dashboard-container my-adslist">
-					<h3 class="widget-header">My Ads</h3>
+					<h3 class="widget-header">My Orders</h3>
 					<table class="table table-responsive product-dashboard-table">
 						<thead>
-							<tr>
-								<th>Image</th>
-								<th>Product Title</th>
-								<th class="text-center">Category</th>
-								<th class="text-center">Action</th>
-							</tr>
+						<tr>
+							<th>Order detail</th>
+							<th>Bike</th>
+							<th class="text-center">Date ordered</th>
+							<th class="text-center">Action</th>
+						</tr>
 						</thead>
 						<tbody>
-							<tr>
 
-								<td class="product-thumb">
-									<img width="80px" height="auto" src="${pageContext.request.contextPath}/resources/images/products/products-1.jpg" alt="image description"></td>
+						<c:forEach var="order" items="${orders}">
+							<tr>
 								<td class="product-details">
-									<h3 class="title">Macbook Pro 15inch</h3>
-									<span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-									<span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-									<span class="status active"><strong>Status</strong>Active</span>
-									<span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
+									<h3 class="title">${order.bike.name}</h3>
+									<span class="add-id"><strong>Bike ID:</strong>${order.bike.bike_id}</span>
+									<span><strong>Ordered on: </strong><time>${order.date}</time> </span>
+									<span class="status"><strong>User: </strong>${order.user_id}</span>
 								</td>
-								<td class="product-category"><span class="categories">Laptops</span></td>
+								<td class="product-thumb">
+									<img width="80px" height="auto"
+										 src="${pageContext.request.contextPath}/resources/images/bikes/${order.bike_id}/1.png"
+										 alt="image description">
+								</td>
+								<td class="product-category">
+									<span class="categories">Type: ${order.bike.type_id}</span>
+								</td>
 								<td class="action" data-title="Action">
 									<div class="">
 										<ul class="list-inline justify-content-center">
 											<li class="list-inline-item">
-												<a data-toggle="tooltip" data-placement="top" title="Edit" class="edit" href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds">
-													<i class="fa fa-clipboard"></i>
+												<a data-toggle="tooltip" data-placement="top" title="View" class="view"
+												   href="${pageContext.request.contextPath}/okxe/bike/${order.bike.bike_id}">
+													<i class="fa fa-eye"></i>
 												</a>
 											</li>
 											<li class="list-inline-item">
-												<a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds">
-													<i class="fa fa-trash"></i>
+												<a data-toggle="tooltip" data-placement="top" title="Accept" class="edit"
+												   href="${pageContext.request.contextPath}/okxe/user/editPost/${order.bike.bike_id}">
+													<i class="fa fa-check"></i>
+												</a>
+											</li>
+											<li class="list-inline-item">
+												<a data-toggle="tooltip" data-placement="top" title="Deny" class="delete"
+												   href="${pageContext.request.contextPath}/okxe/bike/delete/${order.bike.bike_id}">
+													<i class="fa fa-close"></i>
 												</a>
 											</li>
 										</ul>
 									</div>
 								</td>
 							</tr>
-							<tr>
-
-								<td class="product-thumb">
-									<img width="80px" height="auto" src="${pageContext.request.contextPath}/resources/images/products/products-2.jpg" alt="image description"></td>
-								<td class="product-details">
-									<h3 class="title">Study Table Combo</h3>
-									<span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-									<span><strong>Posted on: </strong><time>Feb 12, 2017</time> </span>
-									<span class="status active"><strong>Status</strong>Active</span>
-									<span class="location"><strong>Location</strong>USA</span>
-								</td>
-								<td class="product-category"><span class="categories">Laptops</span></td>
-								<td class="action" data-title="Action">
-									<div class="">
-										<ul class="list-inline justify-content-center">
-											<li class="list-inline-item">
-												<a data-toggle="tooltip" data-placement="top" title="Edit" class="edit" href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds">
-													<i class="fa fa-clipboard"></i>
-												</a>
-											</li>
-											<li class="list-inline-item">
-												<a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds">
-													<i class="fa fa-trash"></i>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</td>
-							</tr>
-							<tr>
-
-								<td class="product-thumb">
-									<img width="80px" height="auto" src="${pageContext.request.contextPath}/resources/images/products/products-3.jpg" alt="image description"></td>
-								<td class="product-details">
-									<h3 class="title">Macbook Pro 15inch</h3>
-									<span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-									<span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-									<span class="status active"><strong>Status</strong>Active</span>
-									<span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
-								</td>
-								<td class="product-category"><span class="categories">Laptops</span></td>
-								<td class="action" data-title="Action">
-									<div class="">
-										<ul class="list-inline justify-content-center">
-											<li class="list-inline-item">
-												<a data-toggle="tooltip" data-placement="top" title="Edit" class="edit" href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds">
-													<i class="fa fa-clipboard"></i>
-												</a>
-											</li>
-											<li class="list-inline-item">
-												<a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds">
-													<i class="fa fa-trash"></i>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</td>
-							</tr>
-							<tr>
-
-								<td class="product-thumb">
-									<img width="80px" height="auto" src="${pageContext.request.contextPath}/resources/images/products/products-4.jpg" alt="image description"></td>
-								<td class="product-details">
-									<h3 class="title">Macbook Pro 15inch</h3>
-									<span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-									<span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-									<span class="status active"><strong>Status</strong>Active</span>
-									<span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
-								</td>
-								<td class="product-category"><span class="categories">Laptops</span></td>
-								<td class="action" data-title="Action">
-									<div class="">
-										<ul class="list-inline justify-content-center">
-											<li class="list-inline-item">
-												<a data-toggle="tooltip" data-placement="top" title="Edit" class="edit" href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds">
-													<i class="fa fa-clipboard"></i>
-												</a>
-											</li>
-											<li class="list-inline-item">
-												<a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds">
-													<i class="fa fa-trash"></i>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</td>
-							</tr>
-							<tr>
-
-								<td class="product-thumb">
-									<img width="80px" height="auto" src="${pageContext.request.contextPath}/resources/images/products/products-1.jpg" alt="image description"></td>
-								<td class="product-details">
-									<h3 class="title">Macbook Pro 15inch</h3>
-									<span class="add-id"><strong>Ad ID:</strong> ng3D5hAMHPajQrM</span>
-									<span><strong>Posted on: </strong><time>Jun 27, 2017</time> </span>
-									<span class="status active"><strong>Status</strong>Active</span>
-									<span class="location"><strong>Location</strong>Dhaka,Bangladesh</span>
-								</td>
-								<td class="product-category"><span class="categories">Laptops</span></td>
-								<td class="action" data-title="Action">
-									<div class="">
-										<ul class="list-inline justify-content-center">
-											<li class="list-inline-item">
-												<a data-toggle="tooltip" data-placement="top" title="Edit" class="edit" href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds">
-													<i class="fa fa-clipboard"></i>
-												</a>
-											</li>
-											<li class="list-inline-item">
-												<a data-toggle="tooltip" data-placement="top" title="Delete" class="delete" href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds">
-													<i class="fa fa-trash"></i>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</td>
-							</tr>
+						</c:forEach>
 						</tbody>
 					</table>
-
 				</div>
 
 				<!-- pagination -->
@@ -326,16 +217,26 @@
 					<nav aria-label="Page navigation example">
 						<ul class="pagination">
 							<li class="page-item">
-								<a class="page-link" href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds" aria-label="Previous">
+								<a class="page-link"
+								   href="${pageContext.request.contextPath}/okxe/home/dashboardPendingAds"
+								   aria-label="Previous">
 									<span aria-hidden="true">&laquo;</span>
 									<span class="sr-only">Previous</span>
 								</a>
 							</li>
-							<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds">1</a></li>
-							<li class="page-item active"><a class="page-link" href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds">2</a></li>
-							<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds">3</a></li>
+							<li class="page-item"><a class="page-link"
+													 href="${pageContext.request.contextPath}/okxe/home/dashboardPendingAds">1</a>
+							</li>
+							<li class="page-item active"><a class="page-link"
+															href="${pageContext.request.contextPath}/okxe/home/dashboardPendingAds">2</a>
+							</li>
+							<li class="page-item"><a class="page-link"
+													 href="${pageContext.request.contextPath}/okxe/home/dashboardPendingAds">3</a>
+							</li>
 							<li class="page-item">
-								<a class="page-link" href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds" aria-label="Next">
+								<a class="page-link"
+								   href="${pageContext.request.contextPath}/okxe/home/dashboardPendingAds"
+								   aria-label="Next">
 									<span aria-hidden="true">&raquo;</span>
 									<span class="sr-only">Next</span>
 								</a>
@@ -343,7 +244,6 @@
 						</ul>
 					</nav>
 				</div>
-				<!-- pagination -->
 
 			</div>
 		</div>

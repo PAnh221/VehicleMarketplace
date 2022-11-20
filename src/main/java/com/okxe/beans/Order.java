@@ -9,7 +9,24 @@ public class Order {
     private Date date;
     private int status;
 
+    private Bike bike;
+
+    public Bike getBike() {
+        return bike;
+    }
+
+    public void setBike(Bike bike) {
+        this.bike = bike;
+    }
+
     public Order() {
+    }
+
+    public Order(int user_id, int bike_id, Date date, int status) {
+        this.user_id = user_id;
+        this.bike_id = bike_id;
+        this.date = date;
+        this.status = status;
     }
 
     public Order(int order_id, int user_id, int bike_id, Date date, int status) {
