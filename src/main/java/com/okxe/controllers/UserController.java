@@ -276,6 +276,45 @@ public class UserController {
         return "okxe/dashboard-archived-ads";
     }
 
+    @RequestMapping("/order-request/accept/{orderId}")
+    public String acceptRequest(ModelMap model, @PathVariable Integer orderId, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        User authUser = (User) session.getAttribute("authUser");
+        if (authUser == null) {
+            return "okxe/login";
+        }
+        Order order = orderDAO.getById(orderId);
+        order.setStatus(2);
+        orderDAO.update(order);
+        List<Order> orderList = orderDAO.getBySellerId(authUser.getUser_id());
+        for(Order o : orderList){
+            o.setBike(bikeDAO.getById(o.getBike_id()));
+        }
+        model.addAttribute("orders", orderList);
+        model.addAttribute("authUser", authUser);
+        return "okxe/dashboard-archived-ads";
+    }
+
+    @RequestMapping("/order-request/deny/{orderId}")
+    public String denyRequest(ModelMap model, @PathVariable Integer orderId, HttpServletRequest request){
+        HttpSession session = request.getSession();
+        User authUser = (User) session.getAttribute("authUser");
+        if (authUser == null) {
+            return "okxe/login";
+        }
+        Order order = orderDAO.getById(orderId);
+        order.setStatus(3);
+        orderDAO.update(order);
+
+        List<Order> orderList = orderDAO.getBySellerId(authUser.getUser_id());
+        for(Order o : orderList){
+            o.setBike(bikeDAO.getById(o.getBike_id()));
+        }
+        model.addAttribute("orders", orderList);
+        model.addAttribute("authUser", authUser);
+        return "okxe/dashboard-archived-ads";
+    }
+
 
     @RequestMapping("/logoutUser")
     public String logoutUser(ModelMap model, HttpServletRequest request) {

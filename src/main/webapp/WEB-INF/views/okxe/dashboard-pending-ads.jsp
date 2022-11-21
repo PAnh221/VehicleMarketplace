@@ -157,7 +157,8 @@
                         </tr>
                         </thead>
                         <tbody>
-
+                        <c:set var="accepted" value="${2}" />
+                        <c:set var="denied" value="${3}" />
                         <c:forEach var="order" items="${orders}">
                             <tr>
                                 <td class="product-details">
@@ -176,7 +177,50 @@
                                     <span class="categories">Type: ${order.bike.type_id}</span>
                                 </td>
                                 <td class="action" data-title="Action">
-                                        ${order.status}
+                                    <c:choose>
+                                    <c:when test="${order.status == accepted}">
+                                        <div class="">
+                                            <ul class="list-inline justify-content-center">
+                                                <li class="list-inline-item">
+                                                    Accepted!
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </c:when>
+                                    <c:when test="${order.status == denied}">
+                                        <div class="">
+                                            <ul class="list-inline justify-content-center">
+                                                <li class="list-inline-item">
+                                                    Denied!
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <div class="">
+                                            <ul class="list-inline justify-content-center">
+                                                <li class="list-inline-item">
+                                                    <a data-toggle="tooltip" data-placement="top" title="View" class="view"
+                                                       href="${pageContext.request.contextPath}/okxe/bike/${order.bike.bike_id}">
+                                                        <i class="fa fa-eye"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a data-toggle="tooltip" data-placement="top" title="Accept" class="edit"
+                                                       href="${pageContext.request.contextPath}/okxe/user/order-request/accept/${order.order_id}">
+                                                        <i class="fa fa-check"></i>
+                                                    </a>
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <a data-toggle="tooltip" data-placement="top" title="Deny" class="delete"
+                                                       href="${pageContext.request.contextPath}/okxe/user/order-request/deny/${order.order_id}">
+                                                        <i class="fa fa-close"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </c:otherwise>
+                                    </c:choose>
                                 </td>
                             </tr>
                         </c:forEach>

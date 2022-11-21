@@ -39,7 +39,7 @@ public class OrderDAO {
     }
 
     public List<Order> getBySellerId(int id) {
-        String sql = "SELECT * FROM `order`, bike \n" +
+        String sql = "SELECT `order`.bike_id, `order`.order_id, `order`.user_id, `order`.date, `order`.status FROM `order`, bike \n" +
                 "where bike.user_id =?  and `order`.bike_id=bike.bike_id GROUP BY bike.bike_id";
         return jdbc.query(sql, getRowMapper(), id);
     }
@@ -53,8 +53,8 @@ public class OrderDAO {
 
     public void update(Order entity) {
         String sql = "UPDATE `order` " +
-                "SET user_id = ?, bike_id = ?, date = ?, status = ?)";
-        jdbc.update(sql, entity.getUser_id(), entity.getBike_id(), entity.getDate(), entity.getStatus());
+                "SET user_id = ?, bike_id = ?, date = ?, status = ? WHERE order_id = ?";
+        jdbc.update(sql, entity.getUser_id(), entity.getBike_id(), entity.getDate(), entity.getStatus(), entity.getOrder_id());
     }
 
     public void delete(Serializable id) {
