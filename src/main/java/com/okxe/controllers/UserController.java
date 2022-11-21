@@ -1,4 +1,6 @@
 package com.okxe.controllers;
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
 import java.security.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -10,10 +12,8 @@ import com.okxe.dao.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -42,13 +42,13 @@ public class UserController {
     @RequestMapping("/profile")
     public String getUserProfile(ModelMap model, HttpServletRequest request) {
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute("authUser");
+        User authUser = (User) session.getAttribute("authUser");
 
-        if(user == null){
+        if(authUser == null){
             return "okxe/404";
         }
         else{
-            model.addAttribute("user", user);
+            model.addAttribute("user", userDAO.getById(authUser.getUser_id()));
         }
         return "okxe/user-profile";
     }
@@ -75,8 +75,8 @@ public class UserController {
     }
 
     // insert new post
-    @RequestMapping("/addPost")
-    public String addPost(ModelMap model, HttpServletRequest request) {
+    @RequestMapping(value = "/addPost", method = RequestMethod.POST)
+    public String addPost(ModelMap model, @RequestParam CommonsMultipartFile file, HttpServletRequest request) {
         // check if user logged in
         HttpSession session = request.getSession();
         User authUser = (User) session.getAttribute("authUser");
@@ -99,9 +99,34 @@ public class UserController {
         long millis=System.currentTimeMillis();
         java.sql.Date posted_date = new java.sql.Date(millis);
 
+        // get image
+        String path=session.getServletContext().getRealPath(UPLOAD_DIRECTORY);
+        List<Bike> last = bikeDAO.getLastRow();
+        int dir = 0;
+        if (last.size() == 0) {
+            dir = 0;
+        }
+        else {
+            dir = last.get(0).getBike_id() + 1;
+        }
+
+        String filename= Integer.toString(dir) + ".png";
+
+        System.out.println(path+" "+filename);
+        try{
+            byte barr[]=file.getBytes();
+
+            BufferedOutputStream bout=new BufferedOutputStream(
+                    new FileOutputStream(path+"/"+filename));
+            bout.write(barr);
+            bout.flush();
+            bout.close();
+
+        }catch(Exception e){System.out.println(e);}
+
 
         // insert new bike
-        Bike bike = new Bike(name, price, null, color, odo, type_id, engine, brand_id, user_id, null, posted_date, status);
+        Bike bike = new Bike(name, price, null, color, odo, type_id, engine, brand_id, user_id, Integer.toString(dir), posted_date, status);
         bikeDAO.insert(bike);
 
         // redirect to my post
@@ -109,9 +134,22 @@ public class UserController {
         List<Bike> bikeList = bikeDAO.getByUserId(authUser.getUser_id());
         model.addAttribute("bikeList", bikeList);
 
+        return "redirect:/okxe/user/myPosts";
+    }
+    @RequestMapping("/myPosts")
+    public String myPosts(ModelMap model, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        User authUser = (User) session.getAttribute("authUser");
+        if (authUser == null) {
+            return "okxe/login";
+        }
+
+        model.addAttribute("user", authUser);
+        List<Bike> bikeList = bikeDAO.getByUserId(authUser.getUser_id());
+        model.addAttribute("bikeList", bikeList);
+
         return "okxe/dashboard-my-ads";
     }
-
     // trang edit post
     @RequestMapping("/editPost/{bike_id}")
     public String editPost(ModelMap model, @PathVariable String
@@ -144,8 +182,63 @@ public class UserController {
 
         return "okxe/ad-listing";
     }
+
+    // edit post
+    @RequestMapping("/postEdit/{bike_id}")
+    public String postEdit(ModelMap model,@PathVariable String
+            bike_id, HttpServletRequest request) {
+        // check if user logged in
+        HttpSession session = request.getSession();
+        User authUser = (User) session.getAttribute("authUser");
+        if (authUser == null) {
+            return "okxe/login";
+        }
+
+        // get data
+        int user_id = authUser.getUser_id();
+
+        List<Bike> bikeList = bikeDAO.getBikeById(Integer.parseInt(bike_id));
+
+        // check if bike not exist
+        if (bikeList.size() == 0) {
+            return "okxe/404";
+        }
+
+        // get bike info from bike id
+        Bike bikeInfo = bikeList.get(0);
+
+        // check if seller deactive
+        if (user_id != bikeInfo.getUser_id()) {
+            return "okxe/404";
+        }
+
+        String name = request.getParameter("name");
+        Long price = Long.valueOf(request.getParameter("price"));
+//        String year = request.getParameter("year");
+        String color = request.getParameter("color");
+        String odo = request.getParameter("odo");
+        int type_id = Integer.parseInt(request.getParameter("type_id"));
+        int brand_id = Integer.parseInt(request.getParameter("brand_id"));
+        String engine = request.getParameter("engine");
+        int status = Integer.parseInt(request.getParameter("status"));
+
+        long millis=System.currentTimeMillis();
+        java.sql.Date posted_date = new java.sql.Date(millis);
+
+        Bike bike = new Bike(Integer.parseInt(bike_id), name, price, null, color, odo, type_id, engine, brand_id, authUser.getUser_id(), null, posted_date, status);
+        // edit bike
+        bikeDAO.update(bike);
+
+        // redirect to my post
+        model.addAttribute("user", authUser);
+        List<Bike> bikes = bikeDAO.getByUserId(authUser.getUser_id());
+        model.addAttribute("bikeList", bikes);
+
+        return "okxe/dashboard-my-ads";
+    }
+
     @RequestMapping("/updateUserProfile")
-    public String updateUserProfile(ModelMap model, HttpServletRequest request) {
+    public String updateUserProfile(ModelMap model, @RequestParam(value = "file", required = false) CommonsMultipartFile file, HttpServletRequest request) {
         // check if user logged in
         HttpSession session = request.getSession();
         User authUser = (User) session.getAttribute("authUser");
@@ -159,7 +252,44 @@ public class UserController {
         String location = request.getParameter("location");
         String CID = request.getParameter("CID");
 
-        User user = new User(id,null, null, phone, name, location, null, CID, 1);
+
+        // get image
+        String path=session.getServletContext().getRealPath(UPLOAD_AVATAR_DIRECTORY);
+        int dir = authUser.getUser_id();
+
+        String filename = Integer.toString(dir) + ".png";
+
+        System.out.println(path+" "+filename);
+
+        User user = new User();
+
+        // check null image
+        if (file.getSize() > 0) {
+            try{
+                byte barr[]=file.getBytes();
+
+                BufferedOutputStream bout=new BufferedOutputStream(
+                        new FileOutputStream(path+"/"+filename));
+                bout.write(barr);
+                bout.flush();
+                bout.close();
+
+            }catch(Exception e){System.out.println(e);}
+            user = new User(id,null, null, phone, name, location, Integer.toString(authUser.getUser_id()), CID, 1);
+        }
+        else {
+            // get updated user
+            User u = userDAO.getById(authUser.getUser_id());
+            if (u.getImage() != null) {
+                user = new User(id,null, null, phone, name, location, Integer.toString(authUser.getUser_id()), CID, 1);
+            }
+            else {
+                user = new User(id,null, null, phone, name, location, null, CID, 1);
+
+            }
+        }
+
+        //
 
         userDAO.updatePersonalInfo(user);
 

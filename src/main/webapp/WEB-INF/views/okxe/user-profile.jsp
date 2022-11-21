@@ -110,12 +110,13 @@
 									<img src="${pageContext.request.contextPath}/images/avatars/${user.getImage()}.png" alt="" class="">
 								</c:when>
 								<c:otherwise>
-									<img src="${pageContext.request.contextPath}/images/user/user-thumb.jpg" alt="" class="">
+<%--									<img src="${pageContext.request.contextPath}/images/user/user-thumb.jpg" alt="" class="">--%>
 								</c:otherwise>
 							</c:choose>
 						</div>
 						<!-- User Name -->
 						<h5 class="text-center">${user.getName()}</h5>
+						<h6 class="text-center">${user.getUsername()}</h6>
 					</div>
 					<!-- Dashboard Links -->
           <div class="widget user-dashboard-menu">
