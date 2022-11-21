@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 
 <!--
@@ -57,7 +59,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto main-nav ">
                             <li class="nav-item active">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/okxe/home/index">Home</a>
+                                <a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes/all">Home</a>
                             </li>
                             <li class="nav-item dropdown dropdown-slide @@pages">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -76,13 +78,52 @@
                                     <li><a class="dropdown-item @@singleBlog" href="${pageContext.request.contextPath}/okxe/brand/triumph">Triumph</a></li>
                                 </ul>
                             </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes/all">Bikes</a>
+                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="${pageContext.request.contextPath}/okxe/home/aboutUs">About Us</a>
                             </li>
+                            <c:choose>
+                                <c:when test="${auth}">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="${pageContext.request.contextPath}/okxe/user/profile">Profile</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="${pageContext.request.contextPath}/okxe/user/userPosts/${authUser.getUser_id()}">My Posts</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="${pageContext.request.contextPath}/okxe/user/addNewPost">Add New Post</a>
+                                    </li>
+                                </c:when>
+                            </c:choose>
+
+
                         </ul>
                         <ul class="navbar-nav ml-auto mt-10">
                             <li class="nav-item">
-                                <a class="nav-link text-white add-button" href="${pageContext.request.contextPath}/okxe/home/login">Login</a>
+                                <c:choose>
+                                    <c:when test="${auth}">
+                                        <a class="text-black">Hi <b>${authUser.getName()}</b></a>
+                                        <form action="${pageContext.request.contextPath}/okxe/user/logoutUser"
+                                              method="post">
+                                            <button type="submit" style="border: none;
+                                            background: none;
+                                            color: inherit;
+                                            border: none;
+                                            font: inherit;
+                                            cursor: pointer;
+                                            outline: inherit;">
+                                                <a class="ml-4 nav-link text-white add-button">Logout</a>
+                                            </button>
+
+                                        </form>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a class="ml-4 nav-link text-white add-button" href="${pageContext.request.contextPath}/okxe/user/login">Login</a>
+                                    </c:otherwise>
+                                </c:choose>
                             </li>
                         </ul>
                     </div>

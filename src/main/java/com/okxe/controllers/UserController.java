@@ -50,6 +50,7 @@ public class UserController {
         else{
             model.addAttribute("user", userDAO.getById(authUser.getUser_id()));
         }
+        System.out.println(session.getAttribute("auth"));
         return "okxe/user-profile";
     }
 
@@ -234,7 +235,7 @@ public class UserController {
         List<Bike> bikes = bikeDAO.getByUserId(authUser.getUser_id());
         model.addAttribute("bikeList", bikes);
 
-        return "okxe/dashboard-my-ads";
+        return "redirect:/okxe/user/myPosts";
     }
 
     @RequestMapping("/updateUserProfile")
@@ -450,21 +451,12 @@ public class UserController {
     public String logoutUser(ModelMap model, HttpServletRequest request) {
         HttpSession session = request.getSession();
         session.setAttribute("auth", false);
-        session.setAttribute("authUser", new User());
+        session.setAttribute("authUser", null);
         return "okxe/login";
     }
 
     @RequestMapping("/loginUser")
     public String loginUser(ModelMap model, HttpServletRequest request) {
-//        String id = request.getParameter("id");
-//        String pw = request.getParameter("password");
-//        if (id.equals("admin") && pw.equals("admin")) {
-//            model.addAttribute("uid", id);
-//            model.addAttribute("pwd", pw);
-//            return "info";
-//        }
-//        model.addAttribute("thongbao", "Sai thong tin dang nhap");
-//        return "trangchu";
 
         String username = request.getParameter("username");
         String password = request.getParameter("password");

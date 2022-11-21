@@ -55,7 +55,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto main-nav ">
                             <li class="nav-item active">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/okxe/home/index">Home</a>
+                                <a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes/all">Home</a>
                             </li>
                             <li class="nav-item dropdown dropdown-slide @@pages">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -113,11 +113,10 @@
                                             outline: inherit;">
                                                 <a class="ml-4 nav-link text-white add-button">Logout</a>
                                             </button>
-
                                         </form>
                                     </c:when>
                                     <c:otherwise>
-                                        <a class="ml-4 nav-link text-white add-button" href="${pageContext.request.contextPath}/okxe/home/login">Login</a>
+                                        <a class="ml-4 nav-link text-white add-button" href="${pageContext.request.contextPath}/okxe/user/login">Login</a>
                                     </c:otherwise>
                                 </c:choose>
                             </li>

@@ -51,53 +51,78 @@
                     <a class="navbar-brand" href="${pageContext.request.contextPath}/okxe/home/index">
                         <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbarSupportedContent"
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto main-nav ">
                             <li class="nav-item active">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/okxe/home/index">Home</a>
+                                <a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes/all">Home</a>
                             </li>
                             <li class="nav-item dropdown dropdown-slide @@pages">
-                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
-                                   aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Brands <span><i class="fa fa-angle-down"></i></span>
                                 </a>
                                 <!-- Dropdown list -->
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item @@about"
-                                           href="${pageContext.request.contextPath}/okxe/brand/honda">Honda</a></li>
-                                    <li><a class="dropdown-item @@contact"
-                                           href="${pageContext.request.contextPath}/okxe/brand/yamaha">Yamaha</a></li>
-                                    <li><a class="dropdown-item @@profile"
-                                           href="${pageContext.request.contextPath}/okxe/brand/suzuki">Suzuki</a></li>
-                                    <li><a class="dropdown-item @@404"
-                                           href="${pageContext.request.contextPath}/okxe/brand/vinfast">Vinfast</a></li>
-                                    <li><a class="dropdown-item @@package"
-                                           href="${pageContext.request.contextPath}/okxe/brand/ducati">Ducati</a></li>
-                                    <li><a class="dropdown-item @@singlePage"
-                                           href="${pageContext.request.contextPath}/okxe/brand/kawasaki">Kawasaki</a>
-                                    </li>
-                                    <li><a class="dropdown-item @@store"
-                                           href="${pageContext.request.contextPath}/okxe/brand/piaggio">Piaggio</a></li>
-                                    <li><a class="dropdown-item @@blog"
-                                           href="${pageContext.request.contextPath}/okxe/brand/sym">SYM</a></li>
-                                    <li><a class="dropdown-item @@singleBlog"
-                                           href="${pageContext.request.contextPath}/okxe/brand/triumph">Triumph</a></li>
+                                    <li><a class="dropdown-item @@about" href="${pageContext.request.contextPath}/okxe/brand/honda">Honda</a></li>
+                                    <li><a class="dropdown-item @@contact" href="${pageContext.request.contextPath}/okxe/brand/yamaha">Yamaha</a></li>
+                                    <li><a class="dropdown-item @@profile" href="${pageContext.request.contextPath}/okxe/brand/suzuki">Suzuki</a></li>
+                                    <li><a class="dropdown-item @@404" href="${pageContext.request.contextPath}/okxe/brand/vinfast">Vinfast</a></li>
+                                    <li><a class="dropdown-item @@package" href="${pageContext.request.contextPath}/okxe/brand/ducati">Ducati</a></li>
+                                    <li><a class="dropdown-item @@singlePage" href="${pageContext.request.contextPath}/okxe/brand/kawasaki">Kawasaki</a></li>
+                                    <li><a class="dropdown-item @@store" href="${pageContext.request.contextPath}/okxe/brand/piaggio">Piaggio</a></li>
+                                    <li><a class="dropdown-item @@blog" href="${pageContext.request.contextPath}/okxe/brand/sym">SYM</a></li>
+                                    <li><a class="dropdown-item @@singleBlog" href="${pageContext.request.contextPath}/okxe/brand/triumph">Triumph</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/okxe/home/aboutUs">About
-                                    Us</a>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes/all">Bikes</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="${pageContext.request.contextPath}/okxe/home/aboutUs">About Us</a>
+                            </li>
+                            <c:choose>
+                                <c:when test="${auth}">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="${pageContext.request.contextPath}/okxe/user/profile">Profile</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="${pageContext.request.contextPath}/okxe/user/userPosts/${authUser.getUser_id()}">My Posts</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="${pageContext.request.contextPath}/okxe/user/addNewPost">Add New Post</a>
+                                    </li>
+                                </c:when>
+                            </c:choose>
+
+
                         </ul>
                         <ul class="navbar-nav ml-auto mt-10">
                             <li class="nav-item">
-                                <a class="nav-link text-white add-button"
-                                   href="${pageContext.request.contextPath}/okxe/home/login">Login</a>
+                                <c:choose>
+                                    <c:when test="${auth}">
+                                        <a class="text-black">Hi <b>${authUser.getName()}</b></a>
+                                        <form action="${pageContext.request.contextPath}/okxe/user/logoutUser"
+                                              method="post">
+                                            <button type="submit" style="border: none;
+                                            background: none;
+                                            color: inherit;
+                                            border: none;
+                                            font: inherit;
+                                            cursor: pointer;
+                                            outline: inherit;">
+                                                <a class="ml-4 nav-link text-white add-button">Logout</a>
+                                            </button>
+
+                                        </form>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <a class="ml-4 nav-link text-white add-button" href="${pageContext.request.contextPath}/okxe/user/login">Login</a>
+                                    </c:otherwise>
+                                </c:choose>
                             </li>
                         </ul>
                     </div>
