@@ -145,7 +145,7 @@
 					<div class="widget user-dashboard-profile">
 						<!-- User Image -->
 						<div class="profile-thumb">
-							<img src="${pageContext.request.contextPath}/resources/images/user/user-thumb.jpg" alt="" class="rounded-circle">
+							<img src="${pageContext.request.contextPath}/resources/images/avatars/${authUser.getImage()}.png" alt="" class="rounded-circle">
 						</div>
 						<!-- User Name -->
 						<h5 class="text-center">Samanta Doe</h5>

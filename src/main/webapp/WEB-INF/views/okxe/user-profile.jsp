@@ -148,7 +148,7 @@
 						<div class="image d-flex justify-content-center">
 							<c:choose>
 								<c:when test = "${user.getImage() != null}">
-									<img src="${pageContext.request.contextPath}/images/avatars/${user.getImage()}.png" alt="" class="">
+									<img src="${pageContext.request.contextPath}/resources/images/avatars/${user.getImage()}.png" alt="" class="">
 								</c:when>
 								<c:otherwise>
 <%--									<img src="${pageContext.request.contextPath}/images/user/user-thumb.jpg" alt="" class="">--%>

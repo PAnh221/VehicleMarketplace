@@ -127,7 +127,7 @@
                 <div class="sidebar">
                     <div class="widget user-dashboard-profile">
                         <div class="profile-thumb">
-                            <img src="${pageContext.request.contextPath}/resources/images/user/user-thumb.jpg" alt=""
+                            <img src="${pageContext.request.contextPath}/resources/images/avatars/${authUser.getImage()}.png" alt=""
                                  class="rounded-circle">
                         </div>
                         <h5 class="text-center">${authUser.name}</h5>

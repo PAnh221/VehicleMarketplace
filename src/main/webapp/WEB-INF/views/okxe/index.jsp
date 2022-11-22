@@ -1,5 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 
 
@@ -18,7 +18,7 @@
     <meta name="generator" content="Themefisher Classified Marketplace Template v1.0">
 
     <!-- theme meta -->
-    <meta name="theme-name" content="classimax" />
+    <meta name="theme-name" content="classimax"/>
 
     <!-- favicon -->
     <link href="${pageContext.request.contextPath}/resources/images/favicon.png" rel="shortcut icon">
@@ -28,10 +28,12 @@
     =====================================-->
     <link href="${pageContext.request.contextPath}/resources/plugins/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/plugins/bootstrap/bootstrap-slider.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/plugins/font-awesome/css/font-awesome.min.css"
+          rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/plugins/slick/slick.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/plugins/slick/slick-theme.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/resources/plugins/jquery-nice-select/css/nice-select.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/plugins/jquery-nice-select/css/nice-select.css"
+          rel="stylesheet">
 
     <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
 
@@ -48,7 +50,8 @@
                     <a class="navbar-brand" href="${pageContext.request.contextPath}/okxe/home/index">
                         <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
                     </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent"
                             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -58,27 +61,39 @@
                                 <a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes/all">Home</a>
                             </li>
                             <li class="nav-item dropdown dropdown-slide @@pages">
-                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="false">
                                     Brands <span><i class="fa fa-angle-down"></i></span>
                                 </a>
                                 <!-- Dropdown list -->
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item @@about" href="${pageContext.request.contextPath}/okxe/brand/honda">Honda</a></li>
-                                    <li><a class="dropdown-item @@contact" href="${pageContext.request.contextPath}/okxe/brand/yamaha">Yamaha</a></li>
-                                    <li><a class="dropdown-item @@profile" href="${pageContext.request.contextPath}/okxe/brand/suzuki">Suzuki</a></li>
-                                    <li><a class="dropdown-item @@404" href="${pageContext.request.contextPath}/okxe/brand/vinfast">Vinfast</a></li>
-                                    <li><a class="dropdown-item @@package" href="${pageContext.request.contextPath}/okxe/brand/ducati">Ducati</a></li>
-                                    <li><a class="dropdown-item @@singlePage" href="${pageContext.request.contextPath}/okxe/brand/kawasaki">Kawasaki</a></li>
-                                    <li><a class="dropdown-item @@store" href="${pageContext.request.contextPath}/okxe/brand/piaggio">Piaggio</a></li>
-                                    <li><a class="dropdown-item @@blog" href="${pageContext.request.contextPath}/okxe/brand/sym">SYM</a></li>
-                                    <li><a class="dropdown-item @@singleBlog" href="${pageContext.request.contextPath}/okxe/brand/triumph">Triumph</a></li>
+                                    <li><a class="dropdown-item @@about"
+                                           href="${pageContext.request.contextPath}/okxe/brand/honda">Honda</a></li>
+                                    <li><a class="dropdown-item @@contact"
+                                           href="${pageContext.request.contextPath}/okxe/brand/yamaha">Yamaha</a></li>
+                                    <li><a class="dropdown-item @@profile"
+                                           href="${pageContext.request.contextPath}/okxe/brand/suzuki">Suzuki</a></li>
+                                    <li><a class="dropdown-item @@404"
+                                           href="${pageContext.request.contextPath}/okxe/brand/vinfast">Vinfast</a></li>
+                                    <li><a class="dropdown-item @@package"
+                                           href="${pageContext.request.contextPath}/okxe/brand/ducati">Ducati</a></li>
+                                    <li><a class="dropdown-item @@singlePage"
+                                           href="${pageContext.request.contextPath}/okxe/brand/kawasaki">Kawasaki</a>
+                                    </li>
+                                    <li><a class="dropdown-item @@store"
+                                           href="${pageContext.request.contextPath}/okxe/brand/piaggio">Piaggio</a></li>
+                                    <li><a class="dropdown-item @@blog"
+                                           href="${pageContext.request.contextPath}/okxe/brand/sym">SYM</a></li>
+                                    <li><a class="dropdown-item @@singleBlog"
+                                           href="${pageContext.request.contextPath}/okxe/brand/triumph">Triumph</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item active">
                                 <a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes/all">Bikes</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/okxe/home/aboutUs">About Us</a>
+                                <a class="nav-link" href="${pageContext.request.contextPath}/okxe/home/aboutUs">About
+                                    Us</a>
                             </li>
                             <c:choose>
                                 <c:when test="${auth}">
@@ -86,11 +101,15 @@
                                         <a class="nav-link" href="${pageContext.request.contextPath}/okxe/user/profile">Profile</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="${pageContext.request.contextPath}/okxe/user/userPosts/${authUser.getUser_id()}">My Posts</a>
+                                        <a class="nav-link"
+                                           href="${pageContext.request.contextPath}/okxe/user/userPosts/${authUser.getUser_id()}">My
+                                            Posts</a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <a class="nav-link" href="${pageContext.request.contextPath}/okxe/user/addNewPost">Add New Post</a>
+                                        <a class="nav-link"
+                                           href="${pageContext.request.contextPath}/okxe/user/addNewPost">Add New
+                                            Post</a>
                                     </li>
                                 </c:when>
                             </c:choose>
@@ -116,7 +135,8 @@
                                         </form>
                                     </c:when>
                                     <c:otherwise>
-                                        <a class="ml-4 nav-link text-white add-button" href="${pageContext.request.contextPath}/okxe/user/login">Login</a>
+                                        <a class="ml-4 nav-link text-white add-button"
+                                           href="${pageContext.request.contextPath}/okxe/user/login">Login</a>
                                     </c:otherwise>
                                 </c:choose>
                             </li>
@@ -140,23 +160,24 @@
                 <!-- Header Contetnt -->
                 <div class="content-block">
                     <h1>Buy & Sell Near You </h1>
-                    <p>Join the millions who buy and sell from each other <br> everyday in local communities around the world</p>
+                    <p>Join the millions who buy and sell from each other <br> everyday in local communities around the
+                        world</p>
                     <div class="short-popular-category-list text-center">
                         <h2>Popular Category</h2>
                         <ul class="list-inline">
                             <li class="list-inline-item">
-                                <a href="${pageContext.request.contextPath}/okxe/home/category"><i class="fa fa-bed"></i> Hotel</a></li>
+                                <a href="${pageContext.request.contextPath}/okxe/brand/honda">Honda</a></li>
                             <li class="list-inline-item">
-                                <a href="${pageContext.request.contextPath}/okxe/home/category"><i class="fa fa-grav"></i> Fitness</a>
+                                <a href="${pageContext.request.contextPath}/okxe/brand/yamaha">Yamaha</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="${pageContext.request.contextPath}/okxe/home/category"><i class="fa fa-car"></i> Cars</a>
+                                <a href="${pageContext.request.contextPath}/okxe/brand/suzuki">Suzuki</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="${pageContext.request.contextPath}/okxe/home/category"><i class="fa fa-cutlery"></i> Restaurants</a>
+                                <a href="${pageContext.request.contextPath}/okxe/brand/ducati">Ducati</a>
                             </li>
                             <li class="list-inline-item">
-                                <a href="${pageContext.request.contextPath}/okxe/home/category"><i class="fa fa-coffee"></i> Cafe</a>
+                                <a href="${pageContext.request.contextPath}/okxe/brand/kawasaki">Kawasaki</a>
                             </li>
                         </ul>
                     </div>
@@ -182,10 +203,12 @@
                                             </select>
                                         </div>
                                         <div class="form-group col-lg-3 col-md-6">
-                                            <input type="text" class="form-control my-2 my-lg-1" id="inputLocation4" placeholder="Location">
+                                            <input type="text" class="form-control my-2 my-lg-1" id="inputLocation4"
+                                                   placeholder="Location">
                                         </div>
                                         <div class="form-group col-xl-2 col-lg-3 col-md-6 align-self-center">
-                                            <button type="submit" class="btn btn-primary active w-100">Search Now</button>
+                                            <button type="submit" class="btn btn-primary active w-100">Search Now
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -218,222 +241,193 @@
             <div class="col-lg-12">
 
                 <div class="trending-ads-slide">
-<c:forEach var="b" items="${bikes}">
-                    <div class="col-sm-12 col-lg-4">
-                        <!-- product card -->
-                        <div class="product-item bg-light">
-                            <div class="card">
-                                <div class="thumb-content">
-<%--                                    <div class="price">${b.price} đ</div>--%>
-                                    <a href="${pageContext.request.contextPath}/okxe/home/single">
-                                        <img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/resources/images/${b.image}" style="width: 340px; height: 240px" alt="Card image cap">
-                                    </a>
-                                </div>
-                                <div class="card-body">
-                                    <h4 class="card-title"><a href="${pageContext.request.contextPath}/okxe/home/single">${b.name}</a></h4>
-                                    <ul class="list-inline product-meta">
-<%--                                        <li class="list-inline-item">--%>
-<%--                                            <a href="${pageContext.request.contextPath}/okxe/home/single"><i class="fa fa-folder-open-o"></i>Electronics</a>--%>
-<%--                                        </li>--%>
-                                        <li class="list-inline-item">
-                                            <a href="${pageContext.request.contextPath}/okxe/home/category"><i class="fa fa-calendar"></i>${b.posted_date}</a>
-                                        </li>
-                                    </ul>
-                                    <p class="card-text" style="font-size: 18px; font-weight: bold">${b.price} đ</p>
-<%--                                    <div class="product-ratings">--%>
-<%--                                        <ul class="list-inline">--%>
-<%--                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>--%>
-<%--                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>--%>
-<%--                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>--%>
-<%--                                            <li class="list-inline-item selected"><i class="fa fa-star"></i></li>--%>
-<%--                                            <li class="list-inline-item"><i class="fa fa-star"></i></li>--%>
-<%--                                        </ul>--%>
-<%--                                    </div>--%>
+                    <c:forEach var="b" items="${bikes}">
+                        <div class="col-sm-12 col-lg-4">
+                            <!-- product card -->
+                            <div class="product-item bg-light">
+                                <div class="card">
+                                    <div class="thumb-content">
+                                            <%--                                    <div class="price">${b.price} đ</div>--%>
+                                        <a href="${pageContext.request.contextPath}/okxe/home/single">
+                                            <img class="card-img-top img-fluid"
+                                                 src="${pageContext.request.contextPath}/resources/images/${b.image}"
+                                                 style="width: 340px; height: 240px" alt="Card image cap">
+                                        </a>
+                                    </div>
+                                    <div class="card-body">
+                                        <h4 class="card-title"><a
+                                                href="${pageContext.request.contextPath}/okxe/home/single">${b.name}</a>
+                                        </h4>
+                                        <ul class="list-inline product-meta">
+                                                <%--                                        <li class="list-inline-item">--%>
+                                                <%--                                            <a href="${pageContext.request.contextPath}/okxe/home/single"><i class="fa fa-folder-open-o"></i>Electronics</a>--%>
+                                                <%--                                        </li>--%>
+                                            <li class="list-inline-item">
+                                                <a href="${pageContext.request.contextPath}/okxe/home/category"><i
+                                                        class="fa fa-calendar"></i>${b.posted_date}</a>
+                                            </li>
+                                        </ul>
+                                        <p class="card-text" style="font-size: 18px; font-weight: bold">${b.price} đ</p>
+                                    </div>
                                 </div>
                             </div>
+
+
                         </div>
-
-
-
-                    </div>
-</c:forEach>
+                    </c:forEach>
 
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 
 
 <!--==========================================
 =            All Category Section            =
 ===========================================-->
 
-<section class=" section">
-    <!-- Container Start -->
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <!-- Section title -->
-                <div class="section-title">
-                    <h2>All Categories</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, provident!</p>
-                </div>
-                <div class="row">
-                    <!-- Category list -->
-                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
-                        <div class="category-block">
-                            <div class="header">
-                                <i class="fa fa-laptop icon-bg-1"></i>
-                                <h4>Electronics</h4>
-                            </div>
-                            <ul class="category-list">
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Laptops <span>93</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Iphone <span>233</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Microsoft <span>183</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Monitors <span>343</span></a></li>
-                            </ul>
-                        </div>
-                    </div> <!-- /Category List -->
-                    <!-- Category list -->
-                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
-                        <div class="category-block">
-                            <div class="header">
-                                <i class="fa fa-apple icon-bg-2"></i>
-                                <h4>Restaurants</h4>
-                            </div>
-                            <ul class="category-list">
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cafe <span>393</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Fast food <span>23</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Restaurants <span>13</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Food Track<span>43</span></a></li>
-                            </ul>
-                        </div>
-                    </div> <!-- /Category List -->
-                    <!-- Category list -->
-                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
-                        <div class="category-block">
-                            <div class="header">
-                                <i class="fa fa-home icon-bg-3"></i>
-                                <h4>Real Estate</h4>
-                            </div>
-                            <ul class="category-list">
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Farms <span>93</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Gym <span>23</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Hospitals <span>83</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Parolurs <span>33</span></a></li>
-                            </ul>
-                        </div>
-                    </div> <!-- /Category List -->
-                    <!-- Category list -->
-                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
-                        <div class="category-block">
-                            <div class="header">
-                                <i class="fa fa-shopping-basket icon-bg-4"></i>
-                                <h4>Shoppings</h4>
-                            </div>
-                            <ul class="category-list">
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Mens Wears <span>53</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Accessories <span>212</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Kids Wears <span>133</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">It & Software <span>143</span></a></li>
-                            </ul>
-                        </div>
-                    </div> <!-- /Category List -->
-                    <!-- Category list -->
-                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
-                        <div class="category-block">
-                            <div class="header">
-                                <i class="fa fa-briefcase icon-bg-5"></i>
-                                <h4>Jobs</h4>
-                            </div>
-                            <ul class="category-list">
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">It Jobs <span>93</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cleaning & Washing <span>233</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Management <span>183</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Voluntary Works <span>343</span></a></li>
-                            </ul>
-                        </div>
-                    </div> <!-- /Category List -->
-                    <!-- Category list -->
-                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
-                        <div class="category-block">
-                            <div class="header">
-                                <i class="fa fa-car icon-bg-6"></i>
-                                <h4>Vehicles</h4>
-                            </div>
-                            <ul class="category-list">
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Bus <span>193</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cars <span>23</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Motobike <span>33</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Rent a car <span>73</span></a></li>
-                            </ul>
-                        </div>
-                    </div> <!-- /Category List -->
-                    <!-- Category list -->
-                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
-                        <div class="category-block">
-                            <div class="header">
-                                <i class="fa fa-paw icon-bg-7"></i>
-                                <h4>Pets</h4>
-                            </div>
-                            <ul class="category-list">
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cats <span>65</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Dogs <span>23</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Birds <span>113</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Others <span>43</span></a></li>
-                            </ul>
-                        </div>
-                    </div> <!-- /Category List -->
-                    <!-- Category list -->
-                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">
-                        <div class="category-block">
+<%--<section class=" section">--%>
+<%--    <!-- Container Start -->--%>
+<%--    <div class="container">--%>
+<%--        <div class="row">--%>
+<%--            <div class="col-12">--%>
+<%--                <!-- Section title -->--%>
+<%--                <div class="section-title">--%>
+<%--                    <h2>All Categories</h2>--%>
+<%--                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, provident!</p>--%>
+<%--                </div>--%>
+<%--                <div class="row">--%>
+<%--                    <!-- Category list -->--%>
+<%--                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">--%>
+<%--                        <div class="category-block">--%>
+<%--                            <div class="header">--%>
+<%--                                <i class="fa fa-laptop icon-bg-1"></i>--%>
+<%--                                <h4>Electronics</h4>--%>
+<%--                            </div>--%>
+<%--                            <ul class="category-list">--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Laptops <span>93</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Iphone <span>233</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Microsoft <span>183</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Monitors <span>343</span></a></li>--%>
+<%--                            </ul>--%>
+<%--                        </div>--%>
+<%--                    </div> <!-- /Category List -->--%>
+<%--                    <!-- Category list -->--%>
+<%--                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">--%>
+<%--                        <div class="category-block">--%>
+<%--                            <div class="header">--%>
+<%--                                <i class="fa fa-apple icon-bg-2"></i>--%>
+<%--                                <h4>Restaurants</h4>--%>
+<%--                            </div>--%>
+<%--                            <ul class="category-list">--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cafe <span>393</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Fast food <span>23</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Restaurants <span>13</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Food Track<span>43</span></a></li>--%>
+<%--                            </ul>--%>
+<%--                        </div>--%>
+<%--                    </div> <!-- /Category List -->--%>
+<%--                    <!-- Category list -->--%>
+<%--                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">--%>
+<%--                        <div class="category-block">--%>
+<%--                            <div class="header">--%>
+<%--                                <i class="fa fa-home icon-bg-3"></i>--%>
+<%--                                <h4>Real Estate</h4>--%>
+<%--                            </div>--%>
+<%--                            <ul class="category-list">--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Farms <span>93</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Gym <span>23</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Hospitals <span>83</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Parolurs <span>33</span></a></li>--%>
+<%--                            </ul>--%>
+<%--                        </div>--%>
+<%--                    </div> <!-- /Category List -->--%>
+<%--                    <!-- Category list -->--%>
+<%--                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">--%>
+<%--                        <div class="category-block">--%>
+<%--                            <div class="header">--%>
+<%--                                <i class="fa fa-shopping-basket icon-bg-4"></i>--%>
+<%--                                <h4>Shoppings</h4>--%>
+<%--                            </div>--%>
+<%--                            <ul class="category-list">--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Mens Wears <span>53</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Accessories <span>212</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Kids Wears <span>133</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">It & Software <span>143</span></a></li>--%>
+<%--                            </ul>--%>
+<%--                        </div>--%>
+<%--                    </div> <!-- /Category List -->--%>
+<%--                    <!-- Category list -->--%>
+<%--                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">--%>
+<%--                        <div class="category-block">--%>
+<%--                            <div class="header">--%>
+<%--                                <i class="fa fa-briefcase icon-bg-5"></i>--%>
+<%--                                <h4>Jobs</h4>--%>
+<%--                            </div>--%>
+<%--                            <ul class="category-list">--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">It Jobs <span>93</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cleaning & Washing <span>233</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Management <span>183</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Voluntary Works <span>343</span></a></li>--%>
+<%--                            </ul>--%>
+<%--                        </div>--%>
+<%--                    </div> <!-- /Category List -->--%>
+<%--                    <!-- Category list -->--%>
+<%--                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">--%>
+<%--                        <div class="category-block">--%>
+<%--                            <div class="header">--%>
+<%--                                <i class="fa fa-car icon-bg-6"></i>--%>
+<%--                                <h4>Vehicles</h4>--%>
+<%--                            </div>--%>
+<%--                            <ul class="category-list">--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Bus <span>193</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cars <span>23</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Motobike <span>33</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Rent a car <span>73</span></a></li>--%>
+<%--                            </ul>--%>
+<%--                        </div>--%>
+<%--                    </div> <!-- /Category List -->--%>
+<%--                    <!-- Category list -->--%>
+<%--                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">--%>
+<%--                        <div class="category-block">--%>
+<%--                            <div class="header">--%>
+<%--                                <i class="fa fa-paw icon-bg-7"></i>--%>
+<%--                                <h4>Pets</h4>--%>
+<%--                            </div>--%>
+<%--                            <ul class="category-list">--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cats <span>65</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Dogs <span>23</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Birds <span>113</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Others <span>43</span></a></li>--%>
+<%--                            </ul>--%>
+<%--                        </div>--%>
+<%--                    </div> <!-- /Category List -->--%>
+<%--                    <!-- Category list -->--%>
+<%--                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">--%>
+<%--                        <div class="category-block">--%>
 
-                            <div class="header">
-                                <i class="fa fa-laptop icon-bg-8"></i>
-                                <h4>Services</h4>
-                            </div>
-                            <ul class="category-list">
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cleaning <span>93</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Car Washing <span>233</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Clothing <span>183</span></a></li>
-                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Business <span>343</span></a></li>
-                            </ul>
-                        </div>
-                    </div> <!-- /Category List -->
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Container End -->
-</section>
+<%--                            <div class="header">--%>
+<%--                                <i class="fa fa-laptop icon-bg-8"></i>--%>
+<%--                                <h4>Services</h4>--%>
+<%--                            </div>--%>
+<%--                            <ul class="category-list">--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cleaning <span>93</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Car Washing <span>233</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Clothing <span>183</span></a></li>--%>
+<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Business <span>343</span></a></li>--%>
+<%--                            </ul>--%>
+<%--                        </div>--%>
+<%--                    </div> <!-- /Category List -->--%>
 
 
-<!--====================================
-=            Call to Action            =
-=====================================-->
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--    <!-- Container End -->--%>
+<%--</section>--%>
 
-<section class="call-to-action overly bg-3 section-sm">
-    <!-- Container Start -->
-    <div class="container">
-        <div class="row justify-content-md-center text-center">
-            <div class="col-md-8">
-                <div class="content-holder">
-                    <h2>Start today to get more exposure and
-                        grow your business</h2>
-                    <ul class="list-inline mt-30">
-                        <li class="list-inline-item"><a class="btn btn-main" href="${pageContext.request.contextPath}/okxe/home/adListing">Add Listing</a></li>
-                        <li class="list-inline-item"><a class="btn btn-secondary" href="${pageContext.request.contextPath}/okxe/home/category">Browser Listing</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Container End -->
-</section>
 
 <!--============================
 =            Footer            =
@@ -450,7 +444,8 @@
                     <img src="${pageContext.request.contextPath}/resources/images/logo-footer.png" alt="logo">
                     <!-- description -->
                     <p class="alt-color">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                        ullamco
                         laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
             </div>
@@ -460,10 +455,14 @@
                     <h4>Site Pages</h4>
                     <ul>
                         <li><a href="${pageContext.request.contextPath}/okxe/home/dashboardMyAds">My Ads</a></li>
-                        <li><a href="${pageContext.request.contextPath}/okxe/home/dashboardFavouriteAds">Favourite Ads</a></li>
-                        <li><a href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds">Archived Ads</a></li>
-                        <li><a href="${pageContext.request.contextPath}/okxe/home/dashboardPendingAds">Pending Ads</a></li>
-                        <li><a href="${pageContext.request.contextPath}/okxe/home/termsCondition">Terms & Conditions</a></li>
+                        <li><a href="${pageContext.request.contextPath}/okxe/home/dashboardFavouriteAds">Favourite
+                            Ads</a></li>
+                        <li><a href="${pageContext.request.contextPath}/okxe/home/dashboardArchivedAds">Archived Ads</a>
+                        </li>
+                        <li><a href="${pageContext.request.contextPath}/okxe/home/dashboardPendingAds">Pending Ads</a>
+                        </li>
+                        <li><a href="${pageContext.request.contextPath}/okxe/home/termsCondition">Terms & Conditions</a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -480,7 +479,6 @@
                         <li><a href="${pageContext.request.contextPath}/okxe/home/blog">Blog</a></li>
 
 
-
                     </ul>
                 </div>
             </div>
@@ -491,13 +489,18 @@
                     <div class="mobile d-flex  align-items-center">
                         <a href="/okxe/home/index">
                             <!-- Icon -->
-                            <img src="${pageContext.request.contextPath}/resources/images/footer/phone-icon.png" alt="mobile-icon">
+                            <img src="${pageContext.request.contextPath}/resources/images/footer/phone-icon.png"
+                                 alt="mobile-icon">
                         </a>
                         <p class="mb-0">Get the Dealsy Mobile App and Save more</p>
                     </div>
                     <div class="download-btn d-flex my-3">
-                        <a href="/okxe/home/index"><img src="${pageContext.request.contextPath}/images/apps/google-play-store.png" class="img-fluid" alt=""></a>
-                        <a href="/okxe/home/index" class=" ml-3"><img src="${pageContext.request.contextPath}/images/apps/apple-app-store.png" class="img-fluid" alt=""></a>
+                        <a href="/okxe/home/index"><img
+                                src="${pageContext.request.contextPath}/images/apps/google-play-store.png"
+                                class="img-fluid" alt=""></a>
+                        <a href="/okxe/home/index" class=" ml-3"><img
+                                src="${pageContext.request.contextPath}/images/apps/apple-app-store.png"
+                                class="img-fluid" alt=""></a>
                     </div>
                 </div>
             </div>
@@ -513,10 +516,13 @@
             <div class="col-lg-6 text-center text-lg-left mb-3 mb-lg-0">
                 <!-- Copyright -->
                 <div class="copyright">
-                    <p>Copyright &copy; <script>
-                        var CurrentYear = new Date().getFullYear()
-                        document.write(CurrentYear)
-                    </script>. Designed & Developed by <a class="text-white" href="https://themefisher.com">Themefisher</a></p>
+                    <p>Copyright &copy;
+                        <script>
+                            var CurrentYear = new Date().getFullYear()
+                            document.write(CurrentYear)
+                        </script>
+                        . Designed & Developed by <a class="text-white" href="https://themefisher.com">Themefisher</a>
+                    </p>
                 </div>
             </div>
             <div class="col-lg-6">

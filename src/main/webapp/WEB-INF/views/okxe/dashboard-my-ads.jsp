@@ -146,7 +146,7 @@
                     <div class="widget user-dashboard-profile">
                         <!-- User Image -->
                         <div class="profile-thumb">
-                            <img src="${pageContext.request.contextPath}/resources/images/user/user-thumb.jpg" alt=""
+                            <img src="${pageContext.request.contextPath}/resources/images/avatars/${user.getImage()}.png" alt=""
                                  class="rounded-circle">
                         </div>
                         <!-- User Name -->
@@ -218,7 +218,7 @@
                                     <img width="80px" height="auto"
                                     <c:choose>
                                     <c:when test = "${user.getImage() != null}">
-                                    <img src="${pageContext.request.contextPath}/images/avatars/${user.getImage()}.png" alt=""
+                                    <img src="${pageContext.request.contextPath}/resources/images/bikes/${bike.bike_id}/1.png" alt=""
                                          class="rounded-circle">
                                     </c:when>
                                     <c:otherwise>

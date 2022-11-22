@@ -1,5 +1,6 @@
 package com.okxe.controllers;
 import java.io.BufferedOutputStream;
+import java.io.File;
 import java.io.FileOutputStream;
 import java.security.Timestamp;
 import java.text.SimpleDateFormat;
@@ -22,7 +23,8 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("okxe/user/")
 public class UserController {
-    private static final String UPLOAD_DIRECTORY ="/WEB-INF/resources/images/bikes";
+    private static final String syspath = "C:/Users/USER/IdeaProjects/";
+    private static final String UPLOAD_DIRECTORY =syspath+"VehicleMarketplace/src/main/webapp/WEB-INF/resources/images/bikes";
     private static final String UPLOAD_AVATAR_DIRECTORY ="/WEB-INF/resources/images/avatars";
     @Autowired
     UserDAO userDAO;
@@ -101,7 +103,8 @@ public class UserController {
         java.sql.Date posted_date = new java.sql.Date(millis);
 
         // get image
-        String path=session.getServletContext().getRealPath(UPLOAD_DIRECTORY);
+
+
         List<Bike> last = bikeDAO.getLastRow();
         int dir = 0;
         if (last.size() == 0) {
@@ -110,15 +113,14 @@ public class UserController {
         else {
             dir = last.get(0).getBike_id() + 1;
         }
-
-        String filename= Integer.toString(dir) + ".png";
-
-        System.out.println(path+" "+filename);
         try{
             byte barr[]=file.getBytes();
-
+            File theDir = new File(UPLOAD_DIRECTORY+"/"+dir);
+            if (!theDir.exists()){
+                theDir.mkdirs();
+            }
             BufferedOutputStream bout=new BufferedOutputStream(
-                    new FileOutputStream(path+"/"+filename));
+                    new FileOutputStream(theDir.getPath()+"/1.png"));
             bout.write(barr);
             bout.flush();
             bout.close();
