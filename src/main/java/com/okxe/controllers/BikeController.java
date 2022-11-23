@@ -53,11 +53,58 @@ public class BikeController {
             return "okxe/category";
         } else {
             Brand b = brandDAO.getByName(brandName);
-            if(b==null){
+            if (b == null) {
                 return "okxe/404";
             } else {
                 List<Bike> bikes = bikeDAO.getBikeByBrandId(b.getBrand_id());
                 model.addAttribute("bikes", bikes);
+                model.addAttribute("currentBrand", brandName);
+                model.addAttribute("brands", brandDAO.getAll());
+                return "okxe/category";
+            }
+        }
+    }
+    @RequestMapping("okxe/bikes/{brandName}/price-asc")
+    public String showAllAsc(ModelMap model, @PathVariable String brandName) {
+        if (brandName.equals("all")) {
+            List<Bike> bikes = bikeDAO.getAllAsc();
+            model.addAttribute("bikes", bikes);
+            model.addAttribute("asc", true);
+            model.addAttribute("currentBrand", "all");
+            model.addAttribute("brands", brandDAO.getAll());
+            return "okxe/category";
+        } else {
+            Brand b = brandDAO.getByName(brandName);
+            if (b == null) {
+                return "okxe/404";
+            } else {
+                List<Bike> bikes = bikeDAO.getBikeByBrandIdAsc(b.getBrand_id());
+                model.addAttribute("bikes", bikes);
+                model.addAttribute("asc", true);
+                model.addAttribute("currentBrand", brandName);
+                model.addAttribute("brands", brandDAO.getAll());
+                return "okxe/category";
+            }
+        }
+    }
+
+    @RequestMapping("okxe/bikes/{brandName}/price-desc")
+    public String showAllDesc(ModelMap model, @PathVariable String brandName) {
+        if (brandName.equals("all")) {
+            List<Bike> bikes = bikeDAO.getAllDesc();
+            model.addAttribute("bikes", bikes);
+            model.addAttribute("asc", false);
+            model.addAttribute("currentBrand", "all");
+            model.addAttribute("brands", brandDAO.getAll());
+            return "okxe/category";
+        } else {
+            Brand b = brandDAO.getByName(brandName);
+            if (b == null) {
+                return "okxe/404";
+            } else {
+                List<Bike> bikes = bikeDAO.getBikeByBrandIdDesc(b.getBrand_id());
+                model.addAttribute("bikes", bikes);
+                model.addAttribute("asc", false);
                 model.addAttribute("currentBrand", brandName);
                 model.addAttribute("brands", brandDAO.getAll());
                 return "okxe/category";
@@ -75,11 +122,59 @@ public class BikeController {
             return "okxe/ad-list-view";
         } else {
             Brand b = brandDAO.getByName(brandName);
-            if(b==null){
+            if (b == null) {
                 return "okxe/404";
             } else {
                 List<Bike> bikes = bikeDAO.getBikeByBrandId(b.getBrand_id());
                 model.addAttribute("bikes", bikes);
+                model.addAttribute("currentBrand", brandName);
+                model.addAttribute("brands", brandDAO.getAll());
+                return "okxe/ad-list-view";
+            }
+        }
+    }
+
+    @RequestMapping("okxe/bikes/listView/{brandName}/price-asc")
+    public String showAllasListViewAsc(ModelMap model, @PathVariable String brandName) {
+        if (brandName.equals("all")) {
+            List<Bike> bikes = bikeDAO.getAllAsc();
+            model.addAttribute("bikes", bikes);
+            model.addAttribute("asc", true);
+            model.addAttribute("currentBrand", "all");
+            model.addAttribute("brands", brandDAO.getAll());
+            return "okxe/ad-list-view";
+        } else {
+            Brand b = brandDAO.getByName(brandName);
+            if (b == null) {
+                return "okxe/404";
+            } else {
+                List<Bike> bikes = bikeDAO.getBikeByBrandIdAsc(b.getBrand_id());
+                model.addAttribute("bikes", bikes);
+                model.addAttribute("asc", true);
+                model.addAttribute("currentBrand", brandName);
+                model.addAttribute("brands", brandDAO.getAll());
+                return "okxe/ad-list-view";
+            }
+        }
+    }
+
+    @RequestMapping("okxe/bikes/listView/{brandName}/price-desc")
+    public String showAllasListViewDesc(ModelMap model, @PathVariable String brandName) {
+        if (brandName.equals("all")) {
+            List<Bike> bikes = bikeDAO.getAllDesc();
+            model.addAttribute("bikes", bikes);
+            model.addAttribute("asc", false);
+            model.addAttribute("currentBrand", "all");
+            model.addAttribute("brands", brandDAO.getAll());
+            return "okxe/ad-list-view";
+        } else {
+            Brand b = brandDAO.getByName(brandName);
+            if (b == null) {
+                return "okxe/404";
+            } else {
+                List<Bike> bikes = bikeDAO.getBikeByBrandIdDesc(b.getBrand_id());
+                model.addAttribute("bikes", bikes);
+                model.addAttribute("asc", false);
                 model.addAttribute("currentBrand", brandName);
                 model.addAttribute("brands", brandDAO.getAll());
                 return "okxe/ad-list-view";
@@ -100,7 +195,7 @@ public class BikeController {
             model.addAttribute("seller", u);
             model.addAttribute("brand", br);
             model.addAttribute("bike", b);
-            if(authUser!=null && u.getUser_id() != authUser.getUser_id()){
+            if (authUser != null && u.getUser_id() != authUser.getUser_id()) {
                 model.addAttribute("usertype", "normal");
             } else {
                 model.addAttribute("usertype", null);
@@ -118,7 +213,7 @@ public class BikeController {
         if (authUser == null) {
             return "okxe/login";
         }
-        if(b.getUser_id()!=authUser.getUser_id()){
+        if (b.getUser_id() != authUser.getUser_id()) {
             model.addAttribute("message", "You are not the owner of this post! Please try login another account");
             return "okxe/404";
         } else {
@@ -130,4 +225,31 @@ public class BikeController {
         }
     }
 
+    @RequestMapping(value = "/okxe/bikes/search")
+    public String Search(@RequestParam("searchString") String searchString, ModelMap model, HttpServletRequest request) {
+        if (searchString != null) {
+            List<Bike> bikes = bikeDAO.getBikeByName(searchString);
+            model.addAttribute("bikes", bikes);
+            model.addAttribute("currentBrand", "all");
+            model.addAttribute("brands", brandDAO.getAll());
+            return "okxe/category";
+        } else {
+            model.addAttribute("message", "Bike not found!");
+            return "okxe/404";
+        }
+    }
+
+    @RequestMapping(value = "/okxe/bikes/listView/search")
+    public String SearchAsListView(@RequestParam("searchString") String searchString, ModelMap model, HttpServletRequest request) {
+        if (searchString != null) {
+            List<Bike> bikes = bikeDAO.getBikeByName(searchString);
+            model.addAttribute("bikes", bikes);
+            model.addAttribute("currentBrand", "all");
+            model.addAttribute("brands", brandDAO.getAll());
+            return "okxe/ad-list-view";
+        } else {
+            model.addAttribute("message", "Bike not found!");
+            return "okxe/404";
+        }
+    }
 }

@@ -139,11 +139,11 @@
             <div class="col-md-12">
                 <!-- Advance Search -->
                 <div class="advance-search nice-select-white">
-                    <form>
+                    <form method="get" action="${pageContext.request.contextPath}/okxe/bikes/search">
                         <div class="form-row align-items-center">
                             <div class="form-group col-xl-10 col-lg-3 col-md-6">
                                 <input type="text" class="form-control my-2 my-lg-0" id="inputtext4"
-                                       placeholder="What are you looking for">
+                                       placeholder="What are you looking for" name = "searchString">
                             </div>
                             <div class="form-group col-xl-2 col-lg-3 col-md-6">
                                 <button type="submit" class="btn btn-primary active w-100">Search Now</button>
@@ -177,9 +177,15 @@
                     <div class="row">
                         <div class="col-md-6 text-center text-md-left">
                             <strong>Sort</strong>
-                            <select>
-                                <option>Lowest Price</option>
-                                <option>Highest Price</option>
+                            <select onchange="location = this.value;">
+                                <c:if test="${asc}">
+                                    <option value="${pageContext.request.contextPath}/okxe/bikes/${currentBrand}/price-asc" selected>Lowest Price</option>
+                                    <option value="${pageContext.request.contextPath}/okxe/bikes/${currentBrand}/price-desc">Highest Price</option>
+                                </c:if>
+                                <c:if test="${!asc}">
+                                    <option value="${pageContext.request.contextPath}/okxe/bikes/${currentBrand}/price-asc">Lowest Price</option>
+                                    <option value="${pageContext.request.contextPath}/okxe/bikes/${currentBrand}/price-desc" selected>Highest Price</option>
+                                </c:if>
                             </select>
                         </div>
                         <div class="col-md-6 text-center text-md-right mt-2 mt-md-0">

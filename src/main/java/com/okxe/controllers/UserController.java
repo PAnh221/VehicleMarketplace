@@ -23,6 +23,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("okxe/user/")
 public class UserController {
+    //private static final String syspath = "C:/Users/USER/IdeaProjects/";
     private static final String syspath = "E:/PhanMemMoi/finals/";
     private static final String UPLOAD_DIRECTORY =syspath+"VehicleMarketplace/src/main/webapp/WEB-INF/resources/images/bikes";
     private static final String UPLOAD_AVATAR_DIRECTORY ="/WEB-INF/resources/images/avatars";

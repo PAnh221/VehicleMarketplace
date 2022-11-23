@@ -27,6 +27,16 @@ public class BikeDAO {
         return getBySql(sql);
     }
 
+    public List<Bike> getAllAsc() {
+        String sql = "SELECT * FROM bike ORDER BY price ASC";
+        return getBySql(sql);
+    }
+
+    public List<Bike> getAllDesc() {
+        String sql = "SELECT * FROM bike ORDER BY price DESC";
+        return getBySql(sql);
+    }
+
     public Bike getById(Serializable id) {
         String sql = "SELECT * FROM bike WHERE bike_id=?";
         return jdbc.queryForObject(sql, getRowMapper(), id);
@@ -37,6 +47,11 @@ public class BikeDAO {
         return jdbc.query(sql, getRowMapper(), id);
     }
 
+    public List<Bike> getBikeByName(String id) {
+        String sql = "SELECT * FROM bike WHERE name LIKE ?";
+        return jdbc.query(sql, getRowMapper(), id);
+    }
+
     public List<Bike> getByUserId(Serializable id) {
         String sql = "SELECT * FROM bike WHERE user_id=?";
         return jdbc.query(sql, getRowMapper(), id);
@@ -44,6 +59,16 @@ public class BikeDAO {
 
     public List<Bike> getBikeByBrandId(Integer categoryId) {
         String sql = "SELECT * FROM bike WHERE brand_id=?";
+        return jdbc.query(sql, getRowMapper(), categoryId);
+    }
+
+    public List<Bike> getBikeByBrandIdAsc(Integer categoryId) {
+        String sql = "SELECT * FROM bike WHERE brand_id=? ORDER BY price ASC";
+        return jdbc.query(sql, getRowMapper(), categoryId);
+    }
+
+    public List<Bike> getBikeByBrandIdDesc(Integer categoryId) {
+        String sql = "SELECT * FROM bike WHERE brand_id=? ORDER BY price DESC";
         return jdbc.query(sql, getRowMapper(), categoryId);
     }
 
