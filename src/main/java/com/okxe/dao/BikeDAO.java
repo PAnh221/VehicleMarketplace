@@ -76,12 +76,22 @@ public class BikeDAO {
         jdbc.update(sql, id);
     }
 
-    public List<Bike> getLastRow() {
-        String sql = "SELECT * " +
-                "FROM bike " +
-                "ORDER BY bike_id " +
-                "DESC LIMIT 0, 1\n";
-        return getBySql(sql);
+//    public List<Bike> getLastRow() {
+//        String sql = "SELECT * " +
+//                "FROM bike " +
+//                "ORDER BY bike_id " +
+//                "DESC LIMIT 0, 1\n";
+//        return jdbc.queryForObject();
+//    }
+
+    public List<Bike> getAddedBike() {
+        String sql = """
+                 (SELECT `AUTO_INCREMENT` as bike_id
+                FROM  INFORMATION_SCHEMA.TABLES
+                WHERE TABLE_SCHEMA = 'okxe'
+                  AND   TABLE_NAME   = 'bike')""";
+        return jdbc.query(sql, getRowMapper());
+
     }
 
 

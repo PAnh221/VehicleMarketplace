@@ -151,7 +151,7 @@
 									<img src="${pageContext.request.contextPath}/resources/images/avatars/${user.getImage()}.png" alt="" class="">
 								</c:when>
 								<c:otherwise>
-<%--									<img src="${pageContext.request.contextPath}/images/user/user-thumb.jpg" alt="" class="">--%>
+									<img src="${pageContext.request.contextPath}/images/user/user-thumb.jpg" alt="" class="">
 								</c:otherwise>
 							</c:choose>
 						</div>

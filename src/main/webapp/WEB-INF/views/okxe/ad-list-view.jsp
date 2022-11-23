@@ -205,8 +205,11 @@
                     <div class="row p-lg-3 p-sm-5 p-4">
                         <div class="col-lg-4 align-self-center">
                             <a href="${pageContext.request.contextPath}/okxe/bike/${bike.bike_id}">
-                                <img src="${pageContext.request.contextPath}/resources/images/bikes/${bike.bike_id}/1.png"
-                                     class="img-fluid" alt="">
+                                <img class="card-img-top"
+                                     src="${pageContext.request.contextPath}/resources/images/bikes/${bike.bike_id}/1.png"
+                                     alt="Card image cap"
+                                     width="250px"
+                                     height="190px">
                             </a>
                         </div>
                         <div class="col-lg-8">

@@ -186,7 +186,7 @@
 									<div class="thumb-content">
 											<%--                                    <div class="price">${b.price} đ</div>--%>
 										<a href="${pageContext.request.contextPath}/okxe/bike/${b.bike_id}">
-											<img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/resources/images/${b.image}" style="width: 340px; height: 240px" alt="Card image cap">
+											<img class="card-img-top img-fluid" src="${pageContext.request.contextPath}/resources/images/bikes/${b.bike_id}/1.png" style="width: 340px; height: 240px" alt="Card image cap">
 										</a>
 									</div>
 									<div class="card-body">

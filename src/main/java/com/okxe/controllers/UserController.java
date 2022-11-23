@@ -23,7 +23,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("okxe/user/")
 public class UserController {
-    private static final String syspath = "C:/Users/USER/IdeaProjects/";
+    private static final String syspath = "E:/PhanMemMoi/finals/";
     private static final String UPLOAD_DIRECTORY =syspath+"VehicleMarketplace/src/main/webapp/WEB-INF/resources/images/bikes";
     private static final String UPLOAD_AVATAR_DIRECTORY ="/WEB-INF/resources/images/avatars";
     @Autowired
@@ -102,17 +102,10 @@ public class UserController {
         long millis=System.currentTimeMillis();
         java.sql.Date posted_date = new java.sql.Date(millis);
 
-        // get image
 
-
-        List<Bike> last = bikeDAO.getLastRow();
-        int dir = 0;
-        if (last.size() == 0) {
-            dir = 0;
-        }
-        else {
-            dir = last.get(0).getBike_id() + 1;
-        }
+        // get added bike
+        int dir = bikeDAO.getAddedBike().get(0).getBike_id();
+        System.out.println(dir);
         try{
             byte barr[]=file.getBytes();
             File theDir = new File(UPLOAD_DIRECTORY+"/"+dir);
@@ -126,7 +119,6 @@ public class UserController {
             bout.close();
 
         }catch(Exception e){System.out.println(e);}
-
 
         // insert new bike
         Bike bike = new Bike(name, price, null, color, odo, type_id, engine, brand_id, user_id, Integer.toString(dir), posted_date, status);

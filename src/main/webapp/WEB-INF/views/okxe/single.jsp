@@ -150,20 +150,20 @@
 					</div>
 
 					<div class="product-slider">
-						<div class="product-slider-item my-4" data-image="${pageContext.request.contextPath}/images/bikes/${bike.bike_id}/${bike.bike_id}.png">
-							<img class="img-fluid w-100" src="${pageContext.request.contextPath}/resources/images/bikes/${bike.bike_id}/${bike.bike_id}.png" alt="product-img">
+						<div class="product-slider-item my-4" data-image="${pageContext.request.contextPath}/images/bikes/${bike.bike_id}/1.png">
+							<img class="img-fluid w-100" src="${pageContext.request.contextPath}/resources/images/bikes/${bike.bike_id}/1.png" alt="product-img">
 						</div>
-						<div class="product-slider-item my-4" data-image="${pageContext.request.contextPath}/images/bikes/${bike.bike_id}/${bike.bike_id}.png">
-							<img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/resources/images/bikes/${bike.bike_id}/${bike.bike_id}.png" alt="Second slide">
+						<div class="product-slider-item my-4" data-image="${pageContext.request.contextPath}/images/bikes/${bike.bike_id}/1.png">
+							<img class="img-fluid w-100" src="${pageContext.request.contextPath}/resources/images/bikes/${bike.bike_id}/1.png" alt="product-img">
 						</div>
-						<div class="product-slider-item my-4" data-image="${pageContext.request.contextPath}/images/bikes/${bike.bike_id}/${bike.bike_id}.png">
-							<img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/resources/images/bikes/${bike.bike_id}/${bike.bike_id}.png" alt="Third slide">
+						<div class="product-slider-item my-4" data-image="${pageContext.request.contextPath}/images/bikes/${bike.bike_id}/1.png">
+							<img class="img-fluid w-100" src="${pageContext.request.contextPath}/resources/images/bikes/${bike.bike_id}/1.png" alt="product-img">
 						</div>
-						<div class="product-slider-item my-4" data-image="${pageContext.request.contextPath}/images/bikes/${bike.bike_id}/${bike.bike_id}.png">
-							<img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/resources/images/bikes/${bike.bike_id}/${bike.bike_id}.png" alt="Third slide">
+						<div class="product-slider-item my-4" data-image="${pageContext.request.contextPath}/images/bikes/${bike.bike_id}/1.png">
+							<img class="img-fluid w-100" src="${pageContext.request.contextPath}/resources/images/bikes/${bike.bike_id}/1.png" alt="product-img">
 						</div>
-						<div class="product-slider-item my-4" data-image="${pageContext.request.contextPath}/images/bikes/${bike.bike_id}/${bike.bike_id}.png">
-							<img class="d-block img-fluid w-100" src="${pageContext.request.contextPath}/resources/images/bikes/${bike.bike_id}/${bike.bike_id}.png" alt="Third slide">
+						<div class="product-slider-item my-4" data-image="${pageContext.request.contextPath}/images/bikes/${bike.bike_id}/1.png">
+							<img class="img-fluid w-100" src="${pageContext.request.contextPath}/resources/images/bikes/${bike.bike_id}/1.png" alt="product-img">
 						</div>
 					</div>
 
