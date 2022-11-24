@@ -23,8 +23,8 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("okxe/user/")
 public class UserController {
-    //private static final String syspath = "C:/Users/USER/IdeaProjects/";
-    private static final String syspath = "E:/PhanMemMoi/finals/";
+    private static final String syspath = "C:/Users/USER/IdeaProjects/";
+    //private static final String syspath = "E:/PhanMemMoi/finals/";
     private static final String UPLOAD_DIRECTORY =syspath+"VehicleMarketplace/src/main/webapp/WEB-INF/resources/images/bikes";
     private static final String UPLOAD_AVATAR_DIRECTORY ="/WEB-INF/resources/images/avatars";
     @Autowired
@@ -142,6 +142,9 @@ public class UserController {
 
         model.addAttribute("user", authUser);
         List<Bike> bikeList = bikeDAO.getByUserId(authUser.getUser_id());
+        for(Bike b : bikeList){
+            b.setBrand(brandDAO.getById(b.getBrand_id()));
+        }
         model.addAttribute("bikeList", bikeList);
 
         return "okxe/dashboard-my-ads";
@@ -356,11 +359,17 @@ public class UserController {
         if (authUser.getUser_id() == Integer.parseInt(user_id)) {
             model.addAttribute("user", userDAO.getById(authUser.getUser_id()));
             List<Bike> bikeList = bikeDAO.getByUserId(authUser.getUser_id());
+            for(Bike b : bikeList){
+                b.setBrand(brandDAO.getById(b.getBrand_id()));
+            }
             model.addAttribute("bikeList", bikeList);
         }
         else {
             model.addAttribute("user", userDAO.getById(Integer.parseInt(user_id)));
             List<Bike> bikeList = bikeDAO.getByUserId(Integer.parseInt(user_id));
+            for(Bike b : bikeList){
+                b.setBrand(brandDAO.getById(b.getBrand_id()));
+            }
             model.addAttribute("bikeList", bikeList);
         }
 

@@ -206,8 +206,8 @@
                         <thead>
                         <tr>
                             <th>Image</th>
-                            <th>Product Title</th>
-                            <th class="text-center">Category</th>
+                            <th>Product Detail</th>
+                            <th class="text-center">Brand</th>
                             <th class="text-center">Action</th>
                         </tr>
                         </thead>
@@ -238,7 +238,7 @@
                                     </c:otherwise>
                                 </c:choose>                                    <span class="location"><strong>ODO</strong>${bike.getOdo()} km</span>
                                 </td>
-                                <td class="product-category"><span class="categories">${bike.getBrand_id()}</span></td>
+                                <td class="product-category"><span class="categories">${bike.brand.brandname}</span></td>
                                 <td class="action" data-title="Action">
                                     <div class="">
                                         <ul class="list-inline justify-content-center">
