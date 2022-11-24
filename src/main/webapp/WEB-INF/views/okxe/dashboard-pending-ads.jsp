@@ -5,7 +5,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Classimax | Classified Marketplace Template</title>
+    <title>OKXE | Yêu cầu của tôi</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Agency HTML Template">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
@@ -225,22 +225,7 @@
                                         <div class="">
                                             <ul class="list-inline justify-content-center">
                                                 <li class="list-inline-item">
-                                                    <a data-toggle="tooltip" data-placement="top" title="View" class="view"
-                                                       href="${pageContext.request.contextPath}/okxe/bike/${order.bike.bike_id}">
-                                                        <i class="fa fa-eye"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a data-toggle="tooltip" data-placement="top" title="Accept" class="edit"
-                                                       href="${pageContext.request.contextPath}/okxe/user/order-request/accept/${order.order_id}">
-                                                        <i class="fa fa-check"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a data-toggle="tooltip" data-placement="top" title="Deny" class="delete"
-                                                       href="${pageContext.request.contextPath}/okxe/user/order-request/deny/${order.order_id}">
-                                                        <i class="fa fa-close"></i>
-                                                    </a>
+                                                    Pending!
                                                 </li>
                                             </ul>
                                         </div>

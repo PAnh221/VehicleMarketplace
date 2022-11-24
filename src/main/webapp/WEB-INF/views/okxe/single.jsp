@@ -14,7 +14,7 @@
 
   <!-- ** Basic Page Needs ** -->
   <meta charset="utf-8">
-  <title>Classimax | Classified Marketplace Template</title>
+  <title>OKXE | Chi tiết bài đăng</title>
 
   <!-- ** Mobile Specific Metas ** -->
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -227,6 +227,22 @@
 						<h4><a href="${pageContext.request.contextPath}/okxe/user/userPosts/${seller.user_id}">${seller.name}</a></h4>
 						<p class="member-time">${seller.location}</p>
 					</div>
+					<c:choose>
+					<c:when test="${not empty authUser}">
+						<a href="${pageContext.request.contextPath}/okxe/order/add/${authUser.getUser_id()}/${bike.getBike_id()}">
+							<div class="widget price text-center">
+								<h4>Order now</h4>
+							</div>
+						</a>
+					</c:when>
+					<c:when test="${not empty usertype}">
+						<a href="${pageContext.request.contextPath}/okxe/order/add/${authUser.getUser_id()}/${bike.getBike_id()}">
+							<div class="widget price text-center">
+								<h4>Order now</h4>
+							</div>
+						</a>
+					</c:when>
+					</c:choose>
 				</div>
 			</div>
 		</div>

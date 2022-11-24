@@ -8,7 +8,7 @@
 
     <!-- ** Basic Page Needs ** -->
     <meta charset="utf-8">
-    <title>Classimax | Classified Marketplace Template</title>
+    <title>Okxe | Trao đổi & mua bán xe cũ</title>
 
     <!-- ** Mobile Specific Metas ** -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -113,8 +113,6 @@
                                     </li>
                                 </c:when>
                             </c:choose>
-
-
                         </ul>
                         <ul class="navbar-nav ml-auto mt-10">
                             <li class="nav-item">
@@ -180,9 +178,7 @@
                             </li>
                         </ul>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
