@@ -47,7 +47,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<nav class="navbar navbar-expand-lg navbar-light navigation">
-					<a class="navbar-brand" href="${pageContext.request.contextPath}/okxe/home/index">
+					<a class="navbar-brand" href="${pageContext.request.contextPath}/okxe/bikes">
 						<img src="${pageContext.request.contextPath}/images/logo.png" alt="">
 					</a>
 					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -57,7 +57,7 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto main-nav ">
 							<li class="nav-item active">
-								<a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes/all">Home</a>
+								<a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes">Home</a>
 							</li>
 							<li class="nav-item dropdown dropdown-slide @@pages">
 								<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -148,8 +148,8 @@
 							<img src="${pageContext.request.contextPath}/resources/images/avatars/${authUser.getImage()}.png" alt="" class="rounded-circle">
 						</div>
 						<!-- User Name -->
-						<h5 class="text-center">Samanta Doe</h5>
-						<p>Joined February 06, 2017</p>
+						<h5 class="text-center">${authUser.name}</h5>
+						<p>${authUser.username}</p>
 						<a href="${pageContext.request.contextPath}/okxe/home/userProfile" class="btn btn-main-sm">Edit Profile</a>
 					</div>
 					<!-- Dashboard Links -->

@@ -49,7 +49,7 @@
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg navbar-light navigation">
-                    <a class="navbar-brand" href="${pageContext.request.contextPath}/okxe/home/index">
+                    <a class="navbar-brand" href="${pageContext.request.contextPath}/okxe/bikes">
                         <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -58,8 +58,8 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto main-nav ">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes/all">Home</a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes">Home</a>
                             </li>
                             <li class="nav-item dropdown dropdown-slide @@pages">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -224,10 +224,10 @@
                                         </div>
                                         <div class="card-body">
                                             <h4 class="card-title"><a
-                                                    href="${pageContext.request.contextPath}/resources/images/bikes/${bike.bike_id}/1.png">${bike.name}</a></h4>
+                                                    href="${pageContext.request.contextPath}/okxe/bike/${bike.bike_id}">${bike.name}</a></h4>
                                             <ul class="list-inline product-meta">
                                                 <li class="list-inline-item">
-                                                    <a href="${pageContext.request.contextPath}/resources/images/bikes/${bike.bike_id}/1.png"><i
+                                                    <a href="${pageContext.request.contextPath}/okxe/bike/${bike.bike_id}"><i
                                                             class="fa fa-folder-open-o"></i>${bike.type_id}</a>
                                                 </li>
                                                 <li class="list-inline-item">

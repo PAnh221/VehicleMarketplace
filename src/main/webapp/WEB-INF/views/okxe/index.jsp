@@ -47,7 +47,7 @@
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg navbar-light navigation">
-                    <a class="navbar-brand" href="${pageContext.request.contextPath}/okxe/home/index">
+                    <a class="navbar-brand" href="${pageContext.request.contextPath}/okxe/bikes">
                         <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -58,7 +58,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto main-nav ">
                             <li class="nav-item active">
-                                <a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes/all">Home</a>
+                                <a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes">Home</a>
                             </li>
                             <li class="nav-item dropdown dropdown-slide @@pages">
                                 <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true"
@@ -88,7 +88,7 @@
                                            href="${pageContext.request.contextPath}/okxe/brand/triumph">Triumph</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item active">
+                            <li class="nav-item">
                                 <a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes/all">Bikes</a>
                             </li>
                             <li class="nav-item">
@@ -160,10 +160,9 @@
                 <!-- Header Contetnt -->
                 <div class="content-block">
                     <h1>Buy & Sell Near You </h1>
-                    <p>Join the millions who buy and sell from each other <br> everyday in local communities around the
-                        world</p>
+                    <p>Join the millions who buy and sell from each other <br> everyday in local communities</p>
                     <div class="short-popular-category-list text-center">
-                        <h2>Popular Category</h2>
+                        <h2>Popular Brands</h2>
                         <ul class="list-inline">
                             <li class="list-inline-item">
                                 <a href="${pageContext.request.contextPath}/okxe/brand/honda">Honda</a></li>
@@ -183,39 +182,7 @@
                     </div>
 
                 </div>
-                <!-- Advance Search -->
-                <div class="advance-search">
-                    <div class="container">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-12 col-md-12 align-content-center">
-                                <form>
-                                    <div class="form-row">
-                                        <div class="form-group col-xl-4 col-lg-3 col-md-6">
-                                            <input type="text" class="form-control my-2 my-lg-1" id="inputtext4"
-                                                   placeholder="What are you looking for">
-                                        </div>
-                                        <div class="form-group col-lg-3 col-md-6">
-                                            <select class="w-100 form-control mt-lg-1 mt-md-2">
-                                                <option>Category</option>
-                                                <option value="1">Top rated</option>
-                                                <option value="2">Lowest Price</option>
-                                                <option value="4">Highest Price</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group col-lg-3 col-md-6">
-                                            <input type="text" class="form-control my-2 my-lg-1" id="inputLocation4"
-                                                   placeholder="Location">
-                                        </div>
-                                        <div class="form-group col-xl-2 col-lg-3 col-md-6 align-self-center">
-                                            <button type="submit" class="btn btn-primary active w-100">Search Now
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -227,16 +194,18 @@
 =            Popular deals section            =
 ============================================-->
 
+
 <section class="popular-deals section bg-gray">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="section-title">
-                    <h2>Tất cả sản phẩm</h2>
+                    <h2>All Posts</h2>
                 </div>
             </div>
         </div>
         <div class="row">
+
             <!-- offer 01 -->
             <div class="col-lg-12">
 
@@ -248,22 +217,22 @@
                                 <div class="card">
                                     <div class="thumb-content">
                                             <%--                                    <div class="price">${b.price} đ</div>--%>
-                                        <a href="${pageContext.request.contextPath}/okxe/home/single">
+                                        <a href="${pageContext.request.contextPath}/okxe/bike/${b.bike_id}">
                                             <img class="card-img-top img-fluid"
-                                                 src="${pageContext.request.contextPath}/resources/images/${b.image}"
-                                                 style="width: 340px; height: 240px" alt="Card image cap">
+                                                 src="${pageContext.request.contextPath}/resources/images/bikes/${b.image}/1.png" style="width: 340px; height: 250px"
+                                                  alt="Card image cap">
                                         </a>
                                     </div>
                                     <div class="card-body">
                                         <h4 class="card-title"><a
-                                                href="${pageContext.request.contextPath}/okxe/home/single">${b.name}</a>
+                                                href="${pageContext.request.contextPath}/okxe/bike/${b.bike_id}">${b.name}</a>
                                         </h4>
                                         <ul class="list-inline product-meta">
                                                 <%--                                        <li class="list-inline-item">--%>
                                                 <%--                                            <a href="${pageContext.request.contextPath}/okxe/home/single"><i class="fa fa-folder-open-o"></i>Electronics</a>--%>
                                                 <%--                                        </li>--%>
                                             <li class="list-inline-item">
-                                                <a href="${pageContext.request.contextPath}/okxe/home/category"><i
+                                                <a href="${pageContext.request.contextPath}/okxe/bike/${b.bike_id}"><i
                                                         class="fa fa-calendar"></i>${b.posted_date}</a>
                                             </li>
                                         </ul>
@@ -286,148 +255,6 @@
 <!--==========================================
 =            All Category Section            =
 ===========================================-->
-
-<%--<section class=" section">--%>
-<%--    <!-- Container Start -->--%>
-<%--    <div class="container">--%>
-<%--        <div class="row">--%>
-<%--            <div class="col-12">--%>
-<%--                <!-- Section title -->--%>
-<%--                <div class="section-title">--%>
-<%--                    <h2>All Categories</h2>--%>
-<%--                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis, provident!</p>--%>
-<%--                </div>--%>
-<%--                <div class="row">--%>
-<%--                    <!-- Category list -->--%>
-<%--                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">--%>
-<%--                        <div class="category-block">--%>
-<%--                            <div class="header">--%>
-<%--                                <i class="fa fa-laptop icon-bg-1"></i>--%>
-<%--                                <h4>Electronics</h4>--%>
-<%--                            </div>--%>
-<%--                            <ul class="category-list">--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Laptops <span>93</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Iphone <span>233</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Microsoft <span>183</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Monitors <span>343</span></a></li>--%>
-<%--                            </ul>--%>
-<%--                        </div>--%>
-<%--                    </div> <!-- /Category List -->--%>
-<%--                    <!-- Category list -->--%>
-<%--                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">--%>
-<%--                        <div class="category-block">--%>
-<%--                            <div class="header">--%>
-<%--                                <i class="fa fa-apple icon-bg-2"></i>--%>
-<%--                                <h4>Restaurants</h4>--%>
-<%--                            </div>--%>
-<%--                            <ul class="category-list">--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cafe <span>393</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Fast food <span>23</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Restaurants <span>13</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Food Track<span>43</span></a></li>--%>
-<%--                            </ul>--%>
-<%--                        </div>--%>
-<%--                    </div> <!-- /Category List -->--%>
-<%--                    <!-- Category list -->--%>
-<%--                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">--%>
-<%--                        <div class="category-block">--%>
-<%--                            <div class="header">--%>
-<%--                                <i class="fa fa-home icon-bg-3"></i>--%>
-<%--                                <h4>Real Estate</h4>--%>
-<%--                            </div>--%>
-<%--                            <ul class="category-list">--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Farms <span>93</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Gym <span>23</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Hospitals <span>83</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Parolurs <span>33</span></a></li>--%>
-<%--                            </ul>--%>
-<%--                        </div>--%>
-<%--                    </div> <!-- /Category List -->--%>
-<%--                    <!-- Category list -->--%>
-<%--                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">--%>
-<%--                        <div class="category-block">--%>
-<%--                            <div class="header">--%>
-<%--                                <i class="fa fa-shopping-basket icon-bg-4"></i>--%>
-<%--                                <h4>Shoppings</h4>--%>
-<%--                            </div>--%>
-<%--                            <ul class="category-list">--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Mens Wears <span>53</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Accessories <span>212</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Kids Wears <span>133</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">It & Software <span>143</span></a></li>--%>
-<%--                            </ul>--%>
-<%--                        </div>--%>
-<%--                    </div> <!-- /Category List -->--%>
-<%--                    <!-- Category list -->--%>
-<%--                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">--%>
-<%--                        <div class="category-block">--%>
-<%--                            <div class="header">--%>
-<%--                                <i class="fa fa-briefcase icon-bg-5"></i>--%>
-<%--                                <h4>Jobs</h4>--%>
-<%--                            </div>--%>
-<%--                            <ul class="category-list">--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">It Jobs <span>93</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cleaning & Washing <span>233</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Management <span>183</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Voluntary Works <span>343</span></a></li>--%>
-<%--                            </ul>--%>
-<%--                        </div>--%>
-<%--                    </div> <!-- /Category List -->--%>
-<%--                    <!-- Category list -->--%>
-<%--                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">--%>
-<%--                        <div class="category-block">--%>
-<%--                            <div class="header">--%>
-<%--                                <i class="fa fa-car icon-bg-6"></i>--%>
-<%--                                <h4>Vehicles</h4>--%>
-<%--                            </div>--%>
-<%--                            <ul class="category-list">--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Bus <span>193</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cars <span>23</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Motobike <span>33</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Rent a car <span>73</span></a></li>--%>
-<%--                            </ul>--%>
-<%--                        </div>--%>
-<%--                    </div> <!-- /Category List -->--%>
-<%--                    <!-- Category list -->--%>
-<%--                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">--%>
-<%--                        <div class="category-block">--%>
-<%--                            <div class="header">--%>
-<%--                                <i class="fa fa-paw icon-bg-7"></i>--%>
-<%--                                <h4>Pets</h4>--%>
-<%--                            </div>--%>
-<%--                            <ul class="category-list">--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cats <span>65</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Dogs <span>23</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Birds <span>113</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Others <span>43</span></a></li>--%>
-<%--                            </ul>--%>
-<%--                        </div>--%>
-<%--                    </div> <!-- /Category List -->--%>
-<%--                    <!-- Category list -->--%>
-<%--                    <div class="col-lg-3 offset-lg-0 col-md-5 offset-md-1 col-sm-6">--%>
-<%--                        <div class="category-block">--%>
-
-<%--                            <div class="header">--%>
-<%--                                <i class="fa fa-laptop icon-bg-8"></i>--%>
-<%--                                <h4>Services</h4>--%>
-<%--                            </div>--%>
-<%--                            <ul class="category-list">--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Cleaning <span>93</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Car Washing <span>233</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Clothing <span>183</span></a></li>--%>
-<%--                                <li><a href="${pageContext.request.contextPath}/okxe/home/category">Business <span>343</span></a></li>--%>
-<%--                            </ul>--%>
-<%--                        </div>--%>
-<%--                    </div> <!-- /Category List -->--%>
-
-
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--    <!-- Container End -->--%>
-<%--</section>--%>
-
 
 <!--============================
 =            Footer            =

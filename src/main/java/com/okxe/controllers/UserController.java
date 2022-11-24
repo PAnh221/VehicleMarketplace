@@ -290,6 +290,7 @@ public class UserController {
         userDAO.updatePersonalInfo(user);
 
         model.addAttribute("user", userDAO.getById(id));
+
         model.addAttribute("error", "Changes saved");
 
         return "okxe/user-profile";
@@ -339,7 +340,7 @@ public class UserController {
         if (authUser == null) {
             return "okxe/login";
         }
-        return "okxe/index";
+        return "redirect:/okxe/bikes";
     }
 
     @RequestMapping("/userPosts/{user_id}")
@@ -466,7 +467,7 @@ public class UserController {
                 HttpSession session = request.getSession();
                 session.setAttribute("auth", true);
                 session.setAttribute("authUser", user);
-                return "okxe/index";
+                return "redirect:/okxe/bikes";
             }
             else {
                 model.addAttribute("error", "Incorrect password");
