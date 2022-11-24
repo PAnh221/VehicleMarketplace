@@ -48,7 +48,7 @@
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-expand-lg navbar-light navigation">
-                    <a class="navbar-brand" href="${pageContext.request.contextPath}/okxe/home/index">
+                    <a class="navbar-brand" href="${pageContext.request.contextPath}/okxe/bikes">
                         <img src="${pageContext.request.contextPath}/images/logo.png" alt="">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

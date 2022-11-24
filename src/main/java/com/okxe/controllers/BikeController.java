@@ -45,6 +45,7 @@ public class BikeController {
 
     @RequestMapping("okxe/bikes/{brandName}")
     public String showAll(ModelMap model, @PathVariable String brandName) {
+
         if (brandName.equals("all")) {
             List<Bike> bikes = bikeDAO.getAll();
             model.addAttribute("bikes", bikes);
@@ -136,6 +137,7 @@ public class BikeController {
 
     @RequestMapping("okxe/bikes/listView/{brandName}/price-asc")
     public String showAllasListViewAsc(ModelMap model, @PathVariable String brandName) {
+
         if (brandName.equals("all")) {
             List<Bike> bikes = bikeDAO.getAllAsc();
             model.addAttribute("bikes", bikes);
