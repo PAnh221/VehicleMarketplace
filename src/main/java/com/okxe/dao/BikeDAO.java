@@ -23,18 +23,21 @@ public class BikeDAO {
     }
 
     public List<Bike> getAll() {
-        String sql = "SELECT * FROM bike";
-        return getBySql(sql);
+        int status = 1;
+        String sql = "SELECT * FROM bike WHERE status=?";
+        return jdbc.query(sql, getRowMapper(), status);
     }
 
     public List<Bike> getAllAsc() {
-        String sql = "SELECT * FROM bike ORDER BY price ASC";
-        return getBySql(sql);
+        int status = 1;
+        String sql = "SELECT * FROM bike WHERE status=? ORDER BY price ASC";
+        return jdbc.query(sql, getRowMapper(), status);
     }
 
     public List<Bike> getAllDesc() {
-        String sql = "SELECT * FROM bike ORDER BY price DESC";
-        return getBySql(sql);
+        int status = 1;
+        String sql = "SELECT * FROM bike WHERE status=? ORDER BY price DESC";
+        return jdbc.query(sql, getRowMapper(), status);
     }
 
     public Bike getById(Serializable id) {
@@ -47,9 +50,10 @@ public class BikeDAO {
         return jdbc.query(sql, getRowMapper(), id);
     }
 
-    public List<Bike> getBikeByName(String id) {
-        String sql = "SELECT * FROM bike WHERE name LIKE ?";
-        return jdbc.query(sql, getRowMapper(), id);
+    public List<Bike> getBikeByName(String name) {
+        int status = 1;
+        String sql = "SELECT * FROM bike WHERE name LIKE ? and status = ?";
+        return jdbc.query(sql, getRowMapper(), name, status);
     }
 
     public List<Bike> getByUserId(Serializable id) {
@@ -57,19 +61,28 @@ public class BikeDAO {
         return jdbc.query(sql, getRowMapper(), id);
     }
 
+    public List<Bike> getActiveByUserId(Serializable id) {
+        int status = 1;
+        String sql = "SELECT * FROM bike WHERE user_id=? and status = ?";
+        return jdbc.query(sql, getRowMapper(), id, status);
+    }
+
     public List<Bike> getBikeByBrandId(Integer categoryId) {
-        String sql = "SELECT * FROM bike WHERE brand_id=?";
-        return jdbc.query(sql, getRowMapper(), categoryId);
+        int status = 1;
+        String sql = "SELECT * FROM bike WHERE brand_id=? and status=?";
+        return jdbc.query(sql, getRowMapper(), categoryId, status);
     }
 
     public List<Bike> getBikeByBrandIdAsc(Integer categoryId) {
-        String sql = "SELECT * FROM bike WHERE brand_id=? ORDER BY price ASC";
-        return jdbc.query(sql, getRowMapper(), categoryId);
+        int status = 1;
+        String sql = "SELECT * FROM bike WHERE brand_id=? and status=? ORDER BY price ASC";
+        return jdbc.query(sql, getRowMapper(), categoryId, status);
     }
 
     public List<Bike> getBikeByBrandIdDesc(Integer categoryId) {
-        String sql = "SELECT * FROM bike WHERE brand_id=? ORDER BY price DESC";
-        return jdbc.query(sql, getRowMapper(), categoryId);
+        int status = 1;
+        String sql = "SELECT * FROM bike WHERE brand_id=? and status=? ORDER BY price DESC";
+        return jdbc.query(sql, getRowMapper(), categoryId, status);
     }
 
     public void insert(Bike entity) {
@@ -97,8 +110,11 @@ public class BikeDAO {
     }
 
     public void delete(Serializable id) {
-        String sql = "DELETE FROM bike WHERE bike_id=?";
-        jdbc.update(sql, id);
+        int status = 0;
+        String sql = "UPDATE bike " +
+                "SET status=? " +
+                "WHERE bike_id=?";
+        jdbc.update(sql, status, id);
     }
 
 //    public List<Bike> getLastRow() {

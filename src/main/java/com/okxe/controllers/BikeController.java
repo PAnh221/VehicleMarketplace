@@ -184,7 +184,7 @@ public class BikeController {
         }
     }
 
-    @RequestMapping("okxe/bike/{bikeId}")
+        @RequestMapping("okxe/bike/{bikeId}")
     public String showProduct(ModelMap model, @PathVariable Integer bikeId, HttpServletRequest request) {
         Bike b = bikeDAO.getById(bikeId);
         if (b == null) {

@@ -367,7 +367,7 @@ public class UserController {
         }
         else {
             model.addAttribute("user", userDAO.getById(Integer.parseInt(user_id)));
-            List<Bike> bikeList = bikeDAO.getByUserId(Integer.parseInt(user_id));
+            List<Bike> bikeList = bikeDAO.getActiveByUserId(Integer.parseInt(user_id));
             for(Bike b : bikeList){
                 b.setBrand(brandDAO.getById(b.getBrand_id()));
             }
