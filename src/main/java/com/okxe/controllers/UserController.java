@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.okxe.beans.*;
 import com.okxe.dao.*;
+import com.okxe.utils.StringValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -23,8 +24,8 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("okxe/user/")
 public class UserController {
-    private static final String syspath = "C:/Users/USER/IdeaProjects/";
-    //private static final String syspath = "E:/PhanMemMoi/finals/";
+//    private static final String syspath = "C:/Users/USER/IdeaProjects/";
+    private static final String syspath = "E:/PhanMemMoi/finals/";
     private static final String UPLOAD_DIRECTORY =syspath+"VehicleMarketplace/src/main/webapp/WEB-INF/resources/images/bikes";
     private static final String UPLOAD_AVATAR_DIRECTORY ="/WEB-INF/resources/images/avatars";
     @Autowired
@@ -53,7 +54,6 @@ public class UserController {
         else{
             model.addAttribute("user", userDAO.getById(authUser.getUser_id()));
         }
-        System.out.println(session.getAttribute("auth"));
         return "okxe/user-profile";
     }
 
@@ -248,9 +248,14 @@ public class UserController {
         int id = Integer.valueOf(request.getParameter("id"));
         String name = request.getParameter("name");
         String phone = request.getParameter("phone");
-        String location = request.getParameter("location");
         String CID = request.getParameter("CID");
+        String location = request.getParameter("location");
 
+        if (!StringValidator.isValidMobileNo(phone) || !StringValidator.isValidMobileNo(CID)) {
+            model.addAttribute("user", userDAO.getById(id));
+            model.addAttribute("error", "Phone number or CID not valid!");
+            return "okxe/user-profile";
+        }
 
         // get image
         String path=session.getServletContext().getRealPath(UPLOAD_AVATAR_DIRECTORY);
@@ -503,6 +508,11 @@ public class UserController {
         String CID = request.getParameter("citizenID");
         String password = request.getParameter("password");
         String confirmpassword = request.getParameter("confirmpassword");
+
+        if (!StringValidator.isValidMobileNo(CID)) {
+            model.addAttribute("error", "CID not valid!");
+            return "okxe/register";
+        }
 
         if (!confirmpassword.trim().equals(password.trim())) {
             model.addAttribute("error", "Confirm password not valid");
