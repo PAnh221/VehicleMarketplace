@@ -228,13 +228,6 @@
 						<p class="member-time">${seller.location}</p>
 					</div>
 					<c:choose>
-					<c:when test="${not empty authUser}">
-						<a href="${pageContext.request.contextPath}/okxe/order/add/${authUser.getUser_id()}/${bike.getBike_id()}">
-							<div class="widget price text-center">
-								<h4>Order now</h4>
-							</div>
-						</a>
-					</c:when>
 					<c:when test="${not empty usertype}">
 						<a href="${pageContext.request.contextPath}/okxe/order/add/${authUser.getUser_id()}/${bike.getBike_id()}">
 							<div class="widget price text-center">
