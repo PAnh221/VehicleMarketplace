@@ -516,6 +516,11 @@ public class UserController {
         String password = request.getParameter("password");
         String confirmpassword = request.getParameter("confirmpassword");
 
+        if (StringValidator.containsNumber(name)) {
+            model.addAttribute("error", "Name cannot contain numbers!");
+            return "okxe/register";
+        }
+
         if (!StringValidator.isValidMobileNo(CID)) {
             model.addAttribute("error", "CID not valid!");
             return "okxe/register";
