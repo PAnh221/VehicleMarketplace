@@ -58,7 +58,7 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto main-nav ">
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes">Home</a>
               </li>
               <li class="nav-item dropdown dropdown-slide @@pages">
@@ -78,10 +78,10 @@
                   <li><a class="dropdown-item @@singleBlog" href="${pageContext.request.contextPath}/okxe/brand/triumph">Triumph</a></li>
                 </ul>
               </li>
-              <li class="nav-item active">
+              <li class="nav-item">
                 <a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes/all">Bikes</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item active">
                 <a class="nav-link" href="${pageContext.request.contextPath}/okxe/home/aboutUs">About Us</a>
               </li>
               <c:choose>

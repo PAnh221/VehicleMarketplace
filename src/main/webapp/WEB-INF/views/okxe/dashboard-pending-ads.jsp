@@ -41,7 +41,7 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ml-auto main-nav ">
-                            <li class="nav-item active">
+                            <li class="nav-item">
                                 <a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes">Home</a>
                             </li>
                             <li class="nav-item dropdown dropdown-slide @@pages">
@@ -61,7 +61,7 @@
                                     <li><a class="dropdown-item @@singleBlog" href="${pageContext.request.contextPath}/okxe/brand/triumph">Triumph</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item active">
+                            <li class="nav-item">
                                 <a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes/all">Bikes</a>
                             </li>
                             <li class="nav-item">
@@ -72,7 +72,7 @@
                                     <li class="nav-item">
                                         <a class="nav-link" href="${pageContext.request.contextPath}/okxe/user/profile">Profile</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item active">
                                         <a class="nav-link" href="${pageContext.request.contextPath}/okxe/user/userPosts/${authUser.getUser_id()}">My Posts</a>
                                     </li>
 
@@ -127,7 +127,7 @@
                 <div class="sidebar">
                     <div class="widget user-dashboard-profile">
                         <div class="profile-thumb">
-                            <img src="${pageContext.request.contextPath}/resources/images/avatars/${authUser.getImage()}.png" alt=""
+                            <img src="${pageContext.request.contextPath}/resources/images/avatars/${authUser.getUser_id()}.png" alt=""
                                  class="rounded-circle">
                         </div>
                         <h5 class="text-center">${authUser.name}</h5>

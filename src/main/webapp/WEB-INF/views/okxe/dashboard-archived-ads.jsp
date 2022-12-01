@@ -76,7 +76,7 @@
 									<li><a class="dropdown-item @@singleBlog" href="${pageContext.request.contextPath}/okxe/brand/triumph">Triumph</a></li>
 								</ul>
 							</li>
-							<li class="nav-item active">
+							<li class="nav-item">
 								<a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes/all">Bikes</a>
 							</li>
 							<li class="nav-item">
@@ -87,7 +87,7 @@
 									<li class="nav-item">
 										<a class="nav-link" href="${pageContext.request.contextPath}/okxe/user/profile">Profile</a>
 									</li>
-									<li class="nav-item">
+									<li class="nav-item active">
 										<a class="nav-link" href="${pageContext.request.contextPath}/okxe/user/userPosts/${authUser.getUser_id()}">My Posts</a>
 									</li>
 
@@ -145,7 +145,7 @@
 					<div class="widget user-dashboard-profile">
 						<!-- User Image -->
 						<div class="profile-thumb">
-							<img src="${pageContext.request.contextPath}/resources/images/avatars/${authUser.getImage()}.png" alt="" class="rounded-circle">
+							<img src="${pageContext.request.contextPath}/resources/images/avatars/${authUser.getUser_id()}.png" alt="" class="rounded-circle">
 						</div>
 						<!-- User Name -->
 						<h5 class="text-center">${authUser.name}</h5>
