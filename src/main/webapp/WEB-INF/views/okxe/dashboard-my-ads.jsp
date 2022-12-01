@@ -158,7 +158,7 @@
                     <!-- Dashboard Links -->
                     <div class="widget user-dashboard-menu">
                         <ul>
-                            <li><a href="${pageContext.request.contextPath}/okxe/user/userPosts/${authUser.getUser_id()}">My Posts</a></li>
+                            <li class="active"><a href="${pageContext.request.contextPath}/okxe/user/userPosts/${authUser.getUser_id()}">My Posts</a></li>
                             <li><a href="${pageContext.request.contextPath}/okxe/user/orders">My pending orders</a></li>
                             <li><a href="${pageContext.request.contextPath}/okxe/user/order-requests">My request deals</a></li>
                         </ul>

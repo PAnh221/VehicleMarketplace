@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="f" uri="http://java.sun.com/jstl/fmt_rt" %>
 <!DOCTYPE html>
 
 <!--
@@ -219,7 +220,7 @@
 				<div class="sidebar">
 					<div class="widget price text-center">
 						<h4>Price</h4>
-						<p>${bike.price} đ</p>
+						<p><f:formatNumber value="${bike.price}" type="currency"  currencySymbol="₫"/></p>
 					</div>
 					<!-- User Profile widget -->
 					<div class="widget user text-center">

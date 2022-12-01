@@ -56,7 +56,7 @@
 					</button>
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						<ul class="navbar-nav ml-auto main-nav ">
-							<li class="nav-item active">
+							<li class="nav-item">
 								<a class="nav-link" href="${pageContext.request.contextPath}/okxe/bikes">Home</a>
 							</li>
 							<li class="nav-item dropdown dropdown-slide @@pages">
@@ -157,7 +157,7 @@
 						<ul>
 							<li><a href="${pageContext.request.contextPath}/okxe/user/userPosts/${authUser.getUser_id()}">My Posts</a></li>
 							<li><a href="${pageContext.request.contextPath}/okxe/user/orders">My pending orders</a></li>
-							<li><a href="${pageContext.request.contextPath}/okxe/user/order-requests">My request deals</a></li>
+							<li class="active"><a href="${pageContext.request.contextPath}/okxe/user/order-requests">My request deals</a></li>
 						</ul>
 					</div>
 

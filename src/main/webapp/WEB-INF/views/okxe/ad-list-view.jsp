@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jstl/fmt_rt" prefix="f"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 
@@ -231,7 +232,7 @@
                                             <li class="list-inline-item"><a><i
                                                     class="fa fa-calendar"></i> ${bike.posted_date}</a></li>
                                         </ul>
-                                        <p class="pr-5">${bike.price} ₫</p>
+                                        <p class="pr-5"><f:formatNumber value="${bike.price}" type="currency"  currencySymbol="₫"/></p>
                                     </div>
                                 </div>
                             </div>
