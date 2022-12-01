@@ -10,4 +10,13 @@ public class StringValidator {
         Matcher match = ptrn.matcher(str);
         return (match.find() && match.group().equals(str));
     }
+
+    public static boolean containsNumber(String str) {
+        String regex = ".*\\d.*";
+        Pattern pattern = Pattern.compile(regex);
+
+        Matcher matcherText = pattern.matcher(str);
+
+        return matcherText.matches();
+    }
 }

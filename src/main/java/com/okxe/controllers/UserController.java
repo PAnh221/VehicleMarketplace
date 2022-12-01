@@ -90,14 +90,14 @@ public class UserController {
 
         // get data
         int user_id = authUser.getUser_id();
-        String name = request.getParameter("name");
+        String name = request.getParameter("name").trim();
         Long price = Long.valueOf(request.getParameter("price"));
 //        String year = request.getParameter("year");
-        String color = request.getParameter("color");
-        String odo = request.getParameter("odo");
+        String color = request.getParameter("color").trim();
+        String odo = request.getParameter("odo").trim();
         int type_id = Integer.parseInt(request.getParameter("type_id"));
         int brand_id = Integer.parseInt(request.getParameter("brand_id"));
-        String engine = request.getParameter("engine");
+        String engine = request.getParameter("engine").trim();
         int status = 1;
 
         long millis=System.currentTimeMillis();
@@ -211,14 +211,14 @@ public class UserController {
             return "okxe/404";
         }
 
-        String name = request.getParameter("name");
+        String name = request.getParameter("name").trim();
         Long price = Long.valueOf(request.getParameter("price"));
 //        String year = request.getParameter("year");
-        String color = request.getParameter("color");
+        String color = request.getParameter("color").trim();
         String odo = request.getParameter("odo");
         int type_id = Integer.parseInt(request.getParameter("type_id"));
         int brand_id = Integer.parseInt(request.getParameter("brand_id"));
-        String engine = request.getParameter("engine");
+        String engine = request.getParameter("engine").trim();
         int status = Integer.parseInt(request.getParameter("status"));
 
         long millis=System.currentTimeMillis();
@@ -246,10 +246,17 @@ public class UserController {
         }
 
         int id = Integer.valueOf(request.getParameter("id"));
-        String name = request.getParameter("name");
-        String phone = request.getParameter("phone");
-        String CID = request.getParameter("CID");
-        String location = request.getParameter("location");
+        String name = request.getParameter("name").trim();
+        String phone = request.getParameter("phone").trim();
+        String CID = request.getParameter("CID").trim();
+        String location = request.getParameter("location").trim();
+
+        // validate string
+        if (StringValidator.containsNumber(name)) {
+            model.addAttribute("user", userDAO.getById(id));
+            model.addAttribute("error", "Name cannot contain numbers!");
+            return "okxe/user-profile";
+        }
 
         if (!StringValidator.isValidMobileNo(phone) || !StringValidator.isValidMobileNo(CID)) {
             model.addAttribute("user", userDAO.getById(id));
@@ -519,7 +526,7 @@ public class UserController {
             return "okxe/register";
         }
 
-        User user = new User(username.trim(), password.trim(), name, location.trim(), CID.trim(), 1);
+        User user = new User(username.trim(), password.trim(), name.trim(), location.trim(), CID.trim(), 1);
 
 
         if (userDAO.getUserByUsername(user.getUsername()).size() != 0) {

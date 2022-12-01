@@ -184,10 +184,10 @@
 										<td>Brand</td>
 										<td>${brand.brandname}</td>
 									</tr>
-									<tr>
-										<td>Year produced</td>
-										<td>${bike.year}</td>
-									</tr>
+<%--									<tr>--%>
+<%--										<td>Year produced</td>--%>
+<%--										<td>${bike.year}</td>--%>
+<%--									</tr>--%>
 									<tr>
 										<td>Color</td>
 										<td>${bike.color}</td>
